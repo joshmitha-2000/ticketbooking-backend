@@ -25,8 +25,8 @@ app.use('/api/movies', movieRoutes);
 app.use('/api/shows', showRoutes);
 app.use('/api/theatres', theatreRoutes);
 app.use('/api/booking', BookingRoutes);
-app.use('./api/seat',SeatRoutes)
-app.use('./api/category',CategoryRoutes)
+app.use('/api/seat',SeatRoutes)
+app.use('/api/category',CategoryRoutes)
 
 app.get('/', (req, res) => {
   res.send('Movie Ticket Backend API Running');
