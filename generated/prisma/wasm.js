@@ -131,6 +131,11 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
 exports.Prisma.MovieScalarFieldEnum = {
   id: 'id',
   title: 'title',
@@ -138,6 +143,7 @@ exports.Prisma.MovieScalarFieldEnum = {
   posterUrl: 'posterUrl',
   language: 'language',
   runtime: 'runtime',
+  categoryId: 'categoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -207,6 +213,7 @@ exports.BookingStatus = exports.$Enums.BookingStatus = {
 
 exports.Prisma.ModelName = {
   User: 'User',
+  Category: 'Category',
   Movie: 'Movie',
   Theatre: 'Theatre',
   Show: 'Show',

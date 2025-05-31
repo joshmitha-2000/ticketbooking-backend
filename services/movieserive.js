@@ -11,18 +11,33 @@ async function getMovieById(id) {
 }
 
 async function createMovie(data) {
+  const { categoryId, ...rest } = data;
   return await prisma.movie.create({
-    data,
+    data: {
+      ...rest,
+      category: categoryId
+        ? {
+            connect: { id: Number(categoryId) },
+          }
+        : undefined,
+    },
   });
 }
 
 async function updateMovie(id, data) {
+  const { categoryId, ...rest } = data;
   return await prisma.movie.update({
     where: { id: Number(id) },
-    data,
+    data: {
+      ...rest,
+      category: categoryId
+        ? {
+            connect: { id: Number(categoryId) },
+          }
+        : undefined,
+    },
   });
 }
-
 async function deleteMovie(id) {
   return await prisma.movie.delete({
     where: { id: Number(id) },

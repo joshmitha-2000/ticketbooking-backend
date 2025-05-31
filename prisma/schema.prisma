@@ -31,6 +31,11 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+model Category {
+  id      Int      @id @default(autoincrement())
+  name    String   @unique
+  movies  Movie[]
+}
 
 model Movie {
   id          Int       @id @default(autoincrement())
@@ -39,11 +44,15 @@ model Movie {
   posterUrl   String
   language    String
   runtime     Int       // runtime in minutes
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  Int?
+
   shows       Show[]
 
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
+
 
 model Theatre {
   id           Int       @id @default(autoincrement())
@@ -72,7 +81,7 @@ model Show {
 
 model Seat {
   id         Int      @id @default(autoincrement())
-  seatNumber String   // e.g., "A1", "B5"
+  seatNumber String
   show       Show     @relation(fields: [showId], references: [id])
   showId     Int
   booking    Booking? @relation(fields: [bookingId], references: [id])
@@ -82,6 +91,8 @@ model Seat {
 
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+
+  @@unique([seatNumber, showId])
 }
 
 model Booking {

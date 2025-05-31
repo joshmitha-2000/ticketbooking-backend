@@ -8,7 +8,8 @@ const movieRoutes = require('./routes/movieroute');
 const showRoutes = require('./routes/showroutes');
 const theatreRoutes = require('./routes/theatreroutes');
 const BookingRoutes = require('./routes/bookingroute');
-const SeatRoutes =require('./routes/seatroute')
+const SeatRoutes =require('./routes/seatroute');
+const CategoryRoutes =require('./routes/categoruroutes')
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api/shows', showRoutes);
 app.use('/api/theatres', theatreRoutes);
 app.use('/api/booking', BookingRoutes);
 app.use('./api/seat',SeatRoutes)
+app.use('./api/category',CategoryRoutes)
 
 app.get('/', (req, res) => {
   res.send('Movie Ticket Backend API Running');

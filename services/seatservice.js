@@ -2,15 +2,15 @@ const prisma = require('../utils/prismaclient');
 
 async function getSeatsByShowId(showId) {
   return await prisma.seat.findMany({
-    where: { showId },
-    orderBy: { seatNumber: 'asc' }
+    where: { showId: Number(showId) },
+    orderBy: { seatNumber: 'asc' },
   });
 }
 
-async function createSeat(showId, seatNumber, seatType, price) {
+async function createSeat(showId, seatNumber, seatType = null, price = null) {
   return await prisma.seat.create({
     data: {
-      showId,
+      showId: Number(showId),
       seatNumber,
       seatType,
       price,
@@ -20,15 +20,13 @@ async function createSeat(showId, seatNumber, seatType, price) {
 }
 
 async function updateSeat(seatId, data) {
-  // data can include seatNumber, seatType, price, isBooked
   try {
     return await prisma.seat.update({
-      where: { id: seatId },
+      where: { id: Number(seatId) },
       data,
     });
   } catch (error) {
-    // If seat not found, Prisma throws error
-    if (error.code === 'P2025') return null; 
+    if (error.code === 'P2025') return null;
     throw error;
   }
 }
@@ -36,7 +34,7 @@ async function updateSeat(seatId, data) {
 async function deleteSeat(seatId) {
   try {
     await prisma.seat.delete({
-      where: { id: seatId },
+      where: { id: Number(seatId) },
     });
     return true;
   } catch (error) {
