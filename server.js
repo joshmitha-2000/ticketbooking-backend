@@ -28,7 +28,25 @@ const io = new Server(server, {
 // Import and run socket logic
 require('./socket/seatsocket')(io);
 
-app.use(cors());
+// Middlewares
+const allowedOrigins = [
+  'http://localhost:5173', // for local dev
+  'https://movie-ticket-frontend-sigma.vercel.app/' // your deployed frontend
+];
+
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
