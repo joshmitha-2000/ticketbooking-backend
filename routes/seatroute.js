@@ -1,21 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const bookingController = require('../controllers/bookingcontroller');
-const { authenticate } = require('../middlewears/usermiddlewear');  // User must be logged in
+const seatController = require('../controllers/seatcontroller');
 
-// List all bookings for logged in user
-router.get('/', authenticate, bookingController.getUserBookings);
+// Create seats for a whole theatre (all shows)
+router.post('/theatres/:theatreId/seats', seatController.postSeatsForTheatre);
 
-// Get details of a booking by ID (for logged in user)
-router.get('/:id', authenticate, bookingController.getBookingById);
+// Create seats for a single show
+router.post('/shows/:showId/seats', seatController.postSeatsForShow);
 
-// Create a new booking (logged in user)
-router.post('/', authenticate, bookingController.createBooking);
-
-// Update a booking (logged in user) - e.g. change seats
-router.put('/:id', authenticate, bookingController.updateBooking);
-
-// Delete a booking (logged in user)
-router.delete('/:id', authenticate, bookingController.deleteBooking);
+// Get available seats for a show
+router.get('/shows/:showId/seats/available', seatController.getAvailableSeats);
 
 module.exports = router;

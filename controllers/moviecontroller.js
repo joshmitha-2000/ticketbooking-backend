@@ -25,7 +25,8 @@ async function getMovieById(req, res) {
 
 async function createMovie(req, res) {
   try {
-    // Expect req.body to contain: title, description, posterUrl, language, runtime
+    // Expect req.body to contain:
+    // title, description, posterUrl, languageTags (array), runtime, categoryId, availableDates (array)
     const movie = await movieService.createMovie(req.body);
     res.status(201).json(movie);
   } catch (error) {
@@ -40,7 +41,7 @@ async function updateMovie(req, res) {
     res.json(updatedMovie);
   } catch (error) {
     console.error(error);
-    if (error.code === 'P2025') { // Prisma error: record not found
+    if (error.code === 'P2025') {
       return res.status(404).json({ error: 'Movie not found' });
     }
     res.status(500).json({ error: 'Failed to update movie' });
@@ -53,7 +54,7 @@ async function deleteMovie(req, res) {
     res.json({ message: 'Movie deleted successfully' });
   } catch (error) {
     console.error(error);
-    if (error.code === 'P2025') { // Prisma error: record not found
+    if (error.code === 'P2025') {
       return res.status(404).json({ error: 'Movie not found' });
     }
     res.status(500).json({ error: 'Failed to delete movie' });

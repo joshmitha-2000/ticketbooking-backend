@@ -8,8 +8,8 @@ router.get('/', movieController.getAllMovies);
 router.get('/:id', movieController.getMovieById);
 
 // Admin protected routes
-router.post('/', authenticate, authorizeRole, movieController.createMovie);
-router.put('/:id', authenticate, authorizeRole, movieController.updateMovie);
-router.delete('/:id', authenticate, authorizeRole, movieController.deleteMovie);
+router.post('/', authenticate, authorizeRole(['ADMIN']), movieController.createMovie);
+router.put('/:id', authenticate, authorizeRole(['ADMIN']), movieController.updateMovie);
+router.delete('/:id', authenticate, authorizeRole(['ADMIN']), movieController.deleteMovie);
 
 module.exports = router;

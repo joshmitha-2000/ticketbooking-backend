@@ -9,8 +9,9 @@ const authenticate = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log('Decoded Token:', decoded); // ✅ Debug
+    console.log('Decoded Token:', decoded); 
     req.user = decoded;
+    req.user.id = decoded.userId;
     next();
   } catch (error) {
     res.status(401).json({ message: 'Invalid token' });
@@ -20,7 +21,7 @@ const authenticate = (req, res, next) => {
 const authorizeRole = (roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
-      console.log('Role denied:', req.user.role); // ✅ Debug
+      console.log('Role denied:', req.user.role); 
       return res.status(403).json({ message: 'Access denied' });
     }
     next();

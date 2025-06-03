@@ -1,40 +1,73 @@
-const prisma = require('../utils/prismaclient');
 
-async function getBookingsByUserId(userId) {
-  return await prisma.booking.findMany({
+const prisma = require('../utils/prismaclient');
+// Get all bookings of a user with movie, theatre, seats, total price
+async function getUserBookings(userId) {
+  return prisma.booking.findMany({
     where: { userId },
     include: {
-      seats: true,
       show: {
         include: {
-          movie: true,
-          theatre: true,
-        }
+          movie: { select: { title: true } },
+          theatre: { select: { name: true } },
+        },
       },
-    }
+      seats: { select: { id: true, seatNumber: true } },
+    },
   });
 }
 
-async function getBookingByIdAndUserId(bookingId, userId) {
-  return await prisma.booking.findFirst({
-    where: { id: bookingId, userId },
+// Get a particular booking by id for a user
+async function getUserBookingById(userId, bookingId) {
+  return prisma.booking.findFirst({
+    where: {
+      id: bookingId,
+      userId,
+    },
     include: {
-      seats: true,
       show: {
         include: {
-          movie: true,
-          theatre: true,
-        }
+          movie: { select: { title: true, description: true } },
+          theatre: { select: { name: true, location: true } },
+        },
       },
-    }
+      seats: { select: { id: true, seatNumber: true, seatType: true } },
+    },
   });
 }
 
-async function createBooking(userId, showId, seatIds, totalPrice) {
-  // Mark seats as booked and create booking atomically with a transaction
-  return await prisma.$transaction(async (prisma) => {
-    // Check seats availability first
-    const seats = await prisma.seat.findMany({
+// Admin: Get all bookings with user info, movie, amount
+async function getAllBookings() {
+  const bookings = await prisma.booking.findMany({
+    include: {
+      user: { select: { name: true, email: true } },
+      show: {
+        include: {
+          movie: { select: { title: true } },
+        },
+      },
+    },
+  });
+
+  return bookings.map((b) => ({
+    bookingId: b.id,
+    userName: b.user.name,
+    userEmail: b.user.email,
+    movieTitle: b.show.movie.title,
+    totalPrice: b.totalPrice,
+    status: b.status,
+    createdAt: b.createdAt,
+  }));
+}
+
+// Create booking: check seats, confirm if available, else error
+async function createBooking(userId, showId, seatIds) {
+  if (!showId || !Array.isArray(seatIds) || seatIds.length === 0) {
+    throw new Error('Show ID and seat IDs are required.');
+  }
+
+  return prisma.$transaction(async (tx) => {
+    // Check seat availability
+    const seats = await tx.seat.findMany({
       where: {
         id: { in: seatIds },
         showId,
@@ -43,27 +76,39 @@ async function createBooking(userId, showId, seatIds, totalPrice) {
     });
 
     if (seats.length !== seatIds.length) {
-      throw new Error('One or more seats are already booked');
+      throw new Error('One or more seats are already booked.');
     }
 
-    // Mark seats as booked
-    await prisma.seat.updateMany({
-      where: { id: { in: seatIds } },
-      data: { isBooked: true },
+    // Get movie price for total
+    const show = await tx.show.findUnique({
+      where: { id: showId },
+      include: { movie: true },
     });
 
-    // Create booking
-    const booking = await prisma.booking.create({
+    if (!show) throw new Error('Show not found.');
+
+    const totalPrice = seats.length * show.movie.price;
+
+    // Create booking with status CONFIRMED
+    const booking = await tx.booking.create({
       data: {
         userId,
         showId,
         totalPrice,
+        status: 'CONFIRMED',
         seats: {
-          connect: seatIds.map(id => ({ id })),
+          connect: seatIds.map((id) => ({ id })),
         },
       },
-      include: {
-        seats: true,
+      include: { seats: true },
+    });
+
+    // Mark seats booked
+    await tx.seat.updateMany({
+      where: { id: { in: seatIds } },
+      data: {
+        isBooked: true,
+        bookingId: booking.id,
       },
     });
 
@@ -71,87 +116,9 @@ async function createBooking(userId, showId, seatIds, totalPrice) {
   });
 }
 
-async function updateBooking(bookingId, userId, seatIds, totalPrice) {
-  return await prisma.$transaction(async (prisma) => {
-    // Find booking for user
-    const booking = await prisma.booking.findFirst({
-      where: { id: bookingId, userId },
-      include: { seats: true },
-    });
-    if (!booking) return null;
-
-    // Release old seats
-    const oldSeatIds = booking.seats.map(seat => seat.id);
-    await prisma.seat.updateMany({
-      where: { id: { in: oldSeatIds } },
-      data: { isBooked: false },
-    });
-
-    // Check new seats availability
-    const seats = await prisma.seat.findMany({
-      where: {
-        id: { in: seatIds },
-        showId: booking.showId,
-        isBooked: false,
-      },
-    });
-
-    if (seats.length !== seatIds.length) {
-      throw new Error('One or more new seats are already booked');
-    }
-
-    // Mark new seats as booked
-    await prisma.seat.updateMany({
-      where: { id: { in: seatIds } },
-      data: { isBooked: true },
-    });
-
-    // Update booking with new seats and price
-    const updatedBooking = await prisma.booking.update({
-      where: { id: bookingId },
-      data: {
-        totalPrice,
-        seats: {
-          set: seatIds.map(id => ({ id })),
-        },
-      },
-      include: {
-        seats: true,
-      },
-    });
-
-    return updatedBooking;
-  });
-}
-
-async function deleteBooking(bookingId, userId) {
-  return await prisma.$transaction(async (prisma) => {
-    const booking = await prisma.booking.findFirst({
-      where: { id: bookingId, userId },
-      include: { seats: true },
-    });
-    if (!booking) return null;
-
-    // Release booked seats
-    const seatIds = booking.seats.map(seat => seat.id);
-    await prisma.seat.updateMany({
-      where: { id: { in: seatIds } },
-      data: { isBooked: false },
-    });
-
-    // Delete booking
-    await prisma.booking.delete({
-      where: { id: bookingId },
-    });
-
-    return true;
-  });
-}
-
 module.exports = {
-  getBookingsByUserId,
-  getBookingByIdAndUserId,
+  getUserBookings,
+  getUserBookingById,
+  getAllBookings,
   createBooking,
-  updateBooking,
-  deleteBooking,
 };

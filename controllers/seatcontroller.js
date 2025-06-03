@@ -1,51 +1,45 @@
-const seatService = require('../services/seatservice');
+const {
+  createSeatsForTheatre,
+  createSeatsForShow,
+  getSeatsByShowId,
+} = require('../services/seatservice');
 
-async function getSeatsByShow(req, res) {
+async function postSeatsForTheatre(req, res) {
   try {
-    const showId = parseInt(req.params.showId);
-    const seats = await seatService.getSeatsByShowId(showId);
-    res.json(seats);
+    const { theatreId } = req.params;
+    const message = await createSeatsForTheatre(theatreId);
+    res.status(201).json({ message });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
 
-async function createSeat(req, res) {
+async function postSeatsForShow(req, res) {
   try {
-    const { showId, seatNumber, seatType, price } = req.body;
-    const seat = await seatService.createSeat(showId, seatNumber, seatType, price);
-    res.status(201).json(seat);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-}
-
-async function updateSeat(req, res) {
-  try {
-    const seatId = parseInt(req.params.id);
-    const { seatNumber, seatType, price, isBooked } = req.body;
-    const updatedSeat = await seatService.updateSeat(seatId, { seatNumber, seatType, price, isBooked });
-    if (!updatedSeat) return res.status(404).json({ error: 'Seat not found' });
-    res.json(updatedSeat);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-}
-
-async function deleteSeat(req, res) {
-  try {
-    const seatId = parseInt(req.params.id);
-    const deleted = await seatService.deleteSeat(seatId);
-    if (!deleted) return res.status(404).json({ error: 'Seat not found' });
-    res.json({ message: 'Seat deleted successfully' });
+    const { showId } = req.params;
+    const message = await createSeatsForShow(showId);
+    res.status(201).json({ message });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+}
+
+async function getAvailableSeats(req, res) {
+  try {
+    const showId = Number(req.params.showId);
+    if (isNaN(showId)) return res.status(400).json({ message: 'Invalid show ID' });
+
+    const seats = await getSeatsByShowId(showId);
+    const availableSeats = seats.filter(seat => !seat.isBooked);
+
+    res.json(availableSeats);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch available seats' });
   }
 }
 
 module.exports = {
-  getSeatsByShow,
-  createSeat,
-  updateSeat,
-  deleteSeat,
+  postSeatsForTheatre,
+  postSeatsForShow,
+  getAvailableSeats,
 };

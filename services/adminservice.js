@@ -1,59 +1,59 @@
 const prisma = require('../utils/prismaclient');
 
-// Users
-async function getAllUsers() {
-  return await prisma.user.findMany({
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      role: true,
-      confirmed: true,
-    },
-  });
-}
+async function getAdminDashboardData() {
+  const today = new Date();
+  const startOfDay = new Date(today.setHours(0, 0, 0, 0));
+  const endOfDay = new Date(today.setHours(23, 59, 59, 999));
 
-// Movies
-async function createMovie(data) {
-  const { title, description, duration, language } = data;
-  return await prisma.movie.create({
-    data: { title, description, duration, language },
-  });
-}
+  const [totalMovies, todayBookings, todayShows] = await Promise.all([
+    prisma.movie.count(),
 
-async function removeMovie(id) {
-  return await prisma.movie.delete({ where: { id } });
-}
+    prisma.booking.findMany({
+      where: {
+        createdAt: {
+          gte: startOfDay,
+          lte: endOfDay,
+        },
+      },
+      select: {
+        totalPrice: true,
+      },
+    }),
 
-// Theatres
-async function createTheatre(data) {
-  const { name, location, totalSeats } = data;
-  return await prisma.theatre.create({
-    data: { name, location, totalSeats },
-  });
-}
+    prisma.show.findMany({
+      where: {
+        showTime: {
+          gte: startOfDay,
+          lte: endOfDay,
+        },
+      },
+      include: {
+        seats: true,
+      },
+    }),
+  ]);
 
-async function removeTheatre(id) {
-  return await prisma.theatre.delete({ where: { id } });
-}
+  const totalRevenueToday = todayBookings.reduce((sum, booking) => sum + booking.totalPrice, 0);
 
-// Shows
-async function createShow(data) {
-  const { movieId, theatreId, showTime } = data;
-  return await prisma.show.create({
-    data: {
-      movieId,
-      theatreId,
-      showTime: new Date(showTime),
-    },
-  });
+  let totalSeatsBookedToday = 0;
+  let totalSeatsAvailableToday = 0;
+
+  for (const show of todayShows) {
+    for (const seat of show.seats) {
+      if (seat.isBooked) totalSeatsBookedToday++;
+      totalSeatsAvailableToday++;
+    }
+  }
+
+  return {
+    totalMovies,
+    totalBookingsToday: todayBookings.length,
+    totalRevenueToday,
+    totalSeatsBookedToday,
+    totalSeatsAvailableToday,
+  };
 }
 
 module.exports = {
-  getAllUsers,
-  createMovie,
-  removeMovie,
-  createTheatre,
-  removeTheatre,
-  createShow,
+  getAdminDashboardData,
 };

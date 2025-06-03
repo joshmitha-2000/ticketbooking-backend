@@ -34,9 +34,9 @@ async function createTheatre(req, res) {
   }
 }
 
-async function updateTheatre(req, res) {
+async function updateTheatreById(req, res) {
   try {
-    const updatedTheatre = await theatreService.updateTheatre(req.params.id, req.body);
+    const updatedTheatre = await theatreService.updateTheatreById(req.params.id, req.body);
     res.json(updatedTheatre);
   } catch (error) {
     console.error(error);
@@ -47,9 +47,9 @@ async function updateTheatre(req, res) {
   }
 }
 
-async function deleteTheatre(req, res) {
+async function deleteTheatreById(req, res) {
   try {
-    await theatreService.deleteTheatre(req.params.id);
+    await theatreService.deleteTheatreById(req.params.id);
     res.json({ message: 'Theatre deleted successfully' });
   } catch (error) {
     console.error(error);
@@ -64,6 +64,6 @@ module.exports = {
   getAllTheatres,
   getTheatreById,
   createTheatre,
-  updateTheatre,
-  deleteTheatre,
+  updateTheatreById,
+  deleteTheatreById,
 };

@@ -29,6 +29,16 @@ export type Category = $Result.DefaultSelection<Prisma.$CategoryPayload>
  */
 export type Movie = $Result.DefaultSelection<Prisma.$MoviePayload>
 /**
+ * Model MovieLanguage
+ * 
+ */
+export type MovieLanguage = $Result.DefaultSelection<Prisma.$MovieLanguagePayload>
+/**
+ * Model MovieDate
+ * 
+ */
+export type MovieDate = $Result.DefaultSelection<Prisma.$MovieDatePayload>
+/**
  * Model Theatre
  * 
  */
@@ -233,6 +243,26 @@ export class PrismaClient<
     * ```
     */
   get movie(): Prisma.MovieDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.movieLanguage`: Exposes CRUD operations for the **MovieLanguage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MovieLanguages
+    * const movieLanguages = await prisma.movieLanguage.findMany()
+    * ```
+    */
+  get movieLanguage(): Prisma.MovieLanguageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.movieDate`: Exposes CRUD operations for the **MovieDate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MovieDates
+    * const movieDates = await prisma.movieDate.findMany()
+    * ```
+    */
+  get movieDate(): Prisma.MovieDateDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.theatre`: Exposes CRUD operations for the **Theatre** model.
@@ -716,6 +746,8 @@ export namespace Prisma {
     User: 'User',
     Category: 'Category',
     Movie: 'Movie',
+    MovieLanguage: 'MovieLanguage',
+    MovieDate: 'MovieDate',
     Theatre: 'Theatre',
     Show: 'Show',
     Seat: 'Seat',
@@ -738,7 +770,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "category" | "movie" | "theatre" | "show" | "seat" | "booking"
+      modelProps: "user" | "category" | "movie" | "movieLanguage" | "movieDate" | "theatre" | "show" | "seat" | "booking"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -961,6 +993,154 @@ export namespace Prisma {
           count: {
             args: Prisma.MovieCountArgs<ExtArgs>
             result: $Utils.Optional<MovieCountAggregateOutputType> | number
+          }
+        }
+      }
+      MovieLanguage: {
+        payload: Prisma.$MovieLanguagePayload<ExtArgs>
+        fields: Prisma.MovieLanguageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MovieLanguageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MovieLanguageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>
+          }
+          findFirst: {
+            args: Prisma.MovieLanguageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MovieLanguageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>
+          }
+          findMany: {
+            args: Prisma.MovieLanguageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>[]
+          }
+          create: {
+            args: Prisma.MovieLanguageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>
+          }
+          createMany: {
+            args: Prisma.MovieLanguageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MovieLanguageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>[]
+          }
+          delete: {
+            args: Prisma.MovieLanguageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>
+          }
+          update: {
+            args: Prisma.MovieLanguageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>
+          }
+          deleteMany: {
+            args: Prisma.MovieLanguageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MovieLanguageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MovieLanguageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>[]
+          }
+          upsert: {
+            args: Prisma.MovieLanguageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieLanguagePayload>
+          }
+          aggregate: {
+            args: Prisma.MovieLanguageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMovieLanguage>
+          }
+          groupBy: {
+            args: Prisma.MovieLanguageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MovieLanguageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MovieLanguageCountArgs<ExtArgs>
+            result: $Utils.Optional<MovieLanguageCountAggregateOutputType> | number
+          }
+        }
+      }
+      MovieDate: {
+        payload: Prisma.$MovieDatePayload<ExtArgs>
+        fields: Prisma.MovieDateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MovieDateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MovieDateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>
+          }
+          findFirst: {
+            args: Prisma.MovieDateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MovieDateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>
+          }
+          findMany: {
+            args: Prisma.MovieDateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>[]
+          }
+          create: {
+            args: Prisma.MovieDateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>
+          }
+          createMany: {
+            args: Prisma.MovieDateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MovieDateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>[]
+          }
+          delete: {
+            args: Prisma.MovieDateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>
+          }
+          update: {
+            args: Prisma.MovieDateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>
+          }
+          deleteMany: {
+            args: Prisma.MovieDateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MovieDateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MovieDateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>[]
+          }
+          upsert: {
+            args: Prisma.MovieDateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MovieDatePayload>
+          }
+          aggregate: {
+            args: Prisma.MovieDateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMovieDate>
+          }
+          groupBy: {
+            args: Prisma.MovieDateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MovieDateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MovieDateCountArgs<ExtArgs>
+            result: $Utils.Optional<MovieDateCountAggregateOutputType> | number
           }
         }
       }
@@ -1347,6 +1527,8 @@ export namespace Prisma {
     user?: UserOmit
     category?: CategoryOmit
     movie?: MovieOmit
+    movieLanguage?: MovieLanguageOmit
+    movieDate?: MovieDateOmit
     theatre?: TheatreOmit
     show?: ShowOmit
     seat?: SeatOmit
@@ -1507,10 +1689,14 @@ export namespace Prisma {
    */
 
   export type MovieCountOutputType = {
+    languageTags: number
+    availableDates: number
     shows: number
   }
 
   export type MovieCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    languageTags?: boolean | MovieCountOutputTypeCountLanguageTagsArgs
+    availableDates?: boolean | MovieCountOutputTypeCountAvailableDatesArgs
     shows?: boolean | MovieCountOutputTypeCountShowsArgs
   }
 
@@ -1528,6 +1714,20 @@ export namespace Prisma {
   /**
    * MovieCountOutputType without action
    */
+  export type MovieCountOutputTypeCountLanguageTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovieLanguageWhereInput
+  }
+
+  /**
+   * MovieCountOutputType without action
+   */
+  export type MovieCountOutputTypeCountAvailableDatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovieDateWhereInput
+  }
+
+  /**
+   * MovieCountOutputType without action
+   */
   export type MovieCountOutputTypeCountShowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ShowWhereInput
   }
@@ -1539,10 +1739,12 @@ export namespace Prisma {
 
   export type TheatreCountOutputType = {
     shows: number
+    seats: number
   }
 
   export type TheatreCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     shows?: boolean | TheatreCountOutputTypeCountShowsArgs
+    seats?: boolean | TheatreCountOutputTypeCountSeatsArgs
   }
 
   // Custom InputTypes
@@ -1561,6 +1763,13 @@ export namespace Prisma {
    */
   export type TheatreCountOutputTypeCountShowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ShowWhereInput
+  }
+
+  /**
+   * TheatreCountOutputType without action
+   */
+  export type TheatreCountOutputTypeCountSeatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SeatWhereInput
   }
 
 
@@ -3862,12 +4071,14 @@ export namespace Prisma {
   export type MovieAvgAggregateOutputType = {
     id: number | null
     runtime: number | null
+    price: number | null
     categoryId: number | null
   }
 
   export type MovieSumAggregateOutputType = {
     id: number | null
     runtime: number | null
+    price: number | null
     categoryId: number | null
   }
 
@@ -3876,8 +4087,8 @@ export namespace Prisma {
     title: string | null
     description: string | null
     posterUrl: string | null
-    language: string | null
     runtime: number | null
+    price: number | null
     categoryId: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3888,8 +4099,8 @@ export namespace Prisma {
     title: string | null
     description: string | null
     posterUrl: string | null
-    language: string | null
     runtime: number | null
+    price: number | null
     categoryId: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3900,8 +4111,8 @@ export namespace Prisma {
     title: number
     description: number
     posterUrl: number
-    language: number
     runtime: number
+    price: number
     categoryId: number
     createdAt: number
     updatedAt: number
@@ -3912,12 +4123,14 @@ export namespace Prisma {
   export type MovieAvgAggregateInputType = {
     id?: true
     runtime?: true
+    price?: true
     categoryId?: true
   }
 
   export type MovieSumAggregateInputType = {
     id?: true
     runtime?: true
+    price?: true
     categoryId?: true
   }
 
@@ -3926,8 +4139,8 @@ export namespace Prisma {
     title?: true
     description?: true
     posterUrl?: true
-    language?: true
     runtime?: true
+    price?: true
     categoryId?: true
     createdAt?: true
     updatedAt?: true
@@ -3938,8 +4151,8 @@ export namespace Prisma {
     title?: true
     description?: true
     posterUrl?: true
-    language?: true
     runtime?: true
+    price?: true
     categoryId?: true
     createdAt?: true
     updatedAt?: true
@@ -3950,8 +4163,8 @@ export namespace Prisma {
     title?: true
     description?: true
     posterUrl?: true
-    language?: true
     runtime?: true
+    price?: true
     categoryId?: true
     createdAt?: true
     updatedAt?: true
@@ -4049,8 +4262,8 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     categoryId: number | null
     createdAt: Date
     updatedAt: Date
@@ -4080,12 +4293,14 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     posterUrl?: boolean
-    language?: boolean
     runtime?: boolean
+    price?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     category?: boolean | Movie$categoryArgs<ExtArgs>
+    languageTags?: boolean | Movie$languageTagsArgs<ExtArgs>
+    availableDates?: boolean | Movie$availableDatesArgs<ExtArgs>
     shows?: boolean | Movie$showsArgs<ExtArgs>
     _count?: boolean | MovieCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["movie"]>
@@ -4095,8 +4310,8 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     posterUrl?: boolean
-    language?: boolean
     runtime?: boolean
+    price?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4108,8 +4323,8 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     posterUrl?: boolean
-    language?: boolean
     runtime?: boolean
+    price?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4121,16 +4336,18 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     posterUrl?: boolean
-    language?: boolean
     runtime?: boolean
+    price?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MovieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "posterUrl" | "language" | "runtime" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["movie"]>
+  export type MovieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "posterUrl" | "runtime" | "price" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["movie"]>
   export type MovieInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | Movie$categoryArgs<ExtArgs>
+    languageTags?: boolean | Movie$languageTagsArgs<ExtArgs>
+    availableDates?: boolean | Movie$availableDatesArgs<ExtArgs>
     shows?: boolean | Movie$showsArgs<ExtArgs>
     _count?: boolean | MovieCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -4145,6 +4362,8 @@ export namespace Prisma {
     name: "Movie"
     objects: {
       category: Prisma.$CategoryPayload<ExtArgs> | null
+      languageTags: Prisma.$MovieLanguagePayload<ExtArgs>[]
+      availableDates: Prisma.$MovieDatePayload<ExtArgs>[]
       shows: Prisma.$ShowPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -4152,8 +4371,8 @@ export namespace Prisma {
       title: string
       description: string
       posterUrl: string
-      language: string
       runtime: number
+      price: number
       categoryId: number | null
       createdAt: Date
       updatedAt: Date
@@ -4552,6 +4771,8 @@ export namespace Prisma {
   export interface Prisma__MovieClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends Movie$categoryArgs<ExtArgs> = {}>(args?: Subset<T, Movie$categoryArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    languageTags<T extends Movie$languageTagsArgs<ExtArgs> = {}>(args?: Subset<T, Movie$languageTagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    availableDates<T extends Movie$availableDatesArgs<ExtArgs> = {}>(args?: Subset<T, Movie$availableDatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     shows<T extends Movie$showsArgs<ExtArgs> = {}>(args?: Subset<T, Movie$showsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4586,8 +4807,8 @@ export namespace Prisma {
     readonly title: FieldRef<"Movie", 'String'>
     readonly description: FieldRef<"Movie", 'String'>
     readonly posterUrl: FieldRef<"Movie", 'String'>
-    readonly language: FieldRef<"Movie", 'String'>
     readonly runtime: FieldRef<"Movie", 'Int'>
+    readonly price: FieldRef<"Movie", 'Int'>
     readonly categoryId: FieldRef<"Movie", 'Int'>
     readonly createdAt: FieldRef<"Movie", 'DateTime'>
     readonly updatedAt: FieldRef<"Movie", 'DateTime'>
@@ -5006,6 +5227,54 @@ export namespace Prisma {
   }
 
   /**
+   * Movie.languageTags
+   */
+  export type Movie$languageTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    where?: MovieLanguageWhereInput
+    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
+    cursor?: MovieLanguageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MovieLanguageScalarFieldEnum | MovieLanguageScalarFieldEnum[]
+  }
+
+  /**
+   * Movie.availableDates
+   */
+  export type Movie$availableDatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    where?: MovieDateWhereInput
+    orderBy?: MovieDateOrderByWithRelationInput | MovieDateOrderByWithRelationInput[]
+    cursor?: MovieDateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MovieDateScalarFieldEnum | MovieDateScalarFieldEnum[]
+  }
+
+  /**
    * Movie.shows
    */
   export type Movie$showsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5045,6 +5314,2146 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: MovieInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MovieLanguage
+   */
+
+  export type AggregateMovieLanguage = {
+    _count: MovieLanguageCountAggregateOutputType | null
+    _avg: MovieLanguageAvgAggregateOutputType | null
+    _sum: MovieLanguageSumAggregateOutputType | null
+    _min: MovieLanguageMinAggregateOutputType | null
+    _max: MovieLanguageMaxAggregateOutputType | null
+  }
+
+  export type MovieLanguageAvgAggregateOutputType = {
+    id: number | null
+    movieId: number | null
+  }
+
+  export type MovieLanguageSumAggregateOutputType = {
+    id: number | null
+    movieId: number | null
+  }
+
+  export type MovieLanguageMinAggregateOutputType = {
+    id: number | null
+    language: string | null
+    movieId: number | null
+  }
+
+  export type MovieLanguageMaxAggregateOutputType = {
+    id: number | null
+    language: string | null
+    movieId: number | null
+  }
+
+  export type MovieLanguageCountAggregateOutputType = {
+    id: number
+    language: number
+    movieId: number
+    _all: number
+  }
+
+
+  export type MovieLanguageAvgAggregateInputType = {
+    id?: true
+    movieId?: true
+  }
+
+  export type MovieLanguageSumAggregateInputType = {
+    id?: true
+    movieId?: true
+  }
+
+  export type MovieLanguageMinAggregateInputType = {
+    id?: true
+    language?: true
+    movieId?: true
+  }
+
+  export type MovieLanguageMaxAggregateInputType = {
+    id?: true
+    language?: true
+    movieId?: true
+  }
+
+  export type MovieLanguageCountAggregateInputType = {
+    id?: true
+    language?: true
+    movieId?: true
+    _all?: true
+  }
+
+  export type MovieLanguageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MovieLanguage to aggregate.
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieLanguages to fetch.
+     */
+    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MovieLanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieLanguages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieLanguages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MovieLanguages
+    **/
+    _count?: true | MovieLanguageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MovieLanguageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MovieLanguageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MovieLanguageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MovieLanguageMaxAggregateInputType
+  }
+
+  export type GetMovieLanguageAggregateType<T extends MovieLanguageAggregateArgs> = {
+        [P in keyof T & keyof AggregateMovieLanguage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMovieLanguage[P]>
+      : GetScalarType<T[P], AggregateMovieLanguage[P]>
+  }
+
+
+
+
+  export type MovieLanguageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovieLanguageWhereInput
+    orderBy?: MovieLanguageOrderByWithAggregationInput | MovieLanguageOrderByWithAggregationInput[]
+    by: MovieLanguageScalarFieldEnum[] | MovieLanguageScalarFieldEnum
+    having?: MovieLanguageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MovieLanguageCountAggregateInputType | true
+    _avg?: MovieLanguageAvgAggregateInputType
+    _sum?: MovieLanguageSumAggregateInputType
+    _min?: MovieLanguageMinAggregateInputType
+    _max?: MovieLanguageMaxAggregateInputType
+  }
+
+  export type MovieLanguageGroupByOutputType = {
+    id: number
+    language: string
+    movieId: number
+    _count: MovieLanguageCountAggregateOutputType | null
+    _avg: MovieLanguageAvgAggregateOutputType | null
+    _sum: MovieLanguageSumAggregateOutputType | null
+    _min: MovieLanguageMinAggregateOutputType | null
+    _max: MovieLanguageMaxAggregateOutputType | null
+  }
+
+  type GetMovieLanguageGroupByPayload<T extends MovieLanguageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MovieLanguageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MovieLanguageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MovieLanguageGroupByOutputType[P]>
+            : GetScalarType<T[P], MovieLanguageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MovieLanguageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    language?: boolean
+    movieId?: boolean
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["movieLanguage"]>
+
+  export type MovieLanguageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    language?: boolean
+    movieId?: boolean
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["movieLanguage"]>
+
+  export type MovieLanguageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    language?: boolean
+    movieId?: boolean
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["movieLanguage"]>
+
+  export type MovieLanguageSelectScalar = {
+    id?: boolean
+    language?: boolean
+    movieId?: boolean
+  }
+
+  export type MovieLanguageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "language" | "movieId", ExtArgs["result"]["movieLanguage"]>
+  export type MovieLanguageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }
+  export type MovieLanguageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }
+  export type MovieLanguageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }
+
+  export type $MovieLanguagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MovieLanguage"
+    objects: {
+      movie: Prisma.$MoviePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      language: string
+      movieId: number
+    }, ExtArgs["result"]["movieLanguage"]>
+    composites: {}
+  }
+
+  type MovieLanguageGetPayload<S extends boolean | null | undefined | MovieLanguageDefaultArgs> = $Result.GetResult<Prisma.$MovieLanguagePayload, S>
+
+  type MovieLanguageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MovieLanguageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MovieLanguageCountAggregateInputType | true
+    }
+
+  export interface MovieLanguageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MovieLanguage'], meta: { name: 'MovieLanguage' } }
+    /**
+     * Find zero or one MovieLanguage that matches the filter.
+     * @param {MovieLanguageFindUniqueArgs} args - Arguments to find a MovieLanguage
+     * @example
+     * // Get one MovieLanguage
+     * const movieLanguage = await prisma.movieLanguage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MovieLanguageFindUniqueArgs>(args: SelectSubset<T, MovieLanguageFindUniqueArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MovieLanguage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MovieLanguageFindUniqueOrThrowArgs} args - Arguments to find a MovieLanguage
+     * @example
+     * // Get one MovieLanguage
+     * const movieLanguage = await prisma.movieLanguage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MovieLanguageFindUniqueOrThrowArgs>(args: SelectSubset<T, MovieLanguageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MovieLanguage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageFindFirstArgs} args - Arguments to find a MovieLanguage
+     * @example
+     * // Get one MovieLanguage
+     * const movieLanguage = await prisma.movieLanguage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MovieLanguageFindFirstArgs>(args?: SelectSubset<T, MovieLanguageFindFirstArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MovieLanguage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageFindFirstOrThrowArgs} args - Arguments to find a MovieLanguage
+     * @example
+     * // Get one MovieLanguage
+     * const movieLanguage = await prisma.movieLanguage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MovieLanguageFindFirstOrThrowArgs>(args?: SelectSubset<T, MovieLanguageFindFirstOrThrowArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MovieLanguages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MovieLanguages
+     * const movieLanguages = await prisma.movieLanguage.findMany()
+     * 
+     * // Get first 10 MovieLanguages
+     * const movieLanguages = await prisma.movieLanguage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const movieLanguageWithIdOnly = await prisma.movieLanguage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MovieLanguageFindManyArgs>(args?: SelectSubset<T, MovieLanguageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MovieLanguage.
+     * @param {MovieLanguageCreateArgs} args - Arguments to create a MovieLanguage.
+     * @example
+     * // Create one MovieLanguage
+     * const MovieLanguage = await prisma.movieLanguage.create({
+     *   data: {
+     *     // ... data to create a MovieLanguage
+     *   }
+     * })
+     * 
+     */
+    create<T extends MovieLanguageCreateArgs>(args: SelectSubset<T, MovieLanguageCreateArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MovieLanguages.
+     * @param {MovieLanguageCreateManyArgs} args - Arguments to create many MovieLanguages.
+     * @example
+     * // Create many MovieLanguages
+     * const movieLanguage = await prisma.movieLanguage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MovieLanguageCreateManyArgs>(args?: SelectSubset<T, MovieLanguageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MovieLanguages and returns the data saved in the database.
+     * @param {MovieLanguageCreateManyAndReturnArgs} args - Arguments to create many MovieLanguages.
+     * @example
+     * // Create many MovieLanguages
+     * const movieLanguage = await prisma.movieLanguage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MovieLanguages and only return the `id`
+     * const movieLanguageWithIdOnly = await prisma.movieLanguage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MovieLanguageCreateManyAndReturnArgs>(args?: SelectSubset<T, MovieLanguageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MovieLanguage.
+     * @param {MovieLanguageDeleteArgs} args - Arguments to delete one MovieLanguage.
+     * @example
+     * // Delete one MovieLanguage
+     * const MovieLanguage = await prisma.movieLanguage.delete({
+     *   where: {
+     *     // ... filter to delete one MovieLanguage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MovieLanguageDeleteArgs>(args: SelectSubset<T, MovieLanguageDeleteArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MovieLanguage.
+     * @param {MovieLanguageUpdateArgs} args - Arguments to update one MovieLanguage.
+     * @example
+     * // Update one MovieLanguage
+     * const movieLanguage = await prisma.movieLanguage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MovieLanguageUpdateArgs>(args: SelectSubset<T, MovieLanguageUpdateArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MovieLanguages.
+     * @param {MovieLanguageDeleteManyArgs} args - Arguments to filter MovieLanguages to delete.
+     * @example
+     * // Delete a few MovieLanguages
+     * const { count } = await prisma.movieLanguage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MovieLanguageDeleteManyArgs>(args?: SelectSubset<T, MovieLanguageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MovieLanguages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MovieLanguages
+     * const movieLanguage = await prisma.movieLanguage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MovieLanguageUpdateManyArgs>(args: SelectSubset<T, MovieLanguageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MovieLanguages and returns the data updated in the database.
+     * @param {MovieLanguageUpdateManyAndReturnArgs} args - Arguments to update many MovieLanguages.
+     * @example
+     * // Update many MovieLanguages
+     * const movieLanguage = await prisma.movieLanguage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MovieLanguages and only return the `id`
+     * const movieLanguageWithIdOnly = await prisma.movieLanguage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MovieLanguageUpdateManyAndReturnArgs>(args: SelectSubset<T, MovieLanguageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MovieLanguage.
+     * @param {MovieLanguageUpsertArgs} args - Arguments to update or create a MovieLanguage.
+     * @example
+     * // Update or create a MovieLanguage
+     * const movieLanguage = await prisma.movieLanguage.upsert({
+     *   create: {
+     *     // ... data to create a MovieLanguage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MovieLanguage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MovieLanguageUpsertArgs>(args: SelectSubset<T, MovieLanguageUpsertArgs<ExtArgs>>): Prisma__MovieLanguageClient<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MovieLanguages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageCountArgs} args - Arguments to filter MovieLanguages to count.
+     * @example
+     * // Count the number of MovieLanguages
+     * const count = await prisma.movieLanguage.count({
+     *   where: {
+     *     // ... the filter for the MovieLanguages we want to count
+     *   }
+     * })
+    **/
+    count<T extends MovieLanguageCountArgs>(
+      args?: Subset<T, MovieLanguageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MovieLanguageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MovieLanguage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MovieLanguageAggregateArgs>(args: Subset<T, MovieLanguageAggregateArgs>): Prisma.PrismaPromise<GetMovieLanguageAggregateType<T>>
+
+    /**
+     * Group by MovieLanguage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieLanguageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MovieLanguageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MovieLanguageGroupByArgs['orderBy'] }
+        : { orderBy?: MovieLanguageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MovieLanguageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMovieLanguageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MovieLanguage model
+   */
+  readonly fields: MovieLanguageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MovieLanguage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MovieLanguageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    movie<T extends MovieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MovieDefaultArgs<ExtArgs>>): Prisma__MovieClient<$Result.GetResult<Prisma.$MoviePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MovieLanguage model
+   */
+  interface MovieLanguageFieldRefs {
+    readonly id: FieldRef<"MovieLanguage", 'Int'>
+    readonly language: FieldRef<"MovieLanguage", 'String'>
+    readonly movieId: FieldRef<"MovieLanguage", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MovieLanguage findUnique
+   */
+  export type MovieLanguageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieLanguage to fetch.
+     */
+    where: MovieLanguageWhereUniqueInput
+  }
+
+  /**
+   * MovieLanguage findUniqueOrThrow
+   */
+  export type MovieLanguageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieLanguage to fetch.
+     */
+    where: MovieLanguageWhereUniqueInput
+  }
+
+  /**
+   * MovieLanguage findFirst
+   */
+  export type MovieLanguageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieLanguage to fetch.
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieLanguages to fetch.
+     */
+    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MovieLanguages.
+     */
+    cursor?: MovieLanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieLanguages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieLanguages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MovieLanguages.
+     */
+    distinct?: MovieLanguageScalarFieldEnum | MovieLanguageScalarFieldEnum[]
+  }
+
+  /**
+   * MovieLanguage findFirstOrThrow
+   */
+  export type MovieLanguageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieLanguage to fetch.
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieLanguages to fetch.
+     */
+    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MovieLanguages.
+     */
+    cursor?: MovieLanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieLanguages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieLanguages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MovieLanguages.
+     */
+    distinct?: MovieLanguageScalarFieldEnum | MovieLanguageScalarFieldEnum[]
+  }
+
+  /**
+   * MovieLanguage findMany
+   */
+  export type MovieLanguageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieLanguages to fetch.
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieLanguages to fetch.
+     */
+    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MovieLanguages.
+     */
+    cursor?: MovieLanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieLanguages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieLanguages.
+     */
+    skip?: number
+    distinct?: MovieLanguageScalarFieldEnum | MovieLanguageScalarFieldEnum[]
+  }
+
+  /**
+   * MovieLanguage create
+   */
+  export type MovieLanguageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MovieLanguage.
+     */
+    data: XOR<MovieLanguageCreateInput, MovieLanguageUncheckedCreateInput>
+  }
+
+  /**
+   * MovieLanguage createMany
+   */
+  export type MovieLanguageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MovieLanguages.
+     */
+    data: MovieLanguageCreateManyInput | MovieLanguageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MovieLanguage createManyAndReturn
+   */
+  export type MovieLanguageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * The data used to create many MovieLanguages.
+     */
+    data: MovieLanguageCreateManyInput | MovieLanguageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MovieLanguage update
+   */
+  export type MovieLanguageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MovieLanguage.
+     */
+    data: XOR<MovieLanguageUpdateInput, MovieLanguageUncheckedUpdateInput>
+    /**
+     * Choose, which MovieLanguage to update.
+     */
+    where: MovieLanguageWhereUniqueInput
+  }
+
+  /**
+   * MovieLanguage updateMany
+   */
+  export type MovieLanguageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MovieLanguages.
+     */
+    data: XOR<MovieLanguageUpdateManyMutationInput, MovieLanguageUncheckedUpdateManyInput>
+    /**
+     * Filter which MovieLanguages to update
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * Limit how many MovieLanguages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MovieLanguage updateManyAndReturn
+   */
+  export type MovieLanguageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * The data used to update MovieLanguages.
+     */
+    data: XOR<MovieLanguageUpdateManyMutationInput, MovieLanguageUncheckedUpdateManyInput>
+    /**
+     * Filter which MovieLanguages to update
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * Limit how many MovieLanguages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MovieLanguage upsert
+   */
+  export type MovieLanguageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MovieLanguage to update in case it exists.
+     */
+    where: MovieLanguageWhereUniqueInput
+    /**
+     * In case the MovieLanguage found by the `where` argument doesn't exist, create a new MovieLanguage with this data.
+     */
+    create: XOR<MovieLanguageCreateInput, MovieLanguageUncheckedCreateInput>
+    /**
+     * In case the MovieLanguage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MovieLanguageUpdateInput, MovieLanguageUncheckedUpdateInput>
+  }
+
+  /**
+   * MovieLanguage delete
+   */
+  export type MovieLanguageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    /**
+     * Filter which MovieLanguage to delete.
+     */
+    where: MovieLanguageWhereUniqueInput
+  }
+
+  /**
+   * MovieLanguage deleteMany
+   */
+  export type MovieLanguageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MovieLanguages to delete
+     */
+    where?: MovieLanguageWhereInput
+    /**
+     * Limit how many MovieLanguages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MovieLanguage without action
+   */
+  export type MovieLanguageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MovieDate
+   */
+
+  export type AggregateMovieDate = {
+    _count: MovieDateCountAggregateOutputType | null
+    _avg: MovieDateAvgAggregateOutputType | null
+    _sum: MovieDateSumAggregateOutputType | null
+    _min: MovieDateMinAggregateOutputType | null
+    _max: MovieDateMaxAggregateOutputType | null
+  }
+
+  export type MovieDateAvgAggregateOutputType = {
+    id: number | null
+    movieId: number | null
+  }
+
+  export type MovieDateSumAggregateOutputType = {
+    id: number | null
+    movieId: number | null
+  }
+
+  export type MovieDateMinAggregateOutputType = {
+    id: number | null
+    date: Date | null
+    movieId: number | null
+  }
+
+  export type MovieDateMaxAggregateOutputType = {
+    id: number | null
+    date: Date | null
+    movieId: number | null
+  }
+
+  export type MovieDateCountAggregateOutputType = {
+    id: number
+    date: number
+    movieId: number
+    _all: number
+  }
+
+
+  export type MovieDateAvgAggregateInputType = {
+    id?: true
+    movieId?: true
+  }
+
+  export type MovieDateSumAggregateInputType = {
+    id?: true
+    movieId?: true
+  }
+
+  export type MovieDateMinAggregateInputType = {
+    id?: true
+    date?: true
+    movieId?: true
+  }
+
+  export type MovieDateMaxAggregateInputType = {
+    id?: true
+    date?: true
+    movieId?: true
+  }
+
+  export type MovieDateCountAggregateInputType = {
+    id?: true
+    date?: true
+    movieId?: true
+    _all?: true
+  }
+
+  export type MovieDateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MovieDate to aggregate.
+     */
+    where?: MovieDateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieDates to fetch.
+     */
+    orderBy?: MovieDateOrderByWithRelationInput | MovieDateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MovieDateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieDates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieDates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MovieDates
+    **/
+    _count?: true | MovieDateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MovieDateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MovieDateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MovieDateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MovieDateMaxAggregateInputType
+  }
+
+  export type GetMovieDateAggregateType<T extends MovieDateAggregateArgs> = {
+        [P in keyof T & keyof AggregateMovieDate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMovieDate[P]>
+      : GetScalarType<T[P], AggregateMovieDate[P]>
+  }
+
+
+
+
+  export type MovieDateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovieDateWhereInput
+    orderBy?: MovieDateOrderByWithAggregationInput | MovieDateOrderByWithAggregationInput[]
+    by: MovieDateScalarFieldEnum[] | MovieDateScalarFieldEnum
+    having?: MovieDateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MovieDateCountAggregateInputType | true
+    _avg?: MovieDateAvgAggregateInputType
+    _sum?: MovieDateSumAggregateInputType
+    _min?: MovieDateMinAggregateInputType
+    _max?: MovieDateMaxAggregateInputType
+  }
+
+  export type MovieDateGroupByOutputType = {
+    id: number
+    date: Date
+    movieId: number
+    _count: MovieDateCountAggregateOutputType | null
+    _avg: MovieDateAvgAggregateOutputType | null
+    _sum: MovieDateSumAggregateOutputType | null
+    _min: MovieDateMinAggregateOutputType | null
+    _max: MovieDateMaxAggregateOutputType | null
+  }
+
+  type GetMovieDateGroupByPayload<T extends MovieDateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MovieDateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MovieDateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MovieDateGroupByOutputType[P]>
+            : GetScalarType<T[P], MovieDateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MovieDateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    date?: boolean
+    movieId?: boolean
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["movieDate"]>
+
+  export type MovieDateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    date?: boolean
+    movieId?: boolean
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["movieDate"]>
+
+  export type MovieDateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    date?: boolean
+    movieId?: boolean
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["movieDate"]>
+
+  export type MovieDateSelectScalar = {
+    id?: boolean
+    date?: boolean
+    movieId?: boolean
+  }
+
+  export type MovieDateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "date" | "movieId", ExtArgs["result"]["movieDate"]>
+  export type MovieDateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }
+  export type MovieDateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }
+  export type MovieDateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    movie?: boolean | MovieDefaultArgs<ExtArgs>
+  }
+
+  export type $MovieDatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MovieDate"
+    objects: {
+      movie: Prisma.$MoviePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      date: Date
+      movieId: number
+    }, ExtArgs["result"]["movieDate"]>
+    composites: {}
+  }
+
+  type MovieDateGetPayload<S extends boolean | null | undefined | MovieDateDefaultArgs> = $Result.GetResult<Prisma.$MovieDatePayload, S>
+
+  type MovieDateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MovieDateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MovieDateCountAggregateInputType | true
+    }
+
+  export interface MovieDateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MovieDate'], meta: { name: 'MovieDate' } }
+    /**
+     * Find zero or one MovieDate that matches the filter.
+     * @param {MovieDateFindUniqueArgs} args - Arguments to find a MovieDate
+     * @example
+     * // Get one MovieDate
+     * const movieDate = await prisma.movieDate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MovieDateFindUniqueArgs>(args: SelectSubset<T, MovieDateFindUniqueArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MovieDate that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MovieDateFindUniqueOrThrowArgs} args - Arguments to find a MovieDate
+     * @example
+     * // Get one MovieDate
+     * const movieDate = await prisma.movieDate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MovieDateFindUniqueOrThrowArgs>(args: SelectSubset<T, MovieDateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MovieDate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateFindFirstArgs} args - Arguments to find a MovieDate
+     * @example
+     * // Get one MovieDate
+     * const movieDate = await prisma.movieDate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MovieDateFindFirstArgs>(args?: SelectSubset<T, MovieDateFindFirstArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MovieDate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateFindFirstOrThrowArgs} args - Arguments to find a MovieDate
+     * @example
+     * // Get one MovieDate
+     * const movieDate = await prisma.movieDate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MovieDateFindFirstOrThrowArgs>(args?: SelectSubset<T, MovieDateFindFirstOrThrowArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MovieDates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MovieDates
+     * const movieDates = await prisma.movieDate.findMany()
+     * 
+     * // Get first 10 MovieDates
+     * const movieDates = await prisma.movieDate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const movieDateWithIdOnly = await prisma.movieDate.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MovieDateFindManyArgs>(args?: SelectSubset<T, MovieDateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MovieDate.
+     * @param {MovieDateCreateArgs} args - Arguments to create a MovieDate.
+     * @example
+     * // Create one MovieDate
+     * const MovieDate = await prisma.movieDate.create({
+     *   data: {
+     *     // ... data to create a MovieDate
+     *   }
+     * })
+     * 
+     */
+    create<T extends MovieDateCreateArgs>(args: SelectSubset<T, MovieDateCreateArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MovieDates.
+     * @param {MovieDateCreateManyArgs} args - Arguments to create many MovieDates.
+     * @example
+     * // Create many MovieDates
+     * const movieDate = await prisma.movieDate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MovieDateCreateManyArgs>(args?: SelectSubset<T, MovieDateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MovieDates and returns the data saved in the database.
+     * @param {MovieDateCreateManyAndReturnArgs} args - Arguments to create many MovieDates.
+     * @example
+     * // Create many MovieDates
+     * const movieDate = await prisma.movieDate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MovieDates and only return the `id`
+     * const movieDateWithIdOnly = await prisma.movieDate.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MovieDateCreateManyAndReturnArgs>(args?: SelectSubset<T, MovieDateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MovieDate.
+     * @param {MovieDateDeleteArgs} args - Arguments to delete one MovieDate.
+     * @example
+     * // Delete one MovieDate
+     * const MovieDate = await prisma.movieDate.delete({
+     *   where: {
+     *     // ... filter to delete one MovieDate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MovieDateDeleteArgs>(args: SelectSubset<T, MovieDateDeleteArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MovieDate.
+     * @param {MovieDateUpdateArgs} args - Arguments to update one MovieDate.
+     * @example
+     * // Update one MovieDate
+     * const movieDate = await prisma.movieDate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MovieDateUpdateArgs>(args: SelectSubset<T, MovieDateUpdateArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MovieDates.
+     * @param {MovieDateDeleteManyArgs} args - Arguments to filter MovieDates to delete.
+     * @example
+     * // Delete a few MovieDates
+     * const { count } = await prisma.movieDate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MovieDateDeleteManyArgs>(args?: SelectSubset<T, MovieDateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MovieDates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MovieDates
+     * const movieDate = await prisma.movieDate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MovieDateUpdateManyArgs>(args: SelectSubset<T, MovieDateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MovieDates and returns the data updated in the database.
+     * @param {MovieDateUpdateManyAndReturnArgs} args - Arguments to update many MovieDates.
+     * @example
+     * // Update many MovieDates
+     * const movieDate = await prisma.movieDate.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MovieDates and only return the `id`
+     * const movieDateWithIdOnly = await prisma.movieDate.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MovieDateUpdateManyAndReturnArgs>(args: SelectSubset<T, MovieDateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MovieDate.
+     * @param {MovieDateUpsertArgs} args - Arguments to update or create a MovieDate.
+     * @example
+     * // Update or create a MovieDate
+     * const movieDate = await prisma.movieDate.upsert({
+     *   create: {
+     *     // ... data to create a MovieDate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MovieDate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MovieDateUpsertArgs>(args: SelectSubset<T, MovieDateUpsertArgs<ExtArgs>>): Prisma__MovieDateClient<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MovieDates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateCountArgs} args - Arguments to filter MovieDates to count.
+     * @example
+     * // Count the number of MovieDates
+     * const count = await prisma.movieDate.count({
+     *   where: {
+     *     // ... the filter for the MovieDates we want to count
+     *   }
+     * })
+    **/
+    count<T extends MovieDateCountArgs>(
+      args?: Subset<T, MovieDateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MovieDateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MovieDate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MovieDateAggregateArgs>(args: Subset<T, MovieDateAggregateArgs>): Prisma.PrismaPromise<GetMovieDateAggregateType<T>>
+
+    /**
+     * Group by MovieDate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MovieDateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MovieDateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MovieDateGroupByArgs['orderBy'] }
+        : { orderBy?: MovieDateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MovieDateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMovieDateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MovieDate model
+   */
+  readonly fields: MovieDateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MovieDate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MovieDateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    movie<T extends MovieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MovieDefaultArgs<ExtArgs>>): Prisma__MovieClient<$Result.GetResult<Prisma.$MoviePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MovieDate model
+   */
+  interface MovieDateFieldRefs {
+    readonly id: FieldRef<"MovieDate", 'Int'>
+    readonly date: FieldRef<"MovieDate", 'DateTime'>
+    readonly movieId: FieldRef<"MovieDate", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MovieDate findUnique
+   */
+  export type MovieDateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieDate to fetch.
+     */
+    where: MovieDateWhereUniqueInput
+  }
+
+  /**
+   * MovieDate findUniqueOrThrow
+   */
+  export type MovieDateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieDate to fetch.
+     */
+    where: MovieDateWhereUniqueInput
+  }
+
+  /**
+   * MovieDate findFirst
+   */
+  export type MovieDateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieDate to fetch.
+     */
+    where?: MovieDateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieDates to fetch.
+     */
+    orderBy?: MovieDateOrderByWithRelationInput | MovieDateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MovieDates.
+     */
+    cursor?: MovieDateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieDates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieDates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MovieDates.
+     */
+    distinct?: MovieDateScalarFieldEnum | MovieDateScalarFieldEnum[]
+  }
+
+  /**
+   * MovieDate findFirstOrThrow
+   */
+  export type MovieDateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieDate to fetch.
+     */
+    where?: MovieDateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieDates to fetch.
+     */
+    orderBy?: MovieDateOrderByWithRelationInput | MovieDateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MovieDates.
+     */
+    cursor?: MovieDateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieDates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieDates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MovieDates.
+     */
+    distinct?: MovieDateScalarFieldEnum | MovieDateScalarFieldEnum[]
+  }
+
+  /**
+   * MovieDate findMany
+   */
+  export type MovieDateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * Filter, which MovieDates to fetch.
+     */
+    where?: MovieDateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MovieDates to fetch.
+     */
+    orderBy?: MovieDateOrderByWithRelationInput | MovieDateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MovieDates.
+     */
+    cursor?: MovieDateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MovieDates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MovieDates.
+     */
+    skip?: number
+    distinct?: MovieDateScalarFieldEnum | MovieDateScalarFieldEnum[]
+  }
+
+  /**
+   * MovieDate create
+   */
+  export type MovieDateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MovieDate.
+     */
+    data: XOR<MovieDateCreateInput, MovieDateUncheckedCreateInput>
+  }
+
+  /**
+   * MovieDate createMany
+   */
+  export type MovieDateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MovieDates.
+     */
+    data: MovieDateCreateManyInput | MovieDateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MovieDate createManyAndReturn
+   */
+  export type MovieDateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * The data used to create many MovieDates.
+     */
+    data: MovieDateCreateManyInput | MovieDateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MovieDate update
+   */
+  export type MovieDateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MovieDate.
+     */
+    data: XOR<MovieDateUpdateInput, MovieDateUncheckedUpdateInput>
+    /**
+     * Choose, which MovieDate to update.
+     */
+    where: MovieDateWhereUniqueInput
+  }
+
+  /**
+   * MovieDate updateMany
+   */
+  export type MovieDateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MovieDates.
+     */
+    data: XOR<MovieDateUpdateManyMutationInput, MovieDateUncheckedUpdateManyInput>
+    /**
+     * Filter which MovieDates to update
+     */
+    where?: MovieDateWhereInput
+    /**
+     * Limit how many MovieDates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MovieDate updateManyAndReturn
+   */
+  export type MovieDateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * The data used to update MovieDates.
+     */
+    data: XOR<MovieDateUpdateManyMutationInput, MovieDateUncheckedUpdateManyInput>
+    /**
+     * Filter which MovieDates to update
+     */
+    where?: MovieDateWhereInput
+    /**
+     * Limit how many MovieDates to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MovieDate upsert
+   */
+  export type MovieDateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MovieDate to update in case it exists.
+     */
+    where: MovieDateWhereUniqueInput
+    /**
+     * In case the MovieDate found by the `where` argument doesn't exist, create a new MovieDate with this data.
+     */
+    create: XOR<MovieDateCreateInput, MovieDateUncheckedCreateInput>
+    /**
+     * In case the MovieDate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MovieDateUpdateInput, MovieDateUncheckedUpdateInput>
+  }
+
+  /**
+   * MovieDate delete
+   */
+  export type MovieDateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
+    /**
+     * Filter which MovieDate to delete.
+     */
+    where: MovieDateWhereUniqueInput
+  }
+
+  /**
+   * MovieDate deleteMany
+   */
+  export type MovieDateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MovieDates to delete
+     */
+    where?: MovieDateWhereInput
+    /**
+     * Limit how many MovieDates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MovieDate without action
+   */
+  export type MovieDateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieDate
+     */
+    select?: MovieDateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieDate
+     */
+    omit?: MovieDateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieDateInclude<ExtArgs> | null
   }
 
 
@@ -5259,6 +7668,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     shows?: boolean | Theatre$showsArgs<ExtArgs>
+    seats?: boolean | Theatre$seatsArgs<ExtArgs>
     _count?: boolean | TheatreCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["theatre"]>
 
@@ -5292,6 +7702,7 @@ export namespace Prisma {
   export type TheatreOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "location" | "seatCapacity" | "createdAt" | "updatedAt", ExtArgs["result"]["theatre"]>
   export type TheatreInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     shows?: boolean | Theatre$showsArgs<ExtArgs>
+    seats?: boolean | Theatre$seatsArgs<ExtArgs>
     _count?: boolean | TheatreCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TheatreIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5301,6 +7712,7 @@ export namespace Prisma {
     name: "Theatre"
     objects: {
       shows: Prisma.$ShowPayload<ExtArgs>[]
+      seats: Prisma.$SeatPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5704,6 +8116,7 @@ export namespace Prisma {
   export interface Prisma__TheatreClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     shows<T extends Theatre$showsArgs<ExtArgs> = {}>(args?: Subset<T, Theatre$showsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    seats<T extends Theatre$seatsArgs<ExtArgs> = {}>(args?: Subset<T, Theatre$seatsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6148,6 +8561,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ShowScalarFieldEnum | ShowScalarFieldEnum[]
+  }
+
+  /**
+   * Theatre.seats
+   */
+  export type Theatre$seatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Seat
+     */
+    select?: SeatSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Seat
+     */
+    omit?: SeatOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SeatInclude<ExtArgs> | null
+    where?: SeatWhereInput
+    orderBy?: SeatOrderByWithRelationInput | SeatOrderByWithRelationInput[]
+    cursor?: SeatWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SeatScalarFieldEnum | SeatScalarFieldEnum[]
   }
 
   /**
@@ -7364,19 +9801,23 @@ export namespace Prisma {
     id: number | null
     showId: number | null
     bookingId: number | null
+    theatreId: number | null
   }
 
   export type SeatSumAggregateOutputType = {
     id: number | null
     showId: number | null
     bookingId: number | null
+    theatreId: number | null
   }
 
   export type SeatMinAggregateOutputType = {
     id: number | null
     seatNumber: string | null
+    seatType: string | null
     showId: number | null
     bookingId: number | null
+    theatreId: number | null
     isBooked: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -7385,8 +9826,10 @@ export namespace Prisma {
   export type SeatMaxAggregateOutputType = {
     id: number | null
     seatNumber: string | null
+    seatType: string | null
     showId: number | null
     bookingId: number | null
+    theatreId: number | null
     isBooked: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -7395,8 +9838,10 @@ export namespace Prisma {
   export type SeatCountAggregateOutputType = {
     id: number
     seatNumber: number
+    seatType: number
     showId: number
     bookingId: number
+    theatreId: number
     isBooked: number
     createdAt: number
     updatedAt: number
@@ -7408,19 +9853,23 @@ export namespace Prisma {
     id?: true
     showId?: true
     bookingId?: true
+    theatreId?: true
   }
 
   export type SeatSumAggregateInputType = {
     id?: true
     showId?: true
     bookingId?: true
+    theatreId?: true
   }
 
   export type SeatMinAggregateInputType = {
     id?: true
     seatNumber?: true
+    seatType?: true
     showId?: true
     bookingId?: true
+    theatreId?: true
     isBooked?: true
     createdAt?: true
     updatedAt?: true
@@ -7429,8 +9878,10 @@ export namespace Prisma {
   export type SeatMaxAggregateInputType = {
     id?: true
     seatNumber?: true
+    seatType?: true
     showId?: true
     bookingId?: true
+    theatreId?: true
     isBooked?: true
     createdAt?: true
     updatedAt?: true
@@ -7439,8 +9890,10 @@ export namespace Prisma {
   export type SeatCountAggregateInputType = {
     id?: true
     seatNumber?: true
+    seatType?: true
     showId?: true
     bookingId?: true
+    theatreId?: true
     isBooked?: true
     createdAt?: true
     updatedAt?: true
@@ -7536,8 +9989,10 @@ export namespace Prisma {
   export type SeatGroupByOutputType = {
     id: number
     seatNumber: string
+    seatType: string
     showId: number
     bookingId: number | null
+    theatreId: number | null
     isBooked: boolean
     createdAt: Date
     updatedAt: Date
@@ -7565,61 +10020,75 @@ export namespace Prisma {
   export type SeatSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seatNumber?: boolean
+    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
+    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
   export type SeatSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seatNumber?: boolean
+    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
+    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
   export type SeatSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seatNumber?: boolean
+    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
+    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
   export type SeatSelectScalar = {
     id?: boolean
     seatNumber?: boolean
+    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
+    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type SeatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "seatNumber" | "showId" | "bookingId" | "isBooked" | "createdAt" | "updatedAt", ExtArgs["result"]["seat"]>
+  export type SeatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "seatNumber" | "seatType" | "showId" | "bookingId" | "theatreId" | "isBooked" | "createdAt" | "updatedAt", ExtArgs["result"]["seat"]>
   export type SeatInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }
   export type SeatIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }
   export type SeatIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }
 
   export type $SeatPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7627,12 +10096,15 @@ export namespace Prisma {
     objects: {
       show: Prisma.$ShowPayload<ExtArgs>
       booking: Prisma.$BookingPayload<ExtArgs> | null
+      theatre: Prisma.$TheatrePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       seatNumber: string
+      seatType: string
       showId: number
       bookingId: number | null
+      theatreId: number | null
       isBooked: boolean
       createdAt: Date
       updatedAt: Date
@@ -8032,6 +10504,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     show<T extends ShowDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ShowDefaultArgs<ExtArgs>>): Prisma__ShowClient<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     booking<T extends Seat$bookingArgs<ExtArgs> = {}>(args?: Subset<T, Seat$bookingArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    theatre<T extends Seat$theatreArgs<ExtArgs> = {}>(args?: Subset<T, Seat$theatreArgs<ExtArgs>>): Prisma__TheatreClient<$Result.GetResult<Prisma.$TheatrePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8063,8 +10536,10 @@ export namespace Prisma {
   interface SeatFieldRefs {
     readonly id: FieldRef<"Seat", 'Int'>
     readonly seatNumber: FieldRef<"Seat", 'String'>
+    readonly seatType: FieldRef<"Seat", 'String'>
     readonly showId: FieldRef<"Seat", 'Int'>
     readonly bookingId: FieldRef<"Seat", 'Int'>
+    readonly theatreId: FieldRef<"Seat", 'Int'>
     readonly isBooked: FieldRef<"Seat", 'Boolean'>
     readonly createdAt: FieldRef<"Seat", 'DateTime'>
     readonly updatedAt: FieldRef<"Seat", 'DateTime'>
@@ -8480,6 +10955,25 @@ export namespace Prisma {
      */
     include?: BookingInclude<ExtArgs> | null
     where?: BookingWhereInput
+  }
+
+  /**
+   * Seat.theatre
+   */
+  export type Seat$theatreArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theatre
+     */
+    select?: TheatreSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theatre
+     */
+    omit?: TheatreOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TheatreInclude<ExtArgs> | null
+    where?: TheatreWhereInput
   }
 
   /**
@@ -9710,14 +12204,32 @@ export namespace Prisma {
     title: 'title',
     description: 'description',
     posterUrl: 'posterUrl',
-    language: 'language',
     runtime: 'runtime',
+    price: 'price',
     categoryId: 'categoryId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof MovieScalarFieldEnum]
+
+
+  export const MovieLanguageScalarFieldEnum: {
+    id: 'id',
+    language: 'language',
+    movieId: 'movieId'
+  };
+
+  export type MovieLanguageScalarFieldEnum = (typeof MovieLanguageScalarFieldEnum)[keyof typeof MovieLanguageScalarFieldEnum]
+
+
+  export const MovieDateScalarFieldEnum: {
+    id: 'id',
+    date: 'date',
+    movieId: 'movieId'
+  };
+
+  export type MovieDateScalarFieldEnum = (typeof MovieDateScalarFieldEnum)[keyof typeof MovieDateScalarFieldEnum]
 
 
   export const TheatreScalarFieldEnum: {
@@ -9747,8 +12259,10 @@ export namespace Prisma {
   export const SeatScalarFieldEnum: {
     id: 'id',
     seatNumber: 'seatNumber',
+    seatType: 'seatType',
     showId: 'showId',
     bookingId: 'bookingId',
+    theatreId: 'theatreId',
     isBooked: 'isBooked',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -10015,12 +12529,14 @@ export namespace Prisma {
     title?: StringFilter<"Movie"> | string
     description?: StringFilter<"Movie"> | string
     posterUrl?: StringFilter<"Movie"> | string
-    language?: StringFilter<"Movie"> | string
     runtime?: IntFilter<"Movie"> | number
+    price?: IntFilter<"Movie"> | number
     categoryId?: IntNullableFilter<"Movie"> | number | null
     createdAt?: DateTimeFilter<"Movie"> | Date | string
     updatedAt?: DateTimeFilter<"Movie"> | Date | string
     category?: XOR<CategoryNullableScalarRelationFilter, CategoryWhereInput> | null
+    languageTags?: MovieLanguageListRelationFilter
+    availableDates?: MovieDateListRelationFilter
     shows?: ShowListRelationFilter
   }
 
@@ -10029,12 +12545,14 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     posterUrl?: SortOrder
-    language?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     category?: CategoryOrderByWithRelationInput
+    languageTags?: MovieLanguageOrderByRelationAggregateInput
+    availableDates?: MovieDateOrderByRelationAggregateInput
     shows?: ShowOrderByRelationAggregateInput
   }
 
@@ -10046,12 +12564,14 @@ export namespace Prisma {
     title?: StringFilter<"Movie"> | string
     description?: StringFilter<"Movie"> | string
     posterUrl?: StringFilter<"Movie"> | string
-    language?: StringFilter<"Movie"> | string
     runtime?: IntFilter<"Movie"> | number
+    price?: IntFilter<"Movie"> | number
     categoryId?: IntNullableFilter<"Movie"> | number | null
     createdAt?: DateTimeFilter<"Movie"> | Date | string
     updatedAt?: DateTimeFilter<"Movie"> | Date | string
     category?: XOR<CategoryNullableScalarRelationFilter, CategoryWhereInput> | null
+    languageTags?: MovieLanguageListRelationFilter
+    availableDates?: MovieDateListRelationFilter
     shows?: ShowListRelationFilter
   }, "id">
 
@@ -10060,8 +12580,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     posterUrl?: SortOrder
-    language?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10080,11 +12600,107 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Movie"> | string
     description?: StringWithAggregatesFilter<"Movie"> | string
     posterUrl?: StringWithAggregatesFilter<"Movie"> | string
-    language?: StringWithAggregatesFilter<"Movie"> | string
     runtime?: IntWithAggregatesFilter<"Movie"> | number
+    price?: IntWithAggregatesFilter<"Movie"> | number
     categoryId?: IntNullableWithAggregatesFilter<"Movie"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Movie"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Movie"> | Date | string
+  }
+
+  export type MovieLanguageWhereInput = {
+    AND?: MovieLanguageWhereInput | MovieLanguageWhereInput[]
+    OR?: MovieLanguageWhereInput[]
+    NOT?: MovieLanguageWhereInput | MovieLanguageWhereInput[]
+    id?: IntFilter<"MovieLanguage"> | number
+    language?: StringFilter<"MovieLanguage"> | string
+    movieId?: IntFilter<"MovieLanguage"> | number
+    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
+  }
+
+  export type MovieLanguageOrderByWithRelationInput = {
+    id?: SortOrder
+    language?: SortOrder
+    movieId?: SortOrder
+    movie?: MovieOrderByWithRelationInput
+  }
+
+  export type MovieLanguageWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    language_movieId?: MovieLanguageLanguageMovieIdCompoundUniqueInput
+    AND?: MovieLanguageWhereInput | MovieLanguageWhereInput[]
+    OR?: MovieLanguageWhereInput[]
+    NOT?: MovieLanguageWhereInput | MovieLanguageWhereInput[]
+    language?: StringFilter<"MovieLanguage"> | string
+    movieId?: IntFilter<"MovieLanguage"> | number
+    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
+  }, "id" | "language_movieId">
+
+  export type MovieLanguageOrderByWithAggregationInput = {
+    id?: SortOrder
+    language?: SortOrder
+    movieId?: SortOrder
+    _count?: MovieLanguageCountOrderByAggregateInput
+    _avg?: MovieLanguageAvgOrderByAggregateInput
+    _max?: MovieLanguageMaxOrderByAggregateInput
+    _min?: MovieLanguageMinOrderByAggregateInput
+    _sum?: MovieLanguageSumOrderByAggregateInput
+  }
+
+  export type MovieLanguageScalarWhereWithAggregatesInput = {
+    AND?: MovieLanguageScalarWhereWithAggregatesInput | MovieLanguageScalarWhereWithAggregatesInput[]
+    OR?: MovieLanguageScalarWhereWithAggregatesInput[]
+    NOT?: MovieLanguageScalarWhereWithAggregatesInput | MovieLanguageScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"MovieLanguage"> | number
+    language?: StringWithAggregatesFilter<"MovieLanguage"> | string
+    movieId?: IntWithAggregatesFilter<"MovieLanguage"> | number
+  }
+
+  export type MovieDateWhereInput = {
+    AND?: MovieDateWhereInput | MovieDateWhereInput[]
+    OR?: MovieDateWhereInput[]
+    NOT?: MovieDateWhereInput | MovieDateWhereInput[]
+    id?: IntFilter<"MovieDate"> | number
+    date?: DateTimeFilter<"MovieDate"> | Date | string
+    movieId?: IntFilter<"MovieDate"> | number
+    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
+  }
+
+  export type MovieDateOrderByWithRelationInput = {
+    id?: SortOrder
+    date?: SortOrder
+    movieId?: SortOrder
+    movie?: MovieOrderByWithRelationInput
+  }
+
+  export type MovieDateWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    date_movieId?: MovieDateDateMovieIdCompoundUniqueInput
+    AND?: MovieDateWhereInput | MovieDateWhereInput[]
+    OR?: MovieDateWhereInput[]
+    NOT?: MovieDateWhereInput | MovieDateWhereInput[]
+    date?: DateTimeFilter<"MovieDate"> | Date | string
+    movieId?: IntFilter<"MovieDate"> | number
+    movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
+  }, "id" | "date_movieId">
+
+  export type MovieDateOrderByWithAggregationInput = {
+    id?: SortOrder
+    date?: SortOrder
+    movieId?: SortOrder
+    _count?: MovieDateCountOrderByAggregateInput
+    _avg?: MovieDateAvgOrderByAggregateInput
+    _max?: MovieDateMaxOrderByAggregateInput
+    _min?: MovieDateMinOrderByAggregateInput
+    _sum?: MovieDateSumOrderByAggregateInput
+  }
+
+  export type MovieDateScalarWhereWithAggregatesInput = {
+    AND?: MovieDateScalarWhereWithAggregatesInput | MovieDateScalarWhereWithAggregatesInput[]
+    OR?: MovieDateScalarWhereWithAggregatesInput[]
+    NOT?: MovieDateScalarWhereWithAggregatesInput | MovieDateScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"MovieDate"> | number
+    date?: DateTimeWithAggregatesFilter<"MovieDate"> | Date | string
+    movieId?: IntWithAggregatesFilter<"MovieDate"> | number
   }
 
   export type TheatreWhereInput = {
@@ -10098,6 +12714,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Theatre"> | Date | string
     updatedAt?: DateTimeFilter<"Theatre"> | Date | string
     shows?: ShowListRelationFilter
+    seats?: SeatListRelationFilter
   }
 
   export type TheatreOrderByWithRelationInput = {
@@ -10108,6 +12725,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     shows?: ShowOrderByRelationAggregateInput
+    seats?: SeatOrderByRelationAggregateInput
   }
 
   export type TheatreWhereUniqueInput = Prisma.AtLeast<{
@@ -10121,6 +12739,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Theatre"> | Date | string
     updatedAt?: DateTimeFilter<"Theatre"> | Date | string
     shows?: ShowListRelationFilter
+    seats?: SeatListRelationFilter
   }, "id">
 
   export type TheatreOrderByWithAggregationInput = {
@@ -10226,25 +12845,31 @@ export namespace Prisma {
     NOT?: SeatWhereInput | SeatWhereInput[]
     id?: IntFilter<"Seat"> | number
     seatNumber?: StringFilter<"Seat"> | string
+    seatType?: StringFilter<"Seat"> | string
     showId?: IntFilter<"Seat"> | number
     bookingId?: IntNullableFilter<"Seat"> | number | null
+    theatreId?: IntNullableFilter<"Seat"> | number | null
     isBooked?: BoolFilter<"Seat"> | boolean
     createdAt?: DateTimeFilter<"Seat"> | Date | string
     updatedAt?: DateTimeFilter<"Seat"> | Date | string
     show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
     booking?: XOR<BookingNullableScalarRelationFilter, BookingWhereInput> | null
+    theatre?: XOR<TheatreNullableScalarRelationFilter, TheatreWhereInput> | null
   }
 
   export type SeatOrderByWithRelationInput = {
     id?: SortOrder
     seatNumber?: SortOrder
+    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrderInput | SortOrder
+    theatreId?: SortOrderInput | SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     show?: ShowOrderByWithRelationInput
     booking?: BookingOrderByWithRelationInput
+    theatre?: TheatreOrderByWithRelationInput
   }
 
   export type SeatWhereUniqueInput = Prisma.AtLeast<{
@@ -10254,20 +12879,25 @@ export namespace Prisma {
     OR?: SeatWhereInput[]
     NOT?: SeatWhereInput | SeatWhereInput[]
     seatNumber?: StringFilter<"Seat"> | string
+    seatType?: StringFilter<"Seat"> | string
     showId?: IntFilter<"Seat"> | number
     bookingId?: IntNullableFilter<"Seat"> | number | null
+    theatreId?: IntNullableFilter<"Seat"> | number | null
     isBooked?: BoolFilter<"Seat"> | boolean
     createdAt?: DateTimeFilter<"Seat"> | Date | string
     updatedAt?: DateTimeFilter<"Seat"> | Date | string
     show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
     booking?: XOR<BookingNullableScalarRelationFilter, BookingWhereInput> | null
+    theatre?: XOR<TheatreNullableScalarRelationFilter, TheatreWhereInput> | null
   }, "id" | "seatNumber_showId">
 
   export type SeatOrderByWithAggregationInput = {
     id?: SortOrder
     seatNumber?: SortOrder
+    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrderInput | SortOrder
+    theatreId?: SortOrderInput | SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10284,8 +12914,10 @@ export namespace Prisma {
     NOT?: SeatScalarWhereWithAggregatesInput | SeatScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Seat"> | number
     seatNumber?: StringWithAggregatesFilter<"Seat"> | string
+    seatType?: StringWithAggregatesFilter<"Seat"> | string
     showId?: IntWithAggregatesFilter<"Seat"> | number
     bookingId?: IntNullableWithAggregatesFilter<"Seat"> | number | null
+    theatreId?: IntNullableWithAggregatesFilter<"Seat"> | number | null
     isBooked?: BoolWithAggregatesFilter<"Seat"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Seat"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Seat"> | Date | string
@@ -10482,11 +13114,13 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     category?: CategoryCreateNestedOneWithoutMoviesInput
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
+    availableDates?: MovieDateCreateNestedManyWithoutMovieInput
     shows?: ShowCreateNestedManyWithoutMovieInput
   }
 
@@ -10495,11 +13129,13 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
     shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
   }
 
@@ -10507,11 +13143,13 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneWithoutMoviesNestedInput
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
+    availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
     shows?: ShowUpdateManyWithoutMovieNestedInput
   }
 
@@ -10520,11 +13158,13 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
     shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
 
@@ -10533,8 +13173,8 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10544,8 +13184,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10555,11 +13195,87 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MovieLanguageCreateInput = {
+    language: string
+    movie: MovieCreateNestedOneWithoutLanguageTagsInput
+  }
+
+  export type MovieLanguageUncheckedCreateInput = {
+    id?: number
+    language: string
+    movieId: number
+  }
+
+  export type MovieLanguageUpdateInput = {
+    language?: StringFieldUpdateOperationsInput | string
+    movie?: MovieUpdateOneRequiredWithoutLanguageTagsNestedInput
+  }
+
+  export type MovieLanguageUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    movieId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type MovieLanguageCreateManyInput = {
+    id?: number
+    language: string
+    movieId: number
+  }
+
+  export type MovieLanguageUpdateManyMutationInput = {
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MovieLanguageUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    movieId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type MovieDateCreateInput = {
+    date: Date | string
+    movie: MovieCreateNestedOneWithoutAvailableDatesInput
+  }
+
+  export type MovieDateUncheckedCreateInput = {
+    id?: number
+    date: Date | string
+    movieId: number
+  }
+
+  export type MovieDateUpdateInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    movie?: MovieUpdateOneRequiredWithoutAvailableDatesNestedInput
+  }
+
+  export type MovieDateUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    movieId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type MovieDateCreateManyInput = {
+    id?: number
+    date: Date | string
+    movieId: number
+  }
+
+  export type MovieDateUpdateManyMutationInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MovieDateUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    movieId?: IntFieldUpdateOperationsInput | number
   }
 
   export type TheatreCreateInput = {
@@ -10569,6 +13285,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     shows?: ShowCreateNestedManyWithoutTheatreInput
+    seats?: SeatCreateNestedManyWithoutTheatreInput
   }
 
   export type TheatreUncheckedCreateInput = {
@@ -10579,6 +13296,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     shows?: ShowUncheckedCreateNestedManyWithoutTheatreInput
+    seats?: SeatUncheckedCreateNestedManyWithoutTheatreInput
   }
 
   export type TheatreUpdateInput = {
@@ -10588,6 +13306,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     shows?: ShowUpdateManyWithoutTheatreNestedInput
+    seats?: SeatUpdateManyWithoutTheatreNestedInput
   }
 
   export type TheatreUncheckedUpdateInput = {
@@ -10598,6 +13317,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     shows?: ShowUncheckedUpdateManyWithoutTheatreNestedInput
+    seats?: SeatUncheckedUpdateManyWithoutTheatreNestedInput
   }
 
   export type TheatreCreateManyInput = {
@@ -10694,18 +13414,22 @@ export namespace Prisma {
 
   export type SeatCreateInput = {
     seatNumber: string
+    seatType: string
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     show: ShowCreateNestedOneWithoutSeatsInput
     booking?: BookingCreateNestedOneWithoutSeatsInput
+    theatre?: TheatreCreateNestedOneWithoutSeatsInput
   }
 
   export type SeatUncheckedCreateInput = {
     id?: number
     seatNumber: string
+    seatType: string
     showId: number
     bookingId?: number | null
+    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10713,18 +13437,22 @@ export namespace Prisma {
 
   export type SeatUpdateInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
     booking?: BookingUpdateOneWithoutSeatsNestedInput
+    theatre?: TheatreUpdateOneWithoutSeatsNestedInput
   }
 
   export type SeatUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
     bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10733,8 +13461,10 @@ export namespace Prisma {
   export type SeatCreateManyInput = {
     id?: number
     seatNumber: string
+    seatType: string
     showId: number
     bookingId?: number | null
+    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10742,6 +13472,7 @@ export namespace Prisma {
 
   export type SeatUpdateManyMutationInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10750,8 +13481,10 @@ export namespace Prisma {
   export type SeatUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
     bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11041,6 +13774,18 @@ export namespace Prisma {
     isNot?: CategoryWhereInput | null
   }
 
+  export type MovieLanguageListRelationFilter = {
+    every?: MovieLanguageWhereInput
+    some?: MovieLanguageWhereInput
+    none?: MovieLanguageWhereInput
+  }
+
+  export type MovieDateListRelationFilter = {
+    every?: MovieDateWhereInput
+    some?: MovieDateWhereInput
+    none?: MovieDateWhereInput
+  }
+
   export type ShowListRelationFilter = {
     every?: ShowWhereInput
     some?: ShowWhereInput
@@ -11052,6 +13797,14 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
+  export type MovieLanguageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MovieDateOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type ShowOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -11061,8 +13814,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     posterUrl?: SortOrder
-    language?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11071,6 +13824,7 @@ export namespace Prisma {
   export type MovieAvgOrderByAggregateInput = {
     id?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrder
   }
 
@@ -11079,8 +13833,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     posterUrl?: SortOrder
-    language?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11091,8 +13845,8 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     posterUrl?: SortOrder
-    language?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11101,6 +13855,7 @@ export namespace Prisma {
   export type MovieSumOrderByAggregateInput = {
     id?: SortOrder
     runtime?: SortOrder
+    price?: SortOrder
     categoryId?: SortOrder
   }
 
@@ -11118,6 +13873,87 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type MovieScalarRelationFilter = {
+    is?: MovieWhereInput
+    isNot?: MovieWhereInput
+  }
+
+  export type MovieLanguageLanguageMovieIdCompoundUniqueInput = {
+    language: string
+    movieId: number
+  }
+
+  export type MovieLanguageCountOrderByAggregateInput = {
+    id?: SortOrder
+    language?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieLanguageAvgOrderByAggregateInput = {
+    id?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieLanguageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    language?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieLanguageMinOrderByAggregateInput = {
+    id?: SortOrder
+    language?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieLanguageSumOrderByAggregateInput = {
+    id?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieDateDateMovieIdCompoundUniqueInput = {
+    date: Date | string
+    movieId: number
+  }
+
+  export type MovieDateCountOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieDateAvgOrderByAggregateInput = {
+    id?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieDateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieDateMinOrderByAggregateInput = {
+    id?: SortOrder
+    date?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type MovieDateSumOrderByAggregateInput = {
+    id?: SortOrder
+    movieId?: SortOrder
+  }
+
+  export type SeatListRelationFilter = {
+    every?: SeatWhereInput
+    some?: SeatWhereInput
+    none?: SeatWhereInput
+  }
+
+  export type SeatOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type TheatreCountOrderByAggregateInput = {
@@ -11157,24 +13993,9 @@ export namespace Prisma {
     seatCapacity?: SortOrder
   }
 
-  export type MovieScalarRelationFilter = {
-    is?: MovieWhereInput
-    isNot?: MovieWhereInput
-  }
-
   export type TheatreScalarRelationFilter = {
     is?: TheatreWhereInput
     isNot?: TheatreWhereInput
-  }
-
-  export type SeatListRelationFilter = {
-    every?: SeatWhereInput
-    some?: SeatWhereInput
-    none?: SeatWhereInput
-  }
-
-  export type SeatOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type ShowCountOrderByAggregateInput = {
@@ -11226,6 +14047,11 @@ export namespace Prisma {
     isNot?: BookingWhereInput | null
   }
 
+  export type TheatreNullableScalarRelationFilter = {
+    is?: TheatreWhereInput | null
+    isNot?: TheatreWhereInput | null
+  }
+
   export type SeatSeatNumberShowIdCompoundUniqueInput = {
     seatNumber: string
     showId: number
@@ -11234,8 +14060,10 @@ export namespace Prisma {
   export type SeatCountOrderByAggregateInput = {
     id?: SortOrder
     seatNumber?: SortOrder
+    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
+    theatreId?: SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11245,13 +14073,16 @@ export namespace Prisma {
     id?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
+    theatreId?: SortOrder
   }
 
   export type SeatMaxOrderByAggregateInput = {
     id?: SortOrder
     seatNumber?: SortOrder
+    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
+    theatreId?: SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11260,8 +14091,10 @@ export namespace Prisma {
   export type SeatMinOrderByAggregateInput = {
     id?: SortOrder
     seatNumber?: SortOrder
+    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
+    theatreId?: SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11271,6 +14104,7 @@ export namespace Prisma {
     id?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
+    theatreId?: SortOrder
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -11480,11 +14314,39 @@ export namespace Prisma {
     connect?: CategoryWhereUniqueInput
   }
 
+  export type MovieLanguageCreateNestedManyWithoutMovieInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+  }
+
+  export type MovieDateCreateNestedManyWithoutMovieInput = {
+    create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
+    createMany?: MovieDateCreateManyMovieInputEnvelope
+    connect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+  }
+
   export type ShowCreateNestedManyWithoutMovieInput = {
     create?: XOR<ShowCreateWithoutMovieInput, ShowUncheckedCreateWithoutMovieInput> | ShowCreateWithoutMovieInput[] | ShowUncheckedCreateWithoutMovieInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutMovieInput | ShowCreateOrConnectWithoutMovieInput[]
     createMany?: ShowCreateManyMovieInputEnvelope
     connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
+  }
+
+  export type MovieLanguageUncheckedCreateNestedManyWithoutMovieInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+  }
+
+  export type MovieDateUncheckedCreateNestedManyWithoutMovieInput = {
+    create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
+    createMany?: MovieDateCreateManyMovieInputEnvelope
+    connect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
   }
 
   export type ShowUncheckedCreateNestedManyWithoutMovieInput = {
@@ -11502,6 +14364,34 @@ export namespace Prisma {
     delete?: CategoryWhereInput | boolean
     connect?: CategoryWhereUniqueInput
     update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutMoviesInput, CategoryUpdateWithoutMoviesInput>, CategoryUncheckedUpdateWithoutMoviesInput>
+  }
+
+  export type MovieLanguageUpdateManyWithoutMovieNestedInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    upsert?: MovieLanguageUpsertWithWhereUniqueWithoutMovieInput | MovieLanguageUpsertWithWhereUniqueWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    set?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    disconnect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    delete?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    update?: MovieLanguageUpdateWithWhereUniqueWithoutMovieInput | MovieLanguageUpdateWithWhereUniqueWithoutMovieInput[]
+    updateMany?: MovieLanguageUpdateManyWithWhereWithoutMovieInput | MovieLanguageUpdateManyWithWhereWithoutMovieInput[]
+    deleteMany?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
+  }
+
+  export type MovieDateUpdateManyWithoutMovieNestedInput = {
+    create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
+    upsert?: MovieDateUpsertWithWhereUniqueWithoutMovieInput | MovieDateUpsertWithWhereUniqueWithoutMovieInput[]
+    createMany?: MovieDateCreateManyMovieInputEnvelope
+    set?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    disconnect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    delete?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    connect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    update?: MovieDateUpdateWithWhereUniqueWithoutMovieInput | MovieDateUpdateWithWhereUniqueWithoutMovieInput[]
+    updateMany?: MovieDateUpdateManyWithWhereWithoutMovieInput | MovieDateUpdateManyWithWhereWithoutMovieInput[]
+    deleteMany?: MovieDateScalarWhereInput | MovieDateScalarWhereInput[]
   }
 
   export type ShowUpdateManyWithoutMovieNestedInput = {
@@ -11526,6 +14416,34 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    upsert?: MovieLanguageUpsertWithWhereUniqueWithoutMovieInput | MovieLanguageUpsertWithWhereUniqueWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    set?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    disconnect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    delete?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    update?: MovieLanguageUpdateWithWhereUniqueWithoutMovieInput | MovieLanguageUpdateWithWhereUniqueWithoutMovieInput[]
+    updateMany?: MovieLanguageUpdateManyWithWhereWithoutMovieInput | MovieLanguageUpdateManyWithWhereWithoutMovieInput[]
+    deleteMany?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
+  }
+
+  export type MovieDateUncheckedUpdateManyWithoutMovieNestedInput = {
+    create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
+    upsert?: MovieDateUpsertWithWhereUniqueWithoutMovieInput | MovieDateUpsertWithWhereUniqueWithoutMovieInput[]
+    createMany?: MovieDateCreateManyMovieInputEnvelope
+    set?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    disconnect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    delete?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    connect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+    update?: MovieDateUpdateWithWhereUniqueWithoutMovieInput | MovieDateUpdateWithWhereUniqueWithoutMovieInput[]
+    updateMany?: MovieDateUpdateManyWithWhereWithoutMovieInput | MovieDateUpdateManyWithWhereWithoutMovieInput[]
+    deleteMany?: MovieDateScalarWhereInput | MovieDateScalarWhereInput[]
+  }
+
   export type ShowUncheckedUpdateManyWithoutMovieNestedInput = {
     create?: XOR<ShowCreateWithoutMovieInput, ShowUncheckedCreateWithoutMovieInput> | ShowCreateWithoutMovieInput[] | ShowUncheckedCreateWithoutMovieInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutMovieInput | ShowCreateOrConnectWithoutMovieInput[]
@@ -11540,6 +14458,34 @@ export namespace Prisma {
     deleteMany?: ShowScalarWhereInput | ShowScalarWhereInput[]
   }
 
+  export type MovieCreateNestedOneWithoutLanguageTagsInput = {
+    create?: XOR<MovieCreateWithoutLanguageTagsInput, MovieUncheckedCreateWithoutLanguageTagsInput>
+    connectOrCreate?: MovieCreateOrConnectWithoutLanguageTagsInput
+    connect?: MovieWhereUniqueInput
+  }
+
+  export type MovieUpdateOneRequiredWithoutLanguageTagsNestedInput = {
+    create?: XOR<MovieCreateWithoutLanguageTagsInput, MovieUncheckedCreateWithoutLanguageTagsInput>
+    connectOrCreate?: MovieCreateOrConnectWithoutLanguageTagsInput
+    upsert?: MovieUpsertWithoutLanguageTagsInput
+    connect?: MovieWhereUniqueInput
+    update?: XOR<XOR<MovieUpdateToOneWithWhereWithoutLanguageTagsInput, MovieUpdateWithoutLanguageTagsInput>, MovieUncheckedUpdateWithoutLanguageTagsInput>
+  }
+
+  export type MovieCreateNestedOneWithoutAvailableDatesInput = {
+    create?: XOR<MovieCreateWithoutAvailableDatesInput, MovieUncheckedCreateWithoutAvailableDatesInput>
+    connectOrCreate?: MovieCreateOrConnectWithoutAvailableDatesInput
+    connect?: MovieWhereUniqueInput
+  }
+
+  export type MovieUpdateOneRequiredWithoutAvailableDatesNestedInput = {
+    create?: XOR<MovieCreateWithoutAvailableDatesInput, MovieUncheckedCreateWithoutAvailableDatesInput>
+    connectOrCreate?: MovieCreateOrConnectWithoutAvailableDatesInput
+    upsert?: MovieUpsertWithoutAvailableDatesInput
+    connect?: MovieWhereUniqueInput
+    update?: XOR<XOR<MovieUpdateToOneWithWhereWithoutAvailableDatesInput, MovieUpdateWithoutAvailableDatesInput>, MovieUncheckedUpdateWithoutAvailableDatesInput>
+  }
+
   export type ShowCreateNestedManyWithoutTheatreInput = {
     create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
@@ -11547,11 +14493,25 @@ export namespace Prisma {
     connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
   }
 
+  export type SeatCreateNestedManyWithoutTheatreInput = {
+    create?: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput> | SeatCreateWithoutTheatreInput[] | SeatUncheckedCreateWithoutTheatreInput[]
+    connectOrCreate?: SeatCreateOrConnectWithoutTheatreInput | SeatCreateOrConnectWithoutTheatreInput[]
+    createMany?: SeatCreateManyTheatreInputEnvelope
+    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+  }
+
   export type ShowUncheckedCreateNestedManyWithoutTheatreInput = {
     create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
     createMany?: ShowCreateManyTheatreInputEnvelope
     connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
+  }
+
+  export type SeatUncheckedCreateNestedManyWithoutTheatreInput = {
+    create?: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput> | SeatCreateWithoutTheatreInput[] | SeatUncheckedCreateWithoutTheatreInput[]
+    connectOrCreate?: SeatCreateOrConnectWithoutTheatreInput | SeatCreateOrConnectWithoutTheatreInput[]
+    createMany?: SeatCreateManyTheatreInputEnvelope
+    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
   }
 
   export type ShowUpdateManyWithoutTheatreNestedInput = {
@@ -11568,6 +14528,20 @@ export namespace Prisma {
     deleteMany?: ShowScalarWhereInput | ShowScalarWhereInput[]
   }
 
+  export type SeatUpdateManyWithoutTheatreNestedInput = {
+    create?: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput> | SeatCreateWithoutTheatreInput[] | SeatUncheckedCreateWithoutTheatreInput[]
+    connectOrCreate?: SeatCreateOrConnectWithoutTheatreInput | SeatCreateOrConnectWithoutTheatreInput[]
+    upsert?: SeatUpsertWithWhereUniqueWithoutTheatreInput | SeatUpsertWithWhereUniqueWithoutTheatreInput[]
+    createMany?: SeatCreateManyTheatreInputEnvelope
+    set?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    disconnect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    delete?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    update?: SeatUpdateWithWhereUniqueWithoutTheatreInput | SeatUpdateWithWhereUniqueWithoutTheatreInput[]
+    updateMany?: SeatUpdateManyWithWhereWithoutTheatreInput | SeatUpdateManyWithWhereWithoutTheatreInput[]
+    deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
+  }
+
   export type ShowUncheckedUpdateManyWithoutTheatreNestedInput = {
     create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
@@ -11580,6 +14554,20 @@ export namespace Prisma {
     update?: ShowUpdateWithWhereUniqueWithoutTheatreInput | ShowUpdateWithWhereUniqueWithoutTheatreInput[]
     updateMany?: ShowUpdateManyWithWhereWithoutTheatreInput | ShowUpdateManyWithWhereWithoutTheatreInput[]
     deleteMany?: ShowScalarWhereInput | ShowScalarWhereInput[]
+  }
+
+  export type SeatUncheckedUpdateManyWithoutTheatreNestedInput = {
+    create?: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput> | SeatCreateWithoutTheatreInput[] | SeatUncheckedCreateWithoutTheatreInput[]
+    connectOrCreate?: SeatCreateOrConnectWithoutTheatreInput | SeatCreateOrConnectWithoutTheatreInput[]
+    upsert?: SeatUpsertWithWhereUniqueWithoutTheatreInput | SeatUpsertWithWhereUniqueWithoutTheatreInput[]
+    createMany?: SeatCreateManyTheatreInputEnvelope
+    set?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    disconnect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    delete?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    update?: SeatUpdateWithWhereUniqueWithoutTheatreInput | SeatUpdateWithWhereUniqueWithoutTheatreInput[]
+    updateMany?: SeatUpdateManyWithWhereWithoutTheatreInput | SeatUpdateManyWithWhereWithoutTheatreInput[]
+    deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
   }
 
   export type MovieCreateNestedOneWithoutShowsInput = {
@@ -11706,6 +14694,12 @@ export namespace Prisma {
     connect?: BookingWhereUniqueInput
   }
 
+  export type TheatreCreateNestedOneWithoutSeatsInput = {
+    create?: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
+    connectOrCreate?: TheatreCreateOrConnectWithoutSeatsInput
+    connect?: TheatreWhereUniqueInput
+  }
+
   export type ShowUpdateOneRequiredWithoutSeatsNestedInput = {
     create?: XOR<ShowCreateWithoutSeatsInput, ShowUncheckedCreateWithoutSeatsInput>
     connectOrCreate?: ShowCreateOrConnectWithoutSeatsInput
@@ -11722,6 +14716,16 @@ export namespace Prisma {
     delete?: BookingWhereInput | boolean
     connect?: BookingWhereUniqueInput
     update?: XOR<XOR<BookingUpdateToOneWithWhereWithoutSeatsInput, BookingUpdateWithoutSeatsInput>, BookingUncheckedUpdateWithoutSeatsInput>
+  }
+
+  export type TheatreUpdateOneWithoutSeatsNestedInput = {
+    create?: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
+    connectOrCreate?: TheatreCreateOrConnectWithoutSeatsInput
+    upsert?: TheatreUpsertWithoutSeatsInput
+    disconnect?: TheatreWhereInput | boolean
+    delete?: TheatreWhereInput | boolean
+    connect?: TheatreWhereUniqueInput
+    update?: XOR<XOR<TheatreUpdateToOneWithWhereWithoutSeatsInput, TheatreUpdateWithoutSeatsInput>, TheatreUncheckedUpdateWithoutSeatsInput>
   }
 
   export type UserCreateNestedOneWithoutBookingsInput = {
@@ -12063,10 +15067,12 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
+    availableDates?: MovieDateCreateNestedManyWithoutMovieInput
     shows?: ShowCreateNestedManyWithoutMovieInput
   }
 
@@ -12075,10 +15081,12 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
     shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
   }
 
@@ -12116,8 +15124,8 @@ export namespace Prisma {
     title?: StringFilter<"Movie"> | string
     description?: StringFilter<"Movie"> | string
     posterUrl?: StringFilter<"Movie"> | string
-    language?: StringFilter<"Movie"> | string
     runtime?: IntFilter<"Movie"> | number
+    price?: IntFilter<"Movie"> | number
     categoryId?: IntNullableFilter<"Movie"> | number | null
     createdAt?: DateTimeFilter<"Movie"> | Date | string
     updatedAt?: DateTimeFilter<"Movie"> | Date | string
@@ -12135,6 +15143,44 @@ export namespace Prisma {
   export type CategoryCreateOrConnectWithoutMoviesInput = {
     where: CategoryWhereUniqueInput
     create: XOR<CategoryCreateWithoutMoviesInput, CategoryUncheckedCreateWithoutMoviesInput>
+  }
+
+  export type MovieLanguageCreateWithoutMovieInput = {
+    language: string
+  }
+
+  export type MovieLanguageUncheckedCreateWithoutMovieInput = {
+    id?: number
+    language: string
+  }
+
+  export type MovieLanguageCreateOrConnectWithoutMovieInput = {
+    where: MovieLanguageWhereUniqueInput
+    create: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput>
+  }
+
+  export type MovieLanguageCreateManyMovieInputEnvelope = {
+    data: MovieLanguageCreateManyMovieInput | MovieLanguageCreateManyMovieInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MovieDateCreateWithoutMovieInput = {
+    date: Date | string
+  }
+
+  export type MovieDateUncheckedCreateWithoutMovieInput = {
+    id?: number
+    date: Date | string
+  }
+
+  export type MovieDateCreateOrConnectWithoutMovieInput = {
+    where: MovieDateWhereUniqueInput
+    create: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput>
+  }
+
+  export type MovieDateCreateManyMovieInputEnvelope = {
+    data: MovieDateCreateManyMovieInput | MovieDateCreateManyMovieInput[]
+    skipDuplicates?: boolean
   }
 
   export type ShowCreateWithoutMovieInput = {
@@ -12186,6 +15232,56 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
+  export type MovieLanguageUpsertWithWhereUniqueWithoutMovieInput = {
+    where: MovieLanguageWhereUniqueInput
+    update: XOR<MovieLanguageUpdateWithoutMovieInput, MovieLanguageUncheckedUpdateWithoutMovieInput>
+    create: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput>
+  }
+
+  export type MovieLanguageUpdateWithWhereUniqueWithoutMovieInput = {
+    where: MovieLanguageWhereUniqueInput
+    data: XOR<MovieLanguageUpdateWithoutMovieInput, MovieLanguageUncheckedUpdateWithoutMovieInput>
+  }
+
+  export type MovieLanguageUpdateManyWithWhereWithoutMovieInput = {
+    where: MovieLanguageScalarWhereInput
+    data: XOR<MovieLanguageUpdateManyMutationInput, MovieLanguageUncheckedUpdateManyWithoutMovieInput>
+  }
+
+  export type MovieLanguageScalarWhereInput = {
+    AND?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
+    OR?: MovieLanguageScalarWhereInput[]
+    NOT?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
+    id?: IntFilter<"MovieLanguage"> | number
+    language?: StringFilter<"MovieLanguage"> | string
+    movieId?: IntFilter<"MovieLanguage"> | number
+  }
+
+  export type MovieDateUpsertWithWhereUniqueWithoutMovieInput = {
+    where: MovieDateWhereUniqueInput
+    update: XOR<MovieDateUpdateWithoutMovieInput, MovieDateUncheckedUpdateWithoutMovieInput>
+    create: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput>
+  }
+
+  export type MovieDateUpdateWithWhereUniqueWithoutMovieInput = {
+    where: MovieDateWhereUniqueInput
+    data: XOR<MovieDateUpdateWithoutMovieInput, MovieDateUncheckedUpdateWithoutMovieInput>
+  }
+
+  export type MovieDateUpdateManyWithWhereWithoutMovieInput = {
+    where: MovieDateScalarWhereInput
+    data: XOR<MovieDateUpdateManyMutationInput, MovieDateUncheckedUpdateManyWithoutMovieInput>
+  }
+
+  export type MovieDateScalarWhereInput = {
+    AND?: MovieDateScalarWhereInput | MovieDateScalarWhereInput[]
+    OR?: MovieDateScalarWhereInput[]
+    NOT?: MovieDateScalarWhereInput | MovieDateScalarWhereInput[]
+    id?: IntFilter<"MovieDate"> | number
+    date?: DateTimeFilter<"MovieDate"> | Date | string
+    movieId?: IntFilter<"MovieDate"> | number
+  }
+
   export type ShowUpsertWithWhereUniqueWithoutMovieInput = {
     where: ShowWhereUniqueInput
     update: XOR<ShowUpdateWithoutMovieInput, ShowUncheckedUpdateWithoutMovieInput>
@@ -12212,6 +15308,146 @@ export namespace Prisma {
     showTime?: DateTimeFilter<"Show"> | Date | string
     createdAt?: DateTimeFilter<"Show"> | Date | string
     updatedAt?: DateTimeFilter<"Show"> | Date | string
+  }
+
+  export type MovieCreateWithoutLanguageTagsInput = {
+    title: string
+    description: string
+    posterUrl: string
+    runtime: number
+    price: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category?: CategoryCreateNestedOneWithoutMoviesInput
+    availableDates?: MovieDateCreateNestedManyWithoutMovieInput
+    shows?: ShowCreateNestedManyWithoutMovieInput
+  }
+
+  export type MovieUncheckedCreateWithoutLanguageTagsInput = {
+    id?: number
+    title: string
+    description: string
+    posterUrl: string
+    runtime: number
+    price: number
+    categoryId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
+    shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
+  }
+
+  export type MovieCreateOrConnectWithoutLanguageTagsInput = {
+    where: MovieWhereUniqueInput
+    create: XOR<MovieCreateWithoutLanguageTagsInput, MovieUncheckedCreateWithoutLanguageTagsInput>
+  }
+
+  export type MovieUpsertWithoutLanguageTagsInput = {
+    update: XOR<MovieUpdateWithoutLanguageTagsInput, MovieUncheckedUpdateWithoutLanguageTagsInput>
+    create: XOR<MovieCreateWithoutLanguageTagsInput, MovieUncheckedCreateWithoutLanguageTagsInput>
+    where?: MovieWhereInput
+  }
+
+  export type MovieUpdateToOneWithWhereWithoutLanguageTagsInput = {
+    where?: MovieWhereInput
+    data: XOR<MovieUpdateWithoutLanguageTagsInput, MovieUncheckedUpdateWithoutLanguageTagsInput>
+  }
+
+  export type MovieUpdateWithoutLanguageTagsInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    posterUrl?: StringFieldUpdateOperationsInput | string
+    runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: CategoryUpdateOneWithoutMoviesNestedInput
+    availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
+    shows?: ShowUpdateManyWithoutMovieNestedInput
+  }
+
+  export type MovieUncheckedUpdateWithoutLanguageTagsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    posterUrl?: StringFieldUpdateOperationsInput | string
+    runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
+    shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
+  }
+
+  export type MovieCreateWithoutAvailableDatesInput = {
+    title: string
+    description: string
+    posterUrl: string
+    runtime: number
+    price: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category?: CategoryCreateNestedOneWithoutMoviesInput
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
+    shows?: ShowCreateNestedManyWithoutMovieInput
+  }
+
+  export type MovieUncheckedCreateWithoutAvailableDatesInput = {
+    id?: number
+    title: string
+    description: string
+    posterUrl: string
+    runtime: number
+    price: number
+    categoryId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
+  }
+
+  export type MovieCreateOrConnectWithoutAvailableDatesInput = {
+    where: MovieWhereUniqueInput
+    create: XOR<MovieCreateWithoutAvailableDatesInput, MovieUncheckedCreateWithoutAvailableDatesInput>
+  }
+
+  export type MovieUpsertWithoutAvailableDatesInput = {
+    update: XOR<MovieUpdateWithoutAvailableDatesInput, MovieUncheckedUpdateWithoutAvailableDatesInput>
+    create: XOR<MovieCreateWithoutAvailableDatesInput, MovieUncheckedCreateWithoutAvailableDatesInput>
+    where?: MovieWhereInput
+  }
+
+  export type MovieUpdateToOneWithWhereWithoutAvailableDatesInput = {
+    where?: MovieWhereInput
+    data: XOR<MovieUpdateWithoutAvailableDatesInput, MovieUncheckedUpdateWithoutAvailableDatesInput>
+  }
+
+  export type MovieUpdateWithoutAvailableDatesInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    posterUrl?: StringFieldUpdateOperationsInput | string
+    runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: CategoryUpdateOneWithoutMoviesNestedInput
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
+    shows?: ShowUpdateManyWithoutMovieNestedInput
+  }
+
+  export type MovieUncheckedUpdateWithoutAvailableDatesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    posterUrl?: StringFieldUpdateOperationsInput | string
+    runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
 
   export type ShowCreateWithoutTheatreInput = {
@@ -12243,6 +15479,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type SeatCreateWithoutTheatreInput = {
+    seatNumber: string
+    seatType: string
+    isBooked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    show: ShowCreateNestedOneWithoutSeatsInput
+    booking?: BookingCreateNestedOneWithoutSeatsInput
+  }
+
+  export type SeatUncheckedCreateWithoutTheatreInput = {
+    id?: number
+    seatNumber: string
+    seatType: string
+    showId: number
+    bookingId?: number | null
+    isBooked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SeatCreateOrConnectWithoutTheatreInput = {
+    where: SeatWhereUniqueInput
+    create: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput>
+  }
+
+  export type SeatCreateManyTheatreInputEnvelope = {
+    data: SeatCreateManyTheatreInput | SeatCreateManyTheatreInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ShowUpsertWithWhereUniqueWithoutTheatreInput = {
     where: ShowWhereUniqueInput
     update: XOR<ShowUpdateWithoutTheatreInput, ShowUncheckedUpdateWithoutTheatreInput>
@@ -12259,15 +15526,48 @@ export namespace Prisma {
     data: XOR<ShowUpdateManyMutationInput, ShowUncheckedUpdateManyWithoutTheatreInput>
   }
 
+  export type SeatUpsertWithWhereUniqueWithoutTheatreInput = {
+    where: SeatWhereUniqueInput
+    update: XOR<SeatUpdateWithoutTheatreInput, SeatUncheckedUpdateWithoutTheatreInput>
+    create: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput>
+  }
+
+  export type SeatUpdateWithWhereUniqueWithoutTheatreInput = {
+    where: SeatWhereUniqueInput
+    data: XOR<SeatUpdateWithoutTheatreInput, SeatUncheckedUpdateWithoutTheatreInput>
+  }
+
+  export type SeatUpdateManyWithWhereWithoutTheatreInput = {
+    where: SeatScalarWhereInput
+    data: XOR<SeatUpdateManyMutationInput, SeatUncheckedUpdateManyWithoutTheatreInput>
+  }
+
+  export type SeatScalarWhereInput = {
+    AND?: SeatScalarWhereInput | SeatScalarWhereInput[]
+    OR?: SeatScalarWhereInput[]
+    NOT?: SeatScalarWhereInput | SeatScalarWhereInput[]
+    id?: IntFilter<"Seat"> | number
+    seatNumber?: StringFilter<"Seat"> | string
+    seatType?: StringFilter<"Seat"> | string
+    showId?: IntFilter<"Seat"> | number
+    bookingId?: IntNullableFilter<"Seat"> | number | null
+    theatreId?: IntNullableFilter<"Seat"> | number | null
+    isBooked?: BoolFilter<"Seat"> | boolean
+    createdAt?: DateTimeFilter<"Seat"> | Date | string
+    updatedAt?: DateTimeFilter<"Seat"> | Date | string
+  }
+
   export type MovieCreateWithoutShowsInput = {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     category?: CategoryCreateNestedOneWithoutMoviesInput
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
+    availableDates?: MovieDateCreateNestedManyWithoutMovieInput
   }
 
   export type MovieUncheckedCreateWithoutShowsInput = {
@@ -12275,11 +15575,13 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
   }
 
   export type MovieCreateOrConnectWithoutShowsInput = {
@@ -12293,6 +15595,7 @@ export namespace Prisma {
     seatCapacity: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    seats?: SeatCreateNestedManyWithoutTheatreInput
   }
 
   export type TheatreUncheckedCreateWithoutShowsInput = {
@@ -12302,6 +15605,7 @@ export namespace Prisma {
     seatCapacity: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    seats?: SeatUncheckedCreateNestedManyWithoutTheatreInput
   }
 
   export type TheatreCreateOrConnectWithoutShowsInput = {
@@ -12311,16 +15615,20 @@ export namespace Prisma {
 
   export type SeatCreateWithoutShowInput = {
     seatNumber: string
+    seatType: string
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     booking?: BookingCreateNestedOneWithoutSeatsInput
+    theatre?: TheatreCreateNestedOneWithoutSeatsInput
   }
 
   export type SeatUncheckedCreateWithoutShowInput = {
     id?: number
     seatNumber: string
+    seatType: string
     bookingId?: number | null
+    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12380,11 +15688,13 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneWithoutMoviesNestedInput
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
+    availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
   }
 
   export type MovieUncheckedUpdateWithoutShowsInput = {
@@ -12392,11 +15702,13 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
   }
 
   export type TheatreUpsertWithoutShowsInput = {
@@ -12416,6 +15728,7 @@ export namespace Prisma {
     seatCapacity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seats?: SeatUpdateManyWithoutTheatreNestedInput
   }
 
   export type TheatreUncheckedUpdateWithoutShowsInput = {
@@ -12425,6 +15738,7 @@ export namespace Prisma {
     seatCapacity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seats?: SeatUncheckedUpdateManyWithoutTheatreNestedInput
   }
 
   export type SeatUpsertWithWhereUniqueWithoutShowInput = {
@@ -12441,19 +15755,6 @@ export namespace Prisma {
   export type SeatUpdateManyWithWhereWithoutShowInput = {
     where: SeatScalarWhereInput
     data: XOR<SeatUpdateManyMutationInput, SeatUncheckedUpdateManyWithoutShowInput>
-  }
-
-  export type SeatScalarWhereInput = {
-    AND?: SeatScalarWhereInput | SeatScalarWhereInput[]
-    OR?: SeatScalarWhereInput[]
-    NOT?: SeatScalarWhereInput | SeatScalarWhereInput[]
-    id?: IntFilter<"Seat"> | number
-    seatNumber?: StringFilter<"Seat"> | string
-    showId?: IntFilter<"Seat"> | number
-    bookingId?: IntNullableFilter<"Seat"> | number | null
-    isBooked?: BoolFilter<"Seat"> | boolean
-    createdAt?: DateTimeFilter<"Seat"> | Date | string
-    updatedAt?: DateTimeFilter<"Seat"> | Date | string
   }
 
   export type BookingUpsertWithWhereUniqueWithoutShowInput = {
@@ -12520,6 +15821,30 @@ export namespace Prisma {
     create: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
   }
 
+  export type TheatreCreateWithoutSeatsInput = {
+    name: string
+    location: string
+    seatCapacity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    shows?: ShowCreateNestedManyWithoutTheatreInput
+  }
+
+  export type TheatreUncheckedCreateWithoutSeatsInput = {
+    id?: number
+    name: string
+    location: string
+    seatCapacity: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    shows?: ShowUncheckedCreateNestedManyWithoutTheatreInput
+  }
+
+  export type TheatreCreateOrConnectWithoutSeatsInput = {
+    where: TheatreWhereUniqueInput
+    create: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
+  }
+
   export type ShowUpsertWithoutSeatsInput = {
     update: XOR<ShowUpdateWithoutSeatsInput, ShowUncheckedUpdateWithoutSeatsInput>
     create: XOR<ShowCreateWithoutSeatsInput, ShowUncheckedCreateWithoutSeatsInput>
@@ -12580,6 +15905,36 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type TheatreUpsertWithoutSeatsInput = {
+    update: XOR<TheatreUpdateWithoutSeatsInput, TheatreUncheckedUpdateWithoutSeatsInput>
+    create: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
+    where?: TheatreWhereInput
+  }
+
+  export type TheatreUpdateToOneWithWhereWithoutSeatsInput = {
+    where?: TheatreWhereInput
+    data: XOR<TheatreUpdateWithoutSeatsInput, TheatreUncheckedUpdateWithoutSeatsInput>
+  }
+
+  export type TheatreUpdateWithoutSeatsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    location?: StringFieldUpdateOperationsInput | string
+    seatCapacity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    shows?: ShowUpdateManyWithoutTheatreNestedInput
+  }
+
+  export type TheatreUncheckedUpdateWithoutSeatsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    location?: StringFieldUpdateOperationsInput | string
+    seatCapacity?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    shows?: ShowUncheckedUpdateManyWithoutTheatreNestedInput
+  }
+
   export type UserCreateWithoutBookingsInput = {
     name: string
     email: string
@@ -12632,16 +15987,20 @@ export namespace Prisma {
 
   export type SeatCreateWithoutBookingInput = {
     seatNumber: string
+    seatType: string
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     show: ShowCreateNestedOneWithoutSeatsInput
+    theatre?: TheatreCreateNestedOneWithoutSeatsInput
   }
 
   export type SeatUncheckedCreateWithoutBookingInput = {
     id?: number
     seatNumber: string
+    seatType: string
     showId: number
+    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12777,8 +16136,8 @@ export namespace Prisma {
     title: string
     description: string
     posterUrl: string
-    language: string
     runtime: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12787,10 +16146,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
+    availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
     shows?: ShowUpdateManyWithoutMovieNestedInput
   }
 
@@ -12799,10 +16160,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
     shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
 
@@ -12811,10 +16174,20 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
-    language?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MovieLanguageCreateManyMovieInput = {
+    id?: number
+    language: string
+  }
+
+  export type MovieDateCreateManyMovieInput = {
+    id?: number
+    date: Date | string
   }
 
   export type ShowCreateManyMovieInput = {
@@ -12823,6 +16196,34 @@ export namespace Prisma {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type MovieLanguageUpdateWithoutMovieInput = {
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MovieLanguageUncheckedUpdateWithoutMovieInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MovieLanguageUncheckedUpdateManyWithoutMovieInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MovieDateUpdateWithoutMovieInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MovieDateUncheckedUpdateWithoutMovieInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MovieDateUncheckedUpdateManyWithoutMovieInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ShowUpdateWithoutMovieInput = {
@@ -12860,6 +16261,17 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type SeatCreateManyTheatreInput = {
+    id?: number
+    seatNumber: string
+    seatType: string
+    showId: number
+    bookingId?: number | null
+    isBooked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type ShowUpdateWithoutTheatreInput = {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12887,10 +16299,44 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SeatUpdateWithoutTheatreInput = {
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
+    booking?: BookingUpdateOneWithoutSeatsNestedInput
+  }
+
+  export type SeatUncheckedUpdateWithoutTheatreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    showId?: IntFieldUpdateOperationsInput | number
+    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SeatUncheckedUpdateManyWithoutTheatreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    showId?: IntFieldUpdateOperationsInput | number
+    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type SeatCreateManyShowInput = {
     id?: number
     seatNumber: string
+    seatType: string
     bookingId?: number | null
+    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12907,16 +16353,20 @@ export namespace Prisma {
 
   export type SeatUpdateWithoutShowInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     booking?: BookingUpdateOneWithoutSeatsNestedInput
+    theatre?: TheatreUpdateOneWithoutSeatsNestedInput
   }
 
   export type SeatUncheckedUpdateWithoutShowInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12925,7 +16375,9 @@ export namespace Prisma {
   export type SeatUncheckedUpdateManyWithoutShowInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12962,7 +16414,9 @@ export namespace Prisma {
   export type SeatCreateManyBookingInput = {
     id?: number
     seatNumber: string
+    seatType: string
     showId: number
+    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12970,16 +16424,20 @@ export namespace Prisma {
 
   export type SeatUpdateWithoutBookingInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
+    theatre?: TheatreUpdateOneWithoutSeatsNestedInput
   }
 
   export type SeatUncheckedUpdateWithoutBookingInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12988,7 +16446,9 @@ export namespace Prisma {
   export type SeatUncheckedUpdateManyWithoutBookingInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
+    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

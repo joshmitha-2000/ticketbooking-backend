@@ -1,70 +1,48 @@
 const bookingService = require('../services/bookingservice');
 
-async function getUserBookings(req, res) {
+const getUserBookings = async (req, res) => {
   try {
-    const userId = req.user.id;
-    const bookings = await bookingService.getBookingsByUserId(userId);
+    const bookings = await bookingService.getUserBookings(req.user.id);
     res.json(bookings);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch {
+    res.status(500).json({ error: 'Failed to fetch bookings.' });
   }
-}
+};
 
-async function getBookingById(req, res) {
+const getUserBookingById = async (req, res) => {
   try {
-    const bookingId = parseInt(req.params.id);
-    const userId = req.user.id;
-    const booking = await bookingService.getBookingByIdAndUserId(bookingId, userId);
-    if (!booking) return res.status(404).json({ error: 'Booking not found' });
+    const booking = await bookingService.getUserBookingById(req.user.id, Number(req.params.id));
+    if (!booking) return res.status(404).json({ error: 'Booking not found or unauthorized.' });
     res.json(booking);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch {
+    res.status(500).json({ error: 'Failed to fetch booking.' });
   }
-}
+};
 
-async function createBooking(req, res) {
+const getAllBookings = async (req, res) => {
   try {
-    const userId = req.user.id;
-    const { showId, seatIds, totalPrice } = req.body;
-
-    const booking = await bookingService.createBooking(userId, showId, seatIds, totalPrice);
-    res.status(201).json(booking);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const bookings = await bookingService.getAllBookings();
+    res.json(bookings);
+  } catch {
+    res.status(500).json({ error: 'Failed to fetch all bookings.' });
   }
-}
+};
 
-async function updateBooking(req, res) {
+const createBooking = async (req, res) => {
+  const { showId, seatIds } = req.body;
+
   try {
-    const bookingId = parseInt(req.params.id);
-    const userId = req.user.id;
-    const { seatIds, totalPrice } = req.body;
-
-    const updatedBooking = await bookingService.updateBooking(bookingId, userId, seatIds, totalPrice);
-    if (!updatedBooking) return res.status(404).json({ error: 'Booking not found or not authorized' });
-    res.json(updatedBooking);
+    const booking = await bookingService.createBooking(req.user.id, showId, seatIds);
+    res.status(201).json({ message: 'Booking confirmed', booking });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message || 'Booking failed and was canceled.' });
   }
-}
-
-async function deleteBooking(req, res) {
-  try {
-    const bookingId = parseInt(req.params.id);
-    const userId = req.user.id;
-
-    const deleted = await bookingService.deleteBooking(bookingId, userId);
-    if (!deleted) return res.status(404).json({ error: 'Booking not found or not authorized' });
-    res.json({ message: 'Booking deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
+};
 
 module.exports = {
   getUserBookings,
-  getBookingById,
+  getUserBookingById,
+  getAllBookings,
   createBooking,
-  updateBooking,
-  deleteBooking,
 };
+

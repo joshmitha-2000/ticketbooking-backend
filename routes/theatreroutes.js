@@ -8,8 +8,8 @@ router.get('/', theatreController.getAllTheatres);
 router.get('/:id', theatreController.getTheatreById);
 
 // Admin protected routes
-router.post('/', authenticate, authorizeRole, theatreController.createTheatre);
-router.put('/:id', authenticate, authorizeRole, theatreController.updateTheatre);
-router.delete('/:id', authenticate, authorizeRole, theatreController.deleteTheatre);
+router.post('/', authenticate, authorizeRole(['ADMIN']), theatreController.createTheatre);
+router.put('/:id', authenticate, authorizeRole(['ADMIN']), theatreController.updateTheatreById);
+router.delete('/:id', authenticate, authorizeRole(['ADMIN']), theatreController.deleteTheatreById);
 
 module.exports = router;

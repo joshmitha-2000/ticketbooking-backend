@@ -13,11 +13,14 @@ async function getCategoryById(id) {
 }
 
 async function createCategory(data) {
-  return await prisma.category.create({
-    data,
-  });
-}
-
+    console.log("🔵 [Service] createCategory with data:", data);
+    return prisma.category.create({
+      data: {
+        name: data.name,
+      }
+    });
+  }
+  
 async function updateCategory(id, data) {
   return await prisma.category.update({
     where: { id: Number(id) },

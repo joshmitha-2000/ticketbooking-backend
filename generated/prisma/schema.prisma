@@ -43,15 +43,36 @@ model Movie {
   title       String
   description String
   posterUrl   String
-  language    String
   runtime     Int // runtime in minutes
+  price       Int // Add this line
   category    Category? @relation(fields: [categoryId], references: [id])
   categoryId  Int?
+
+  languageTags   MovieLanguage[] // Many-to-many relation via MovieLanguage
+  availableDates MovieDate[] // One-to-many relation for specific available dates
 
   shows Show[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model MovieLanguage {
+  id       Int    @id @default(autoincrement())
+  language String
+  movie    Movie  @relation(fields: [movieId], references: [id])
+  movieId  Int
+
+  @@unique([language, movieId]) // Prevent duplicate language per movie
+}
+
+model MovieDate {
+  id      Int      @id @default(autoincrement())
+  date    DateTime
+  movie   Movie    @relation(fields: [movieId], references: [id])
+  movieId Int
+
+  @@unique([date, movieId]) // Prevent duplicate date per movie
 }
 
 model Theatre {
@@ -60,6 +81,7 @@ model Theatre {
   location     String
   seatCapacity Int
   shows        Show[]
+  seats        Seat[] // <-- Add this line
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -82,10 +104,13 @@ model Show {
 model Seat {
   id         Int      @id @default(autoincrement())
   seatNumber String
+  seatType   String // Add this line
   show       Show     @relation(fields: [showId], references: [id])
   showId     Int
   booking    Booking? @relation(fields: [bookingId], references: [id])
   bookingId  Int?
+  theatre    Theatre? @relation(fields: [theatreId], references: [id])
+  theatreId  Int? // nullable for now
 
   isBooked Boolean @default(false)
 

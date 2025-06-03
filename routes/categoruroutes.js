@@ -7,9 +7,9 @@ const { authenticate, authorizeRole } = require('../middlewears/usermiddlewear')
 router.get('/', categoryController.getAllCategories);
 router.get('/:id', categoryController.getCategoryById);
 
-// Admin protected routes
-router.post('/', authenticate, authorizeRole, categoryController.createCategory);
-router.put('/:id', authenticate, authorizeRole, categoryController.updateCategory);
-router.delete('/:id', authenticate, authorizeRole, categoryController.deleteCategory);
+// Admin protected routes (role array passed correctly)
+router.post('/', authenticate, authorizeRole(['ADMIN']), categoryController.createCategory);
+router.put('/:id', authenticate, authorizeRole(['ADMIN']), categoryController.updateCategory);
+router.delete('/:id', authenticate, authorizeRole(['ADMIN']), categoryController.deleteCategory);
 
 module.exports = router;

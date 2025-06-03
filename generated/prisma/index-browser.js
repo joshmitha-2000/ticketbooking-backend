@@ -141,11 +141,23 @@ exports.Prisma.MovieScalarFieldEnum = {
   title: 'title',
   description: 'description',
   posterUrl: 'posterUrl',
-  language: 'language',
   runtime: 'runtime',
+  price: 'price',
   categoryId: 'categoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MovieLanguageScalarFieldEnum = {
+  id: 'id',
+  language: 'language',
+  movieId: 'movieId'
+};
+
+exports.Prisma.MovieDateScalarFieldEnum = {
+  id: 'id',
+  date: 'date',
+  movieId: 'movieId'
 };
 
 exports.Prisma.TheatreScalarFieldEnum = {
@@ -169,8 +181,10 @@ exports.Prisma.ShowScalarFieldEnum = {
 exports.Prisma.SeatScalarFieldEnum = {
   id: 'id',
   seatNumber: 'seatNumber',
+  seatType: 'seatType',
   showId: 'showId',
   bookingId: 'bookingId',
+  theatreId: 'theatreId',
   isBooked: 'isBooked',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -215,6 +229,8 @@ exports.Prisma.ModelName = {
   User: 'User',
   Category: 'Category',
   Movie: 'Movie',
+  MovieLanguage: 'MovieLanguage',
+  MovieDate: 'MovieDate',
   Theatre: 'Theatre',
   Show: 'Show',
   Seat: 'Seat',
