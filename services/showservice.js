@@ -121,11 +121,6 @@ async function deleteShowById(id) {
   const showId = Number(id);
 
   return await prisma.$transaction(async (prisma) => {
-    // Delete bookings related to this show
-    await prisma.booking.deleteMany({
-      where: { showId },
-    });
-
     // Delete seats related to this show
     await prisma.seat.deleteMany({
       where: { showId },
