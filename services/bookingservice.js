@@ -1,6 +1,6 @@
-
 const prisma = require('../utils/prismaclient');
-// Get all bookings of a user with movie, theatre, seats, total price
+
+// Get all bookings of a user with movie, theatre, seats, total price (ordered newest first)
 async function getUserBookings(userId) {
   return prisma.booking.findMany({
     where: { userId },
@@ -12,6 +12,9 @@ async function getUserBookings(userId) {
         },
       },
       seats: { select: { id: true, seatNumber: true } },
+    },
+    orderBy: {
+      createdAt: 'desc',
     },
   });
 }
@@ -35,7 +38,7 @@ async function getUserBookingById(userId, bookingId) {
   });
 }
 
-// Admin: Get all bookings with user info, movie, amount
+// Admin: Get all bookings with user info, movie, amount (ordered newest first)
 async function getAllBookings() {
   const bookings = await prisma.booking.findMany({
     include: {
@@ -45,6 +48,9 @@ async function getAllBookings() {
           movie: { select: { title: true } },
         },
       },
+    },
+    orderBy: {
+      createdAt: 'desc',
     },
   });
 
