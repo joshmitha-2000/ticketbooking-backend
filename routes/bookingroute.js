@@ -19,7 +19,7 @@ router.post('/book', createBooking);
 
 // Admin-only route
 // Only admins can access this
-router.get('/all-bookings', authorizeRole(['admin']), getAllBookings);
+router.get('/all-bookings', authorizeRole(['ADMIN']), getAllBookings);
 
 
 module.exports = router;
