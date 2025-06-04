@@ -7,7 +7,6 @@ async function getAdminDashboardData() {
 
   const [totalMovies, todayBookings, todayShows] = await Promise.all([
     prisma.movie.count(),
-
     prisma.booking.findMany({
       where: {
         createdAt: {
@@ -19,7 +18,6 @@ async function getAdminDashboardData() {
         totalPrice: true,
       },
     }),
-
     prisma.show.findMany({
       where: {
         showTime: {
@@ -28,12 +26,29 @@ async function getAdminDashboardData() {
         },
       },
       include: {
-        seats: true,
+        movie: {
+          select: {
+            title: true,
+          },
+        },
+        theatre: {
+          select: {
+            name: true,
+          },
+        },
+        seats: {
+          select: {
+            isBooked: true,
+          },
+        },
       },
     }),
   ]);
 
-  const totalRevenueToday = todayBookings.reduce((sum, booking) => sum + booking.totalPrice, 0);
+  const totalRevenueToday = todayBookings.reduce(
+    (sum, booking) => sum + booking.totalPrice,
+    0
+  );
 
   let totalSeatsBookedToday = 0;
   let totalSeatsAvailableToday = 0;
@@ -45,12 +60,19 @@ async function getAdminDashboardData() {
     }
   }
 
+  const todayShowsList = todayShows.map(show => ({
+    movieTitle: show.movie.title,
+    theatreName: show.theatre.name,
+    showTime: show.showTime,
+  }));
+
   return {
     totalMovies,
     totalBookingsToday: todayBookings.length,
     totalRevenueToday,
     totalSeatsBookedToday,
     totalSeatsAvailableToday,
+    todayShowsList, // NEW
   };
 }
 
