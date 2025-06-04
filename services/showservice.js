@@ -116,18 +116,25 @@ async function updateShowById(id, data) {
   });
 }
 
-// Delete a show and its seats
+// Delete a show and its related bookings and seats (using transaction)
 async function deleteShowById(id) {
   const showId = Number(id);
 
-  // Delete seats first
-  await prisma.seat.deleteMany({
-    where: { showId },
-  });
+  return await prisma.$transaction(async (prisma) => {
+    // Delete bookings related to this show
+    await prisma.booking.deleteMany({
+      where: { showId },
+    });
 
-  // Delete show
-  return await prisma.show.delete({
-    where: { id: showId },
+    // Delete seats related to this show
+    await prisma.seat.deleteMany({
+      where: { showId },
+    });
+
+    // Delete the show itself
+    return await prisma.show.delete({
+      where: { id: showId },
+    });
   });
 }
 
@@ -172,4 +179,3 @@ module.exports = {
   countAvailableSeats,
   getSeatsByShowId,
 };
-
