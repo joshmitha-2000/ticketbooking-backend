@@ -72,7 +72,7 @@ async function getAdminDashboardData() {
     totalRevenueToday,
     totalSeatsBookedToday,
     totalSeatsAvailableToday,
-    todayShowsList, // NEW
+    todayShowsList, 
   };
 }
 
