@@ -36,15 +36,14 @@ const allowedOrigins = [
 // CORS middleware with origin logging for debugging
 app.use(cors({
   origin: function (origin, callback) {
-    console.log('Incoming request origin:', origin);
-    // Allow requests with no origin (curl, postman, mobile apps)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    callback(new Error('Not allowed by CORS'));
+    return callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json());
