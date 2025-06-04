@@ -21,7 +21,7 @@ async function registerUser(name, email, password, role) {
 
   // create confirmation token valid for 24 day
   const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '24d' });
-  const confirmUrl = `http://localhost:5000/api/auth/confirm/${token}`;
+  const confirmUrl = `https://ticketbooking-backend-sr3r.onrender.com/api/auth/confirm/${token}`;
 
   await sendConfirmationEmail(email, confirmUrl);
 
