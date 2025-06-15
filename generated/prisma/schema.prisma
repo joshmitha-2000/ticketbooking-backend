@@ -8,28 +8,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
-enum BookingStatus {
-  PENDING
-  CONFIRMED
-  CANCELLED
-}
-
 model User {
   id        Int       @id @default(autoincrement())
   name      String
   email     String    @unique
   password  String
   role      Role      @default(USER)
-  bookings  Booking[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   confirmed Boolean   @default(false)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  bookings  Booking[]
 }
 
 model Category {
@@ -39,97 +27,100 @@ model Category {
 }
 
 model Movie {
-  id          Int       @id @default(autoincrement())
-  title       String
-  description String
-  posterUrl   String
-  runtime     Int // runtime in minutes
-  price       Int // Add this line
-  category    Category? @relation(fields: [categoryId], references: [id])
-  categoryId  Int?
-
-  languageTags   MovieLanguage[] // Many-to-many relation via MovieLanguage
-  availableDates MovieDate[] // One-to-many relation for specific available dates
-
-  shows Show[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int             @id @default(autoincrement())
+  title          String
+  description    String
+  posterUrl      String
+  runtime        Int
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  categoryId     Int?
+  price          Int
+  category       Category?       @relation(fields: [categoryId], references: [id])
+  availableDates MovieDate[]
+  languageTags   MovieLanguage[]
+  shows          Show[]
 }
 
 model MovieLanguage {
   id       Int    @id @default(autoincrement())
   language String
-  movie    Movie  @relation(fields: [movieId], references: [id])
   movieId  Int
+  movie    Movie  @relation(fields: [movieId], references: [id], onDelete: Cascade)
 
-  @@unique([language, movieId]) // Prevent duplicate language per movie
+  @@unique([language, movieId])
 }
 
 model MovieDate {
   id      Int      @id @default(autoincrement())
   date    DateTime
-  movie   Movie    @relation(fields: [movieId], references: [id])
   movieId Int
+  movie   Movie    @relation(fields: [movieId], references: [id], onDelete: Cascade)
 
-  @@unique([date, movieId]) // Prevent duplicate date per movie
+  @@unique([date, movieId])
 }
 
 model Theatre {
-  id           Int    @id @default(autoincrement())
+  id           Int      @id @default(autoincrement())
   name         String
   location     String
   seatCapacity Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  seats        Seat[]
   shows        Show[]
-  seats        Seat[] // <-- Add this line
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Show {
   id        Int       @id @default(autoincrement())
-  movie     Movie     @relation(fields: [movieId], references: [id])
   movieId   Int
-  theatre   Theatre   @relation(fields: [theatreId], references: [id])
   theatreId Int
   showTime  DateTime
-  seats     Seat[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   bookings  Booking[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  seats     Seat[]
+  movie     Movie     @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  theatre   Theatre   @relation(fields: [theatreId], references: [id])
 }
 
 model Seat {
   id         Int      @id @default(autoincrement())
   seatNumber String
-  seatType   String // Add this line
-  show       Show     @relation(fields: [showId], references: [id])
   showId     Int
-  booking    Booking? @relation(fields: [bookingId], references: [id])
   bookingId  Int?
+  isBooked   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  seatType   String
+  theatreId  Int?
+  booking    Booking? @relation(fields: [bookingId], references: [id])
+  show       Show     @relation(fields: [showId], references: [id])
   theatre    Theatre? @relation(fields: [theatreId], references: [id])
-  theatreId  Int? // nullable for now
-
-  isBooked Boolean @default(false)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   @@unique([seatNumber, showId])
 }
 
 model Booking {
   id         Int           @id @default(autoincrement())
-  user       User          @relation(fields: [userId], references: [id])
   userId     Int
-  show       Show          @relation(fields: [showId], references: [id])
   showId     Int
-  seats      Seat[]
   totalPrice Float
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
   status     BookingStatus @default(PENDING)
+  show       Show          @relation(fields: [showId], references: [id])
+  user       User          @relation(fields: [userId], references: [id])
+  seats      Seat[]
+}
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+enum Role {
+  USER
+  ADMIN
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
 }

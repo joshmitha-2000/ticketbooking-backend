@@ -41,21 +41,21 @@ model Movie {
   languageTags   MovieLanguage[]
   shows          Show[]
 }
-
 model MovieLanguage {
   id       Int    @id @default(autoincrement())
   language String
   movieId  Int
-  movie    Movie  @relation(fields: [movieId], references: [id])
+  movie    Movie  @relation(fields: [movieId], references: [id], onDelete: Cascade)
 
   @@unique([language, movieId])
 }
+
 
 model MovieDate {
   id      Int      @id @default(autoincrement())
   date    DateTime
   movieId Int
-  movie   Movie    @relation(fields: [movieId], references: [id])
+  movie   Movie    @relation(fields: [movieId], references: [id], onDelete: Cascade)
 
   @@unique([date, movieId])
 }
@@ -80,10 +80,9 @@ model Show {
   updatedAt DateTime  @updatedAt
   bookings  Booking[]
   seats     Seat[]
-  movie     Movie     @relation(fields: [movieId], references: [id])
+  movie     Movie     @relation(fields: [movieId], references: [id], onDelete: Cascade)
   theatre   Theatre   @relation(fields: [theatreId], references: [id])
 }
-
 model Seat {
   id         Int      @id @default(autoincrement())
   seatNumber String

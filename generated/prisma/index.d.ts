@@ -1689,14 +1689,14 @@ export namespace Prisma {
    */
 
   export type MovieCountOutputType = {
-    languageTags: number
     availableDates: number
+    languageTags: number
     shows: number
   }
 
   export type MovieCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    languageTags?: boolean | MovieCountOutputTypeCountLanguageTagsArgs
     availableDates?: boolean | MovieCountOutputTypeCountAvailableDatesArgs
+    languageTags?: boolean | MovieCountOutputTypeCountLanguageTagsArgs
     shows?: boolean | MovieCountOutputTypeCountShowsArgs
   }
 
@@ -1714,15 +1714,15 @@ export namespace Prisma {
   /**
    * MovieCountOutputType without action
    */
-  export type MovieCountOutputTypeCountLanguageTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MovieLanguageWhereInput
+  export type MovieCountOutputTypeCountAvailableDatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovieDateWhereInput
   }
 
   /**
    * MovieCountOutputType without action
    */
-  export type MovieCountOutputTypeCountAvailableDatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MovieDateWhereInput
+  export type MovieCountOutputTypeCountLanguageTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MovieLanguageWhereInput
   }
 
   /**
@@ -1738,13 +1738,13 @@ export namespace Prisma {
    */
 
   export type TheatreCountOutputType = {
-    shows: number
     seats: number
+    shows: number
   }
 
   export type TheatreCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    shows?: boolean | TheatreCountOutputTypeCountShowsArgs
     seats?: boolean | TheatreCountOutputTypeCountSeatsArgs
+    shows?: boolean | TheatreCountOutputTypeCountShowsArgs
   }
 
   // Custom InputTypes
@@ -1761,15 +1761,15 @@ export namespace Prisma {
   /**
    * TheatreCountOutputType without action
    */
-  export type TheatreCountOutputTypeCountShowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ShowWhereInput
+  export type TheatreCountOutputTypeCountSeatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SeatWhereInput
   }
 
   /**
    * TheatreCountOutputType without action
    */
-  export type TheatreCountOutputTypeCountSeatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SeatWhereInput
+  export type TheatreCountOutputTypeCountShowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ShowWhereInput
   }
 
 
@@ -1778,13 +1778,13 @@ export namespace Prisma {
    */
 
   export type ShowCountOutputType = {
-    seats: number
     bookings: number
+    seats: number
   }
 
   export type ShowCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    seats?: boolean | ShowCountOutputTypeCountSeatsArgs
     bookings?: boolean | ShowCountOutputTypeCountBookingsArgs
+    seats?: boolean | ShowCountOutputTypeCountSeatsArgs
   }
 
   // Custom InputTypes
@@ -1801,15 +1801,15 @@ export namespace Prisma {
   /**
    * ShowCountOutputType without action
    */
-  export type ShowCountOutputTypeCountSeatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SeatWhereInput
+  export type ShowCountOutputTypeCountBookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookingWhereInput
   }
 
   /**
    * ShowCountOutputType without action
    */
-  export type ShowCountOutputTypeCountBookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BookingWhereInput
+  export type ShowCountOutputTypeCountSeatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SeatWhereInput
   }
 
 
@@ -1874,9 +1874,9 @@ export namespace Prisma {
     email: string | null
     password: string | null
     role: $Enums.Role | null
-    confirmed: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    confirmed: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1885,9 +1885,9 @@ export namespace Prisma {
     email: string | null
     password: string | null
     role: $Enums.Role | null
-    confirmed: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    confirmed: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1896,9 +1896,9 @@ export namespace Prisma {
     email: number
     password: number
     role: number
-    confirmed: number
     createdAt: number
     updatedAt: number
+    confirmed: number
     _all: number
   }
 
@@ -1917,9 +1917,9 @@ export namespace Prisma {
     email?: true
     password?: true
     role?: true
-    confirmed?: true
     createdAt?: true
     updatedAt?: true
+    confirmed?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1928,9 +1928,9 @@ export namespace Prisma {
     email?: true
     password?: true
     role?: true
-    confirmed?: true
     createdAt?: true
     updatedAt?: true
+    confirmed?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1939,9 +1939,9 @@ export namespace Prisma {
     email?: true
     password?: true
     role?: true
-    confirmed?: true
     createdAt?: true
     updatedAt?: true
+    confirmed?: true
     _all?: true
   }
 
@@ -2037,9 +2037,9 @@ export namespace Prisma {
     email: string
     password: string
     role: $Enums.Role
-    confirmed: boolean
     createdAt: Date
     updatedAt: Date
+    confirmed: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2067,9 +2067,9 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     role?: boolean
-    confirmed?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    confirmed?: boolean
     bookings?: boolean | User$bookingsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -2080,9 +2080,9 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     role?: boolean
-    confirmed?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    confirmed?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2091,9 +2091,9 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     role?: boolean
-    confirmed?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    confirmed?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -2102,12 +2102,12 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     role?: boolean
-    confirmed?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    confirmed?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "confirmed" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "createdAt" | "updatedAt" | "confirmed", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     bookings?: boolean | User$bookingsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2126,9 +2126,9 @@ export namespace Prisma {
       email: string
       password: string
       role: $Enums.Role
-      confirmed: boolean
       createdAt: Date
       updatedAt: Date
+      confirmed: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2558,9 +2558,9 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
-    readonly confirmed: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly confirmed: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -4071,15 +4071,15 @@ export namespace Prisma {
   export type MovieAvgAggregateOutputType = {
     id: number | null
     runtime: number | null
-    price: number | null
     categoryId: number | null
+    price: number | null
   }
 
   export type MovieSumAggregateOutputType = {
     id: number | null
     runtime: number | null
-    price: number | null
     categoryId: number | null
+    price: number | null
   }
 
   export type MovieMinAggregateOutputType = {
@@ -4088,10 +4088,10 @@ export namespace Prisma {
     description: string | null
     posterUrl: string | null
     runtime: number | null
-    price: number | null
-    categoryId: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    categoryId: number | null
+    price: number | null
   }
 
   export type MovieMaxAggregateOutputType = {
@@ -4100,10 +4100,10 @@ export namespace Prisma {
     description: string | null
     posterUrl: string | null
     runtime: number | null
-    price: number | null
-    categoryId: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    categoryId: number | null
+    price: number | null
   }
 
   export type MovieCountAggregateOutputType = {
@@ -4112,10 +4112,10 @@ export namespace Prisma {
     description: number
     posterUrl: number
     runtime: number
-    price: number
-    categoryId: number
     createdAt: number
     updatedAt: number
+    categoryId: number
+    price: number
     _all: number
   }
 
@@ -4123,15 +4123,15 @@ export namespace Prisma {
   export type MovieAvgAggregateInputType = {
     id?: true
     runtime?: true
-    price?: true
     categoryId?: true
+    price?: true
   }
 
   export type MovieSumAggregateInputType = {
     id?: true
     runtime?: true
-    price?: true
     categoryId?: true
+    price?: true
   }
 
   export type MovieMinAggregateInputType = {
@@ -4140,10 +4140,10 @@ export namespace Prisma {
     description?: true
     posterUrl?: true
     runtime?: true
-    price?: true
-    categoryId?: true
     createdAt?: true
     updatedAt?: true
+    categoryId?: true
+    price?: true
   }
 
   export type MovieMaxAggregateInputType = {
@@ -4152,10 +4152,10 @@ export namespace Prisma {
     description?: true
     posterUrl?: true
     runtime?: true
-    price?: true
-    categoryId?: true
     createdAt?: true
     updatedAt?: true
+    categoryId?: true
+    price?: true
   }
 
   export type MovieCountAggregateInputType = {
@@ -4164,10 +4164,10 @@ export namespace Prisma {
     description?: true
     posterUrl?: true
     runtime?: true
-    price?: true
-    categoryId?: true
     createdAt?: true
     updatedAt?: true
+    categoryId?: true
+    price?: true
     _all?: true
   }
 
@@ -4263,10 +4263,10 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
-    categoryId: number | null
     createdAt: Date
     updatedAt: Date
+    categoryId: number | null
+    price: number
     _count: MovieCountAggregateOutputType | null
     _avg: MovieAvgAggregateOutputType | null
     _sum: MovieSumAggregateOutputType | null
@@ -4294,13 +4294,13 @@ export namespace Prisma {
     description?: boolean
     posterUrl?: boolean
     runtime?: boolean
-    price?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    categoryId?: boolean
+    price?: boolean
     category?: boolean | Movie$categoryArgs<ExtArgs>
-    languageTags?: boolean | Movie$languageTagsArgs<ExtArgs>
     availableDates?: boolean | Movie$availableDatesArgs<ExtArgs>
+    languageTags?: boolean | Movie$languageTagsArgs<ExtArgs>
     shows?: boolean | Movie$showsArgs<ExtArgs>
     _count?: boolean | MovieCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["movie"]>
@@ -4311,10 +4311,10 @@ export namespace Prisma {
     description?: boolean
     posterUrl?: boolean
     runtime?: boolean
-    price?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    categoryId?: boolean
+    price?: boolean
     category?: boolean | Movie$categoryArgs<ExtArgs>
   }, ExtArgs["result"]["movie"]>
 
@@ -4324,10 +4324,10 @@ export namespace Prisma {
     description?: boolean
     posterUrl?: boolean
     runtime?: boolean
-    price?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    categoryId?: boolean
+    price?: boolean
     category?: boolean | Movie$categoryArgs<ExtArgs>
   }, ExtArgs["result"]["movie"]>
 
@@ -4337,17 +4337,17 @@ export namespace Prisma {
     description?: boolean
     posterUrl?: boolean
     runtime?: boolean
-    price?: boolean
-    categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    categoryId?: boolean
+    price?: boolean
   }
 
-  export type MovieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "posterUrl" | "runtime" | "price" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["movie"]>
+  export type MovieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "posterUrl" | "runtime" | "createdAt" | "updatedAt" | "categoryId" | "price", ExtArgs["result"]["movie"]>
   export type MovieInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | Movie$categoryArgs<ExtArgs>
-    languageTags?: boolean | Movie$languageTagsArgs<ExtArgs>
     availableDates?: boolean | Movie$availableDatesArgs<ExtArgs>
+    languageTags?: boolean | Movie$languageTagsArgs<ExtArgs>
     shows?: boolean | Movie$showsArgs<ExtArgs>
     _count?: boolean | MovieCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -4362,8 +4362,8 @@ export namespace Prisma {
     name: "Movie"
     objects: {
       category: Prisma.$CategoryPayload<ExtArgs> | null
-      languageTags: Prisma.$MovieLanguagePayload<ExtArgs>[]
       availableDates: Prisma.$MovieDatePayload<ExtArgs>[]
+      languageTags: Prisma.$MovieLanguagePayload<ExtArgs>[]
       shows: Prisma.$ShowPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -4372,10 +4372,10 @@ export namespace Prisma {
       description: string
       posterUrl: string
       runtime: number
-      price: number
-      categoryId: number | null
       createdAt: Date
       updatedAt: Date
+      categoryId: number | null
+      price: number
     }, ExtArgs["result"]["movie"]>
     composites: {}
   }
@@ -4771,8 +4771,8 @@ export namespace Prisma {
   export interface Prisma__MovieClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends Movie$categoryArgs<ExtArgs> = {}>(args?: Subset<T, Movie$categoryArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    languageTags<T extends Movie$languageTagsArgs<ExtArgs> = {}>(args?: Subset<T, Movie$languageTagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     availableDates<T extends Movie$availableDatesArgs<ExtArgs> = {}>(args?: Subset<T, Movie$availableDatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieDatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    languageTags<T extends Movie$languageTagsArgs<ExtArgs> = {}>(args?: Subset<T, Movie$languageTagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovieLanguagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     shows<T extends Movie$showsArgs<ExtArgs> = {}>(args?: Subset<T, Movie$showsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4808,10 +4808,10 @@ export namespace Prisma {
     readonly description: FieldRef<"Movie", 'String'>
     readonly posterUrl: FieldRef<"Movie", 'String'>
     readonly runtime: FieldRef<"Movie", 'Int'>
-    readonly price: FieldRef<"Movie", 'Int'>
-    readonly categoryId: FieldRef<"Movie", 'Int'>
     readonly createdAt: FieldRef<"Movie", 'DateTime'>
     readonly updatedAt: FieldRef<"Movie", 'DateTime'>
+    readonly categoryId: FieldRef<"Movie", 'Int'>
+    readonly price: FieldRef<"Movie", 'Int'>
   }
     
 
@@ -5227,30 +5227,6 @@ export namespace Prisma {
   }
 
   /**
-   * Movie.languageTags
-   */
-  export type Movie$languageTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MovieLanguage
-     */
-    select?: MovieLanguageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MovieLanguage
-     */
-    omit?: MovieLanguageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MovieLanguageInclude<ExtArgs> | null
-    where?: MovieLanguageWhereInput
-    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
-    cursor?: MovieLanguageWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MovieLanguageScalarFieldEnum | MovieLanguageScalarFieldEnum[]
-  }
-
-  /**
    * Movie.availableDates
    */
   export type Movie$availableDatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5272,6 +5248,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MovieDateScalarFieldEnum | MovieDateScalarFieldEnum[]
+  }
+
+  /**
+   * Movie.languageTags
+   */
+  export type Movie$languageTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MovieLanguage
+     */
+    select?: MovieLanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MovieLanguage
+     */
+    omit?: MovieLanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MovieLanguageInclude<ExtArgs> | null
+    where?: MovieLanguageWhereInput
+    orderBy?: MovieLanguageOrderByWithRelationInput | MovieLanguageOrderByWithRelationInput[]
+    cursor?: MovieLanguageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MovieLanguageScalarFieldEnum | MovieLanguageScalarFieldEnum[]
   }
 
   /**
@@ -7667,8 +7667,8 @@ export namespace Prisma {
     seatCapacity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    shows?: boolean | Theatre$showsArgs<ExtArgs>
     seats?: boolean | Theatre$seatsArgs<ExtArgs>
+    shows?: boolean | Theatre$showsArgs<ExtArgs>
     _count?: boolean | TheatreCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["theatre"]>
 
@@ -7701,8 +7701,8 @@ export namespace Prisma {
 
   export type TheatreOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "location" | "seatCapacity" | "createdAt" | "updatedAt", ExtArgs["result"]["theatre"]>
   export type TheatreInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    shows?: boolean | Theatre$showsArgs<ExtArgs>
     seats?: boolean | Theatre$seatsArgs<ExtArgs>
+    shows?: boolean | Theatre$showsArgs<ExtArgs>
     _count?: boolean | TheatreCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TheatreIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7711,8 +7711,8 @@ export namespace Prisma {
   export type $TheatrePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Theatre"
     objects: {
-      shows: Prisma.$ShowPayload<ExtArgs>[]
       seats: Prisma.$SeatPayload<ExtArgs>[]
+      shows: Prisma.$ShowPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -8115,8 +8115,8 @@ export namespace Prisma {
    */
   export interface Prisma__TheatreClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    shows<T extends Theatre$showsArgs<ExtArgs> = {}>(args?: Subset<T, Theatre$showsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     seats<T extends Theatre$seatsArgs<ExtArgs> = {}>(args?: Subset<T, Theatre$seatsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    shows<T extends Theatre$showsArgs<ExtArgs> = {}>(args?: Subset<T, Theatre$showsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8540,30 +8540,6 @@ export namespace Prisma {
   }
 
   /**
-   * Theatre.shows
-   */
-  export type Theatre$showsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Show
-     */
-    select?: ShowSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Show
-     */
-    omit?: ShowOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ShowInclude<ExtArgs> | null
-    where?: ShowWhereInput
-    orderBy?: ShowOrderByWithRelationInput | ShowOrderByWithRelationInput[]
-    cursor?: ShowWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ShowScalarFieldEnum | ShowScalarFieldEnum[]
-  }
-
-  /**
    * Theatre.seats
    */
   export type Theatre$seatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8585,6 +8561,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SeatScalarFieldEnum | SeatScalarFieldEnum[]
+  }
+
+  /**
+   * Theatre.shows
+   */
+  export type Theatre$showsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Show
+     */
+    select?: ShowSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Show
+     */
+    omit?: ShowOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ShowInclude<ExtArgs> | null
+    where?: ShowWhereInput
+    orderBy?: ShowOrderByWithRelationInput | ShowOrderByWithRelationInput[]
+    cursor?: ShowWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ShowScalarFieldEnum | ShowScalarFieldEnum[]
   }
 
   /**
@@ -8820,10 +8820,10 @@ export namespace Prisma {
     showTime?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    bookings?: boolean | Show$bookingsArgs<ExtArgs>
+    seats?: boolean | Show$seatsArgs<ExtArgs>
     movie?: boolean | MovieDefaultArgs<ExtArgs>
     theatre?: boolean | TheatreDefaultArgs<ExtArgs>
-    seats?: boolean | Show$seatsArgs<ExtArgs>
-    bookings?: boolean | Show$bookingsArgs<ExtArgs>
     _count?: boolean | ShowCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["show"]>
 
@@ -8860,10 +8860,10 @@ export namespace Prisma {
 
   export type ShowOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "movieId" | "theatreId" | "showTime" | "createdAt" | "updatedAt", ExtArgs["result"]["show"]>
   export type ShowInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bookings?: boolean | Show$bookingsArgs<ExtArgs>
+    seats?: boolean | Show$seatsArgs<ExtArgs>
     movie?: boolean | MovieDefaultArgs<ExtArgs>
     theatre?: boolean | TheatreDefaultArgs<ExtArgs>
-    seats?: boolean | Show$seatsArgs<ExtArgs>
-    bookings?: boolean | Show$bookingsArgs<ExtArgs>
     _count?: boolean | ShowCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ShowIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8878,10 +8878,10 @@ export namespace Prisma {
   export type $ShowPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Show"
     objects: {
+      bookings: Prisma.$BookingPayload<ExtArgs>[]
+      seats: Prisma.$SeatPayload<ExtArgs>[]
       movie: Prisma.$MoviePayload<ExtArgs>
       theatre: Prisma.$TheatrePayload<ExtArgs>
-      seats: Prisma.$SeatPayload<ExtArgs>[]
-      bookings: Prisma.$BookingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -9284,10 +9284,10 @@ export namespace Prisma {
    */
   export interface Prisma__ShowClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    bookings<T extends Show$bookingsArgs<ExtArgs> = {}>(args?: Subset<T, Show$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    seats<T extends Show$seatsArgs<ExtArgs> = {}>(args?: Subset<T, Show$seatsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     movie<T extends MovieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MovieDefaultArgs<ExtArgs>>): Prisma__MovieClient<$Result.GetResult<Prisma.$MoviePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     theatre<T extends TheatreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TheatreDefaultArgs<ExtArgs>>): Prisma__TheatreClient<$Result.GetResult<Prisma.$TheatrePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    seats<T extends Show$seatsArgs<ExtArgs> = {}>(args?: Subset<T, Show$seatsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    bookings<T extends Show$bookingsArgs<ExtArgs> = {}>(args?: Subset<T, Show$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9719,30 +9719,6 @@ export namespace Prisma {
   }
 
   /**
-   * Show.seats
-   */
-  export type Show$seatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Seat
-     */
-    select?: SeatSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Seat
-     */
-    omit?: SeatOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SeatInclude<ExtArgs> | null
-    where?: SeatWhereInput
-    orderBy?: SeatOrderByWithRelationInput | SeatOrderByWithRelationInput[]
-    cursor?: SeatWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: SeatScalarFieldEnum | SeatScalarFieldEnum[]
-  }
-
-  /**
    * Show.bookings
    */
   export type Show$bookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9764,6 +9740,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
+   * Show.seats
+   */
+  export type Show$seatsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Seat
+     */
+    select?: SeatSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Seat
+     */
+    omit?: SeatOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SeatInclude<ExtArgs> | null
+    where?: SeatWhereInput
+    orderBy?: SeatOrderByWithRelationInput | SeatOrderByWithRelationInput[]
+    cursor?: SeatWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SeatScalarFieldEnum | SeatScalarFieldEnum[]
   }
 
   /**
@@ -9814,37 +9814,37 @@ export namespace Prisma {
   export type SeatMinAggregateOutputType = {
     id: number | null
     seatNumber: string | null
-    seatType: string | null
     showId: number | null
     bookingId: number | null
-    theatreId: number | null
     isBooked: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    seatType: string | null
+    theatreId: number | null
   }
 
   export type SeatMaxAggregateOutputType = {
     id: number | null
     seatNumber: string | null
-    seatType: string | null
     showId: number | null
     bookingId: number | null
-    theatreId: number | null
     isBooked: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    seatType: string | null
+    theatreId: number | null
   }
 
   export type SeatCountAggregateOutputType = {
     id: number
     seatNumber: number
-    seatType: number
     showId: number
     bookingId: number
-    theatreId: number
     isBooked: number
     createdAt: number
     updatedAt: number
+    seatType: number
+    theatreId: number
     _all: number
   }
 
@@ -9866,37 +9866,37 @@ export namespace Prisma {
   export type SeatMinAggregateInputType = {
     id?: true
     seatNumber?: true
-    seatType?: true
     showId?: true
     bookingId?: true
-    theatreId?: true
     isBooked?: true
     createdAt?: true
     updatedAt?: true
+    seatType?: true
+    theatreId?: true
   }
 
   export type SeatMaxAggregateInputType = {
     id?: true
     seatNumber?: true
-    seatType?: true
     showId?: true
     bookingId?: true
-    theatreId?: true
     isBooked?: true
     createdAt?: true
     updatedAt?: true
+    seatType?: true
+    theatreId?: true
   }
 
   export type SeatCountAggregateInputType = {
     id?: true
     seatNumber?: true
-    seatType?: true
     showId?: true
     bookingId?: true
-    theatreId?: true
     isBooked?: true
     createdAt?: true
     updatedAt?: true
+    seatType?: true
+    theatreId?: true
     _all?: true
   }
 
@@ -9989,13 +9989,13 @@ export namespace Prisma {
   export type SeatGroupByOutputType = {
     id: number
     seatNumber: string
-    seatType: string
     showId: number
     bookingId: number | null
-    theatreId: number | null
     isBooked: boolean
     createdAt: Date
     updatedAt: Date
+    seatType: string
+    theatreId: number | null
     _count: SeatCountAggregateOutputType | null
     _avg: SeatAvgAggregateOutputType | null
     _sum: SeatSumAggregateOutputType | null
@@ -10020,94 +10020,94 @@ export namespace Prisma {
   export type SeatSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seatNumber?: boolean
-    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
-    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    show?: boolean | ShowDefaultArgs<ExtArgs>
+    seatType?: boolean
+    theatreId?: boolean
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    show?: boolean | ShowDefaultArgs<ExtArgs>
     theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
   export type SeatSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seatNumber?: boolean
-    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
-    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    show?: boolean | ShowDefaultArgs<ExtArgs>
+    seatType?: boolean
+    theatreId?: boolean
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    show?: boolean | ShowDefaultArgs<ExtArgs>
     theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
   export type SeatSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seatNumber?: boolean
-    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
-    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    show?: boolean | ShowDefaultArgs<ExtArgs>
+    seatType?: boolean
+    theatreId?: boolean
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    show?: boolean | ShowDefaultArgs<ExtArgs>
     theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }, ExtArgs["result"]["seat"]>
 
   export type SeatSelectScalar = {
     id?: boolean
     seatNumber?: boolean
-    seatType?: boolean
     showId?: boolean
     bookingId?: boolean
-    theatreId?: boolean
     isBooked?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    seatType?: boolean
+    theatreId?: boolean
   }
 
-  export type SeatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "seatNumber" | "seatType" | "showId" | "bookingId" | "theatreId" | "isBooked" | "createdAt" | "updatedAt", ExtArgs["result"]["seat"]>
+  export type SeatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "seatNumber" | "showId" | "bookingId" | "isBooked" | "createdAt" | "updatedAt" | "seatType" | "theatreId", ExtArgs["result"]["seat"]>
   export type SeatInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    show?: boolean | ShowDefaultArgs<ExtArgs>
     theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }
   export type SeatIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    show?: boolean | ShowDefaultArgs<ExtArgs>
     theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }
   export type SeatIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    show?: boolean | ShowDefaultArgs<ExtArgs>
     booking?: boolean | Seat$bookingArgs<ExtArgs>
+    show?: boolean | ShowDefaultArgs<ExtArgs>
     theatre?: boolean | Seat$theatreArgs<ExtArgs>
   }
 
   export type $SeatPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Seat"
     objects: {
-      show: Prisma.$ShowPayload<ExtArgs>
       booking: Prisma.$BookingPayload<ExtArgs> | null
+      show: Prisma.$ShowPayload<ExtArgs>
       theatre: Prisma.$TheatrePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       seatNumber: string
-      seatType: string
       showId: number
       bookingId: number | null
-      theatreId: number | null
       isBooked: boolean
       createdAt: Date
       updatedAt: Date
+      seatType: string
+      theatreId: number | null
     }, ExtArgs["result"]["seat"]>
     composites: {}
   }
@@ -10502,8 +10502,8 @@ export namespace Prisma {
    */
   export interface Prisma__SeatClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    show<T extends ShowDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ShowDefaultArgs<ExtArgs>>): Prisma__ShowClient<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     booking<T extends Seat$bookingArgs<ExtArgs> = {}>(args?: Subset<T, Seat$bookingArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    show<T extends ShowDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ShowDefaultArgs<ExtArgs>>): Prisma__ShowClient<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     theatre<T extends Seat$theatreArgs<ExtArgs> = {}>(args?: Subset<T, Seat$theatreArgs<ExtArgs>>): Prisma__TheatreClient<$Result.GetResult<Prisma.$TheatrePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -10536,13 +10536,13 @@ export namespace Prisma {
   interface SeatFieldRefs {
     readonly id: FieldRef<"Seat", 'Int'>
     readonly seatNumber: FieldRef<"Seat", 'String'>
-    readonly seatType: FieldRef<"Seat", 'String'>
     readonly showId: FieldRef<"Seat", 'Int'>
     readonly bookingId: FieldRef<"Seat", 'Int'>
-    readonly theatreId: FieldRef<"Seat", 'Int'>
     readonly isBooked: FieldRef<"Seat", 'Boolean'>
     readonly createdAt: FieldRef<"Seat", 'DateTime'>
     readonly updatedAt: FieldRef<"Seat", 'DateTime'>
+    readonly seatType: FieldRef<"Seat", 'String'>
+    readonly theatreId: FieldRef<"Seat", 'Int'>
   }
     
 
@@ -11026,9 +11026,9 @@ export namespace Prisma {
     userId: number | null
     showId: number | null
     totalPrice: number | null
-    status: $Enums.BookingStatus | null
     createdAt: Date | null
     updatedAt: Date | null
+    status: $Enums.BookingStatus | null
   }
 
   export type BookingMaxAggregateOutputType = {
@@ -11036,9 +11036,9 @@ export namespace Prisma {
     userId: number | null
     showId: number | null
     totalPrice: number | null
-    status: $Enums.BookingStatus | null
     createdAt: Date | null
     updatedAt: Date | null
+    status: $Enums.BookingStatus | null
   }
 
   export type BookingCountAggregateOutputType = {
@@ -11046,9 +11046,9 @@ export namespace Prisma {
     userId: number
     showId: number
     totalPrice: number
-    status: number
     createdAt: number
     updatedAt: number
+    status: number
     _all: number
   }
 
@@ -11072,9 +11072,9 @@ export namespace Prisma {
     userId?: true
     showId?: true
     totalPrice?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
+    status?: true
   }
 
   export type BookingMaxAggregateInputType = {
@@ -11082,9 +11082,9 @@ export namespace Prisma {
     userId?: true
     showId?: true
     totalPrice?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
+    status?: true
   }
 
   export type BookingCountAggregateInputType = {
@@ -11092,9 +11092,9 @@ export namespace Prisma {
     userId?: true
     showId?: true
     totalPrice?: true
-    status?: true
     createdAt?: true
     updatedAt?: true
+    status?: true
     _all?: true
   }
 
@@ -11189,9 +11189,9 @@ export namespace Prisma {
     userId: number
     showId: number
     totalPrice: number
-    status: $Enums.BookingStatus
     createdAt: Date
     updatedAt: Date
+    status: $Enums.BookingStatus
     _count: BookingCountAggregateOutputType | null
     _avg: BookingAvgAggregateOutputType | null
     _sum: BookingSumAggregateOutputType | null
@@ -11218,11 +11218,11 @@ export namespace Prisma {
     userId?: boolean
     showId?: boolean
     totalPrice?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    status?: boolean
     show?: boolean | ShowDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     seats?: boolean | Booking$seatsArgs<ExtArgs>
     _count?: boolean | BookingCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["booking"]>
@@ -11232,11 +11232,11 @@ export namespace Prisma {
     userId?: boolean
     showId?: boolean
     totalPrice?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    status?: boolean
     show?: boolean | ShowDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["booking"]>
 
   export type BookingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11244,11 +11244,11 @@ export namespace Prisma {
     userId?: boolean
     showId?: boolean
     totalPrice?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    status?: boolean
     show?: boolean | ShowDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["booking"]>
 
   export type BookingSelectScalar = {
@@ -11256,32 +11256,32 @@ export namespace Prisma {
     userId?: boolean
     showId?: boolean
     totalPrice?: boolean
-    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    status?: boolean
   }
 
-  export type BookingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "showId" | "totalPrice" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["booking"]>
+  export type BookingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "showId" | "totalPrice" | "createdAt" | "updatedAt" | "status", ExtArgs["result"]["booking"]>
   export type BookingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     show?: boolean | ShowDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     seats?: boolean | Booking$seatsArgs<ExtArgs>
     _count?: boolean | BookingCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type BookingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     show?: boolean | ShowDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type BookingIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     show?: boolean | ShowDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $BookingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Booking"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       show: Prisma.$ShowPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
       seats: Prisma.$SeatPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -11289,9 +11289,9 @@ export namespace Prisma {
       userId: number
       showId: number
       totalPrice: number
-      status: $Enums.BookingStatus
       createdAt: Date
       updatedAt: Date
+      status: $Enums.BookingStatus
     }, ExtArgs["result"]["booking"]>
     composites: {}
   }
@@ -11686,8 +11686,8 @@ export namespace Prisma {
    */
   export interface Prisma__BookingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     show<T extends ShowDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ShowDefaultArgs<ExtArgs>>): Prisma__ShowClient<$Result.GetResult<Prisma.$ShowPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     seats<T extends Booking$seatsArgs<ExtArgs> = {}>(args?: Subset<T, Booking$seatsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -11722,9 +11722,9 @@ export namespace Prisma {
     readonly userId: FieldRef<"Booking", 'Int'>
     readonly showId: FieldRef<"Booking", 'Int'>
     readonly totalPrice: FieldRef<"Booking", 'Float'>
-    readonly status: FieldRef<"Booking", 'BookingStatus'>
     readonly createdAt: FieldRef<"Booking", 'DateTime'>
     readonly updatedAt: FieldRef<"Booking", 'DateTime'>
+    readonly status: FieldRef<"Booking", 'BookingStatus'>
   }
     
 
@@ -12183,9 +12183,9 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     role: 'role',
-    confirmed: 'confirmed',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    confirmed: 'confirmed'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -12205,10 +12205,10 @@ export namespace Prisma {
     description: 'description',
     posterUrl: 'posterUrl',
     runtime: 'runtime',
-    price: 'price',
-    categoryId: 'categoryId',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    categoryId: 'categoryId',
+    price: 'price'
   };
 
   export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof MovieScalarFieldEnum]
@@ -12259,13 +12259,13 @@ export namespace Prisma {
   export const SeatScalarFieldEnum: {
     id: 'id',
     seatNumber: 'seatNumber',
-    seatType: 'seatType',
     showId: 'showId',
     bookingId: 'bookingId',
-    theatreId: 'theatreId',
     isBooked: 'isBooked',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    seatType: 'seatType',
+    theatreId: 'theatreId'
   };
 
   export type SeatScalarFieldEnum = (typeof SeatScalarFieldEnum)[keyof typeof SeatScalarFieldEnum]
@@ -12276,9 +12276,9 @@ export namespace Prisma {
     userId: 'userId',
     showId: 'showId',
     totalPrice: 'totalPrice',
-    status: 'status',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    status: 'status'
   };
 
   export type BookingScalarFieldEnum = (typeof BookingScalarFieldEnum)[keyof typeof BookingScalarFieldEnum]
@@ -12356,13 +12356,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -12373,6 +12366,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -12416,9 +12416,9 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    confirmed?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    confirmed?: BoolFilter<"User"> | boolean
     bookings?: BookingListRelationFilter
   }
 
@@ -12428,9 +12428,9 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    confirmed?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    confirmed?: SortOrder
     bookings?: BookingOrderByRelationAggregateInput
   }
 
@@ -12443,9 +12443,9 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    confirmed?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    confirmed?: BoolFilter<"User"> | boolean
     bookings?: BookingListRelationFilter
   }, "id" | "email">
 
@@ -12455,9 +12455,9 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    confirmed?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    confirmed?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -12474,9 +12474,9 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
-    confirmed?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    confirmed?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type CategoryWhereInput = {
@@ -12530,13 +12530,13 @@ export namespace Prisma {
     description?: StringFilter<"Movie"> | string
     posterUrl?: StringFilter<"Movie"> | string
     runtime?: IntFilter<"Movie"> | number
-    price?: IntFilter<"Movie"> | number
-    categoryId?: IntNullableFilter<"Movie"> | number | null
     createdAt?: DateTimeFilter<"Movie"> | Date | string
     updatedAt?: DateTimeFilter<"Movie"> | Date | string
+    categoryId?: IntNullableFilter<"Movie"> | number | null
+    price?: IntFilter<"Movie"> | number
     category?: XOR<CategoryNullableScalarRelationFilter, CategoryWhereInput> | null
-    languageTags?: MovieLanguageListRelationFilter
     availableDates?: MovieDateListRelationFilter
+    languageTags?: MovieLanguageListRelationFilter
     shows?: ShowListRelationFilter
   }
 
@@ -12546,13 +12546,13 @@ export namespace Prisma {
     description?: SortOrder
     posterUrl?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
-    categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    price?: SortOrder
     category?: CategoryOrderByWithRelationInput
-    languageTags?: MovieLanguageOrderByRelationAggregateInput
     availableDates?: MovieDateOrderByRelationAggregateInput
+    languageTags?: MovieLanguageOrderByRelationAggregateInput
     shows?: ShowOrderByRelationAggregateInput
   }
 
@@ -12565,13 +12565,13 @@ export namespace Prisma {
     description?: StringFilter<"Movie"> | string
     posterUrl?: StringFilter<"Movie"> | string
     runtime?: IntFilter<"Movie"> | number
-    price?: IntFilter<"Movie"> | number
-    categoryId?: IntNullableFilter<"Movie"> | number | null
     createdAt?: DateTimeFilter<"Movie"> | Date | string
     updatedAt?: DateTimeFilter<"Movie"> | Date | string
+    categoryId?: IntNullableFilter<"Movie"> | number | null
+    price?: IntFilter<"Movie"> | number
     category?: XOR<CategoryNullableScalarRelationFilter, CategoryWhereInput> | null
-    languageTags?: MovieLanguageListRelationFilter
     availableDates?: MovieDateListRelationFilter
+    languageTags?: MovieLanguageListRelationFilter
     shows?: ShowListRelationFilter
   }, "id">
 
@@ -12581,10 +12581,10 @@ export namespace Prisma {
     description?: SortOrder
     posterUrl?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
-    categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    price?: SortOrder
     _count?: MovieCountOrderByAggregateInput
     _avg?: MovieAvgOrderByAggregateInput
     _max?: MovieMaxOrderByAggregateInput
@@ -12601,10 +12601,10 @@ export namespace Prisma {
     description?: StringWithAggregatesFilter<"Movie"> | string
     posterUrl?: StringWithAggregatesFilter<"Movie"> | string
     runtime?: IntWithAggregatesFilter<"Movie"> | number
-    price?: IntWithAggregatesFilter<"Movie"> | number
-    categoryId?: IntNullableWithAggregatesFilter<"Movie"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Movie"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Movie"> | Date | string
+    categoryId?: IntNullableWithAggregatesFilter<"Movie"> | number | null
+    price?: IntWithAggregatesFilter<"Movie"> | number
   }
 
   export type MovieLanguageWhereInput = {
@@ -12713,8 +12713,8 @@ export namespace Prisma {
     seatCapacity?: IntFilter<"Theatre"> | number
     createdAt?: DateTimeFilter<"Theatre"> | Date | string
     updatedAt?: DateTimeFilter<"Theatre"> | Date | string
-    shows?: ShowListRelationFilter
     seats?: SeatListRelationFilter
+    shows?: ShowListRelationFilter
   }
 
   export type TheatreOrderByWithRelationInput = {
@@ -12724,8 +12724,8 @@ export namespace Prisma {
     seatCapacity?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    shows?: ShowOrderByRelationAggregateInput
     seats?: SeatOrderByRelationAggregateInput
+    shows?: ShowOrderByRelationAggregateInput
   }
 
   export type TheatreWhereUniqueInput = Prisma.AtLeast<{
@@ -12738,8 +12738,8 @@ export namespace Prisma {
     seatCapacity?: IntFilter<"Theatre"> | number
     createdAt?: DateTimeFilter<"Theatre"> | Date | string
     updatedAt?: DateTimeFilter<"Theatre"> | Date | string
-    shows?: ShowListRelationFilter
     seats?: SeatListRelationFilter
+    shows?: ShowListRelationFilter
   }, "id">
 
   export type TheatreOrderByWithAggregationInput = {
@@ -12778,10 +12778,10 @@ export namespace Prisma {
     showTime?: DateTimeFilter<"Show"> | Date | string
     createdAt?: DateTimeFilter<"Show"> | Date | string
     updatedAt?: DateTimeFilter<"Show"> | Date | string
+    bookings?: BookingListRelationFilter
+    seats?: SeatListRelationFilter
     movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
     theatre?: XOR<TheatreScalarRelationFilter, TheatreWhereInput>
-    seats?: SeatListRelationFilter
-    bookings?: BookingListRelationFilter
   }
 
   export type ShowOrderByWithRelationInput = {
@@ -12791,10 +12791,10 @@ export namespace Prisma {
     showTime?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    bookings?: BookingOrderByRelationAggregateInput
+    seats?: SeatOrderByRelationAggregateInput
     movie?: MovieOrderByWithRelationInput
     theatre?: TheatreOrderByWithRelationInput
-    seats?: SeatOrderByRelationAggregateInput
-    bookings?: BookingOrderByRelationAggregateInput
   }
 
   export type ShowWhereUniqueInput = Prisma.AtLeast<{
@@ -12807,10 +12807,10 @@ export namespace Prisma {
     showTime?: DateTimeFilter<"Show"> | Date | string
     createdAt?: DateTimeFilter<"Show"> | Date | string
     updatedAt?: DateTimeFilter<"Show"> | Date | string
+    bookings?: BookingListRelationFilter
+    seats?: SeatListRelationFilter
     movie?: XOR<MovieScalarRelationFilter, MovieWhereInput>
     theatre?: XOR<TheatreScalarRelationFilter, TheatreWhereInput>
-    seats?: SeatListRelationFilter
-    bookings?: BookingListRelationFilter
   }, "id">
 
   export type ShowOrderByWithAggregationInput = {
@@ -12845,30 +12845,30 @@ export namespace Prisma {
     NOT?: SeatWhereInput | SeatWhereInput[]
     id?: IntFilter<"Seat"> | number
     seatNumber?: StringFilter<"Seat"> | string
-    seatType?: StringFilter<"Seat"> | string
     showId?: IntFilter<"Seat"> | number
     bookingId?: IntNullableFilter<"Seat"> | number | null
-    theatreId?: IntNullableFilter<"Seat"> | number | null
     isBooked?: BoolFilter<"Seat"> | boolean
     createdAt?: DateTimeFilter<"Seat"> | Date | string
     updatedAt?: DateTimeFilter<"Seat"> | Date | string
-    show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
+    seatType?: StringFilter<"Seat"> | string
+    theatreId?: IntNullableFilter<"Seat"> | number | null
     booking?: XOR<BookingNullableScalarRelationFilter, BookingWhereInput> | null
+    show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
     theatre?: XOR<TheatreNullableScalarRelationFilter, TheatreWhereInput> | null
   }
 
   export type SeatOrderByWithRelationInput = {
     id?: SortOrder
     seatNumber?: SortOrder
-    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrderInput | SortOrder
-    theatreId?: SortOrderInput | SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    show?: ShowOrderByWithRelationInput
+    seatType?: SortOrder
+    theatreId?: SortOrderInput | SortOrder
     booking?: BookingOrderByWithRelationInput
+    show?: ShowOrderByWithRelationInput
     theatre?: TheatreOrderByWithRelationInput
   }
 
@@ -12879,28 +12879,28 @@ export namespace Prisma {
     OR?: SeatWhereInput[]
     NOT?: SeatWhereInput | SeatWhereInput[]
     seatNumber?: StringFilter<"Seat"> | string
-    seatType?: StringFilter<"Seat"> | string
     showId?: IntFilter<"Seat"> | number
     bookingId?: IntNullableFilter<"Seat"> | number | null
-    theatreId?: IntNullableFilter<"Seat"> | number | null
     isBooked?: BoolFilter<"Seat"> | boolean
     createdAt?: DateTimeFilter<"Seat"> | Date | string
     updatedAt?: DateTimeFilter<"Seat"> | Date | string
-    show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
+    seatType?: StringFilter<"Seat"> | string
+    theatreId?: IntNullableFilter<"Seat"> | number | null
     booking?: XOR<BookingNullableScalarRelationFilter, BookingWhereInput> | null
+    show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
     theatre?: XOR<TheatreNullableScalarRelationFilter, TheatreWhereInput> | null
   }, "id" | "seatNumber_showId">
 
   export type SeatOrderByWithAggregationInput = {
     id?: SortOrder
     seatNumber?: SortOrder
-    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrderInput | SortOrder
-    theatreId?: SortOrderInput | SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    seatType?: SortOrder
+    theatreId?: SortOrderInput | SortOrder
     _count?: SeatCountOrderByAggregateInput
     _avg?: SeatAvgOrderByAggregateInput
     _max?: SeatMaxOrderByAggregateInput
@@ -12914,13 +12914,13 @@ export namespace Prisma {
     NOT?: SeatScalarWhereWithAggregatesInput | SeatScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Seat"> | number
     seatNumber?: StringWithAggregatesFilter<"Seat"> | string
-    seatType?: StringWithAggregatesFilter<"Seat"> | string
     showId?: IntWithAggregatesFilter<"Seat"> | number
     bookingId?: IntNullableWithAggregatesFilter<"Seat"> | number | null
-    theatreId?: IntNullableWithAggregatesFilter<"Seat"> | number | null
     isBooked?: BoolWithAggregatesFilter<"Seat"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Seat"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Seat"> | Date | string
+    seatType?: StringWithAggregatesFilter<"Seat"> | string
+    theatreId?: IntNullableWithAggregatesFilter<"Seat"> | number | null
   }
 
   export type BookingWhereInput = {
@@ -12931,11 +12931,11 @@ export namespace Prisma {
     userId?: IntFilter<"Booking"> | number
     showId?: IntFilter<"Booking"> | number
     totalPrice?: FloatFilter<"Booking"> | number
-    status?: EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
     createdAt?: DateTimeFilter<"Booking"> | Date | string
     updatedAt?: DateTimeFilter<"Booking"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    status?: EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
     show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     seats?: SeatListRelationFilter
   }
 
@@ -12944,11 +12944,11 @@ export namespace Prisma {
     userId?: SortOrder
     showId?: SortOrder
     totalPrice?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    status?: SortOrder
     show?: ShowOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
     seats?: SeatOrderByRelationAggregateInput
   }
 
@@ -12960,11 +12960,11 @@ export namespace Prisma {
     userId?: IntFilter<"Booking"> | number
     showId?: IntFilter<"Booking"> | number
     totalPrice?: FloatFilter<"Booking"> | number
-    status?: EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
     createdAt?: DateTimeFilter<"Booking"> | Date | string
     updatedAt?: DateTimeFilter<"Booking"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    status?: EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
     show?: XOR<ShowScalarRelationFilter, ShowWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     seats?: SeatListRelationFilter
   }, "id">
 
@@ -12973,9 +12973,9 @@ export namespace Prisma {
     userId?: SortOrder
     showId?: SortOrder
     totalPrice?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
     _count?: BookingCountOrderByAggregateInput
     _avg?: BookingAvgOrderByAggregateInput
     _max?: BookingMaxOrderByAggregateInput
@@ -12991,9 +12991,9 @@ export namespace Prisma {
     userId?: IntWithAggregatesFilter<"Booking"> | number
     showId?: IntWithAggregatesFilter<"Booking"> | number
     totalPrice?: FloatWithAggregatesFilter<"Booking"> | number
-    status?: EnumBookingStatusWithAggregatesFilter<"Booking"> | $Enums.BookingStatus
     createdAt?: DateTimeWithAggregatesFilter<"Booking"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Booking"> | Date | string
+    status?: EnumBookingStatusWithAggregatesFilter<"Booking"> | $Enums.BookingStatus
   }
 
   export type UserCreateInput = {
@@ -13001,9 +13001,9 @@ export namespace Prisma {
     email: string
     password: string
     role?: $Enums.Role
-    confirmed?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    confirmed?: boolean
     bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
@@ -13013,9 +13013,9 @@ export namespace Prisma {
     email: string
     password: string
     role?: $Enums.Role
-    confirmed?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    confirmed?: boolean
     bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -13024,9 +13024,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    confirmed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmed?: BoolFieldUpdateOperationsInput | boolean
     bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
@@ -13036,9 +13036,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    confirmed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmed?: BoolFieldUpdateOperationsInput | boolean
     bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -13048,9 +13048,9 @@ export namespace Prisma {
     email: string
     password: string
     role?: $Enums.Role
-    confirmed?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    confirmed?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -13058,9 +13058,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    confirmed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -13069,9 +13069,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    confirmed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CategoryCreateInput = {
@@ -13115,12 +13115,12 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    price: number
     category?: CategoryCreateNestedOneWithoutMoviesInput
-    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
     availableDates?: MovieDateCreateNestedManyWithoutMovieInput
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
     shows?: ShowCreateNestedManyWithoutMovieInput
   }
 
@@ -13130,12 +13130,12 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
-    categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    categoryId?: number | null
+    price: number
     availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
     shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
   }
 
@@ -13144,12 +13144,12 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
     category?: CategoryUpdateOneWithoutMoviesNestedInput
-    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
     availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
     shows?: ShowUpdateManyWithoutMovieNestedInput
   }
 
@@ -13159,12 +13159,12 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: IntFieldUpdateOperationsInput | number
     availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
     shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
 
@@ -13174,10 +13174,10 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
-    categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    categoryId?: number | null
+    price: number
   }
 
   export type MovieUpdateManyMutationInput = {
@@ -13185,9 +13185,9 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type MovieUncheckedUpdateManyInput = {
@@ -13196,10 +13196,10 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type MovieLanguageCreateInput = {
@@ -13284,8 +13284,8 @@ export namespace Prisma {
     seatCapacity: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    shows?: ShowCreateNestedManyWithoutTheatreInput
     seats?: SeatCreateNestedManyWithoutTheatreInput
+    shows?: ShowCreateNestedManyWithoutTheatreInput
   }
 
   export type TheatreUncheckedCreateInput = {
@@ -13295,8 +13295,8 @@ export namespace Prisma {
     seatCapacity: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    shows?: ShowUncheckedCreateNestedManyWithoutTheatreInput
     seats?: SeatUncheckedCreateNestedManyWithoutTheatreInput
+    shows?: ShowUncheckedCreateNestedManyWithoutTheatreInput
   }
 
   export type TheatreUpdateInput = {
@@ -13305,8 +13305,8 @@ export namespace Prisma {
     seatCapacity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    shows?: ShowUpdateManyWithoutTheatreNestedInput
     seats?: SeatUpdateManyWithoutTheatreNestedInput
+    shows?: ShowUpdateManyWithoutTheatreNestedInput
   }
 
   export type TheatreUncheckedUpdateInput = {
@@ -13316,8 +13316,8 @@ export namespace Prisma {
     seatCapacity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    shows?: ShowUncheckedUpdateManyWithoutTheatreNestedInput
     seats?: SeatUncheckedUpdateManyWithoutTheatreNestedInput
+    shows?: ShowUncheckedUpdateManyWithoutTheatreNestedInput
   }
 
   export type TheatreCreateManyInput = {
@@ -13350,10 +13350,10 @@ export namespace Prisma {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    bookings?: BookingCreateNestedManyWithoutShowInput
+    seats?: SeatCreateNestedManyWithoutShowInput
     movie: MovieCreateNestedOneWithoutShowsInput
     theatre: TheatreCreateNestedOneWithoutShowsInput
-    seats?: SeatCreateNestedManyWithoutShowInput
-    bookings?: BookingCreateNestedManyWithoutShowInput
   }
 
   export type ShowUncheckedCreateInput = {
@@ -13363,18 +13363,18 @@ export namespace Prisma {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-    seats?: SeatUncheckedCreateNestedManyWithoutShowInput
     bookings?: BookingUncheckedCreateNestedManyWithoutShowInput
+    seats?: SeatUncheckedCreateNestedManyWithoutShowInput
   }
 
   export type ShowUpdateInput = {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bookings?: BookingUpdateManyWithoutShowNestedInput
+    seats?: SeatUpdateManyWithoutShowNestedInput
     movie?: MovieUpdateOneRequiredWithoutShowsNestedInput
     theatre?: TheatreUpdateOneRequiredWithoutShowsNestedInput
-    seats?: SeatUpdateManyWithoutShowNestedInput
-    bookings?: BookingUpdateManyWithoutShowNestedInput
   }
 
   export type ShowUncheckedUpdateInput = {
@@ -13384,8 +13384,8 @@ export namespace Prisma {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
     bookings?: BookingUncheckedUpdateManyWithoutShowNestedInput
+    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
   }
 
   export type ShowCreateManyInput = {
@@ -13414,89 +13414,89 @@ export namespace Prisma {
 
   export type SeatCreateInput = {
     seatNumber: string
-    seatType: string
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    show: ShowCreateNestedOneWithoutSeatsInput
+    seatType: string
     booking?: BookingCreateNestedOneWithoutSeatsInput
+    show: ShowCreateNestedOneWithoutSeatsInput
     theatre?: TheatreCreateNestedOneWithoutSeatsInput
   }
 
   export type SeatUncheckedCreateInput = {
     id?: number
     seatNumber: string
-    seatType: string
     showId: number
     bookingId?: number | null
-    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    seatType: string
+    theatreId?: number | null
   }
 
   export type SeatUpdateInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
+    seatType?: StringFieldUpdateOperationsInput | string
     booking?: BookingUpdateOneWithoutSeatsNestedInput
+    show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
     theatre?: TheatreUpdateOneWithoutSeatsNestedInput
   }
 
   export type SeatUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
     bookingId?: NullableIntFieldUpdateOperationsInput | number | null
-    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type SeatCreateManyInput = {
     id?: number
     seatNumber: string
-    seatType: string
     showId: number
     bookingId?: number | null
-    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    seatType: string
+    theatreId?: number | null
   }
 
   export type SeatUpdateManyMutationInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
   }
 
   export type SeatUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
     bookingId?: NullableIntFieldUpdateOperationsInput | number | null
-    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type BookingCreateInput = {
     totalPrice: number
-    status?: $Enums.BookingStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
+    status?: $Enums.BookingStatus
     show: ShowCreateNestedOneWithoutBookingsInput
+    user: UserCreateNestedOneWithoutBookingsInput
     seats?: SeatCreateNestedManyWithoutBookingInput
   }
 
@@ -13505,19 +13505,19 @@ export namespace Prisma {
     userId: number
     showId: number
     totalPrice: number
-    status?: $Enums.BookingStatus
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: $Enums.BookingStatus
     seats?: SeatUncheckedCreateNestedManyWithoutBookingInput
   }
 
   export type BookingUpdateInput = {
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     show?: ShowUpdateOneRequiredWithoutBookingsNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
     seats?: SeatUpdateManyWithoutBookingNestedInput
   }
 
@@ -13526,9 +13526,9 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     showId?: IntFieldUpdateOperationsInput | number
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     seats?: SeatUncheckedUpdateManyWithoutBookingNestedInput
   }
 
@@ -13537,16 +13537,16 @@ export namespace Prisma {
     userId: number
     showId: number
     totalPrice: number
-    status?: $Enums.BookingStatus
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: $Enums.BookingStatus
   }
 
   export type BookingUpdateManyMutationInput = {
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   }
 
   export type BookingUncheckedUpdateManyInput = {
@@ -13554,9 +13554,9 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     showId?: IntFieldUpdateOperationsInput | number
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13592,11 +13592,6 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -13606,6 +13601,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type BookingListRelationFilter = {
@@ -13624,9 +13624,9 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    confirmed?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    confirmed?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -13639,9 +13639,9 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    confirmed?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    confirmed?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -13650,9 +13650,9 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    confirmed?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    confirmed?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -13703,14 +13703,6 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -13723,6 +13715,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type MovieListRelationFilter = {
@@ -13774,16 +13774,16 @@ export namespace Prisma {
     isNot?: CategoryWhereInput | null
   }
 
-  export type MovieLanguageListRelationFilter = {
-    every?: MovieLanguageWhereInput
-    some?: MovieLanguageWhereInput
-    none?: MovieLanguageWhereInput
-  }
-
   export type MovieDateListRelationFilter = {
     every?: MovieDateWhereInput
     some?: MovieDateWhereInput
     none?: MovieDateWhereInput
+  }
+
+  export type MovieLanguageListRelationFilter = {
+    every?: MovieLanguageWhereInput
+    some?: MovieLanguageWhereInput
+    none?: MovieLanguageWhereInput
   }
 
   export type ShowListRelationFilter = {
@@ -13797,11 +13797,11 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type MovieLanguageOrderByRelationAggregateInput = {
+  export type MovieDateOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type MovieDateOrderByRelationAggregateInput = {
+  export type MovieLanguageOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13815,17 +13815,17 @@ export namespace Prisma {
     description?: SortOrder
     posterUrl?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type MovieAvgOrderByAggregateInput = {
     id?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
     categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type MovieMaxOrderByAggregateInput = {
@@ -13834,10 +13834,10 @@ export namespace Prisma {
     description?: SortOrder
     posterUrl?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type MovieMinOrderByAggregateInput = {
@@ -13846,17 +13846,17 @@ export namespace Prisma {
     description?: SortOrder
     posterUrl?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
-    categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type MovieSumOrderByAggregateInput = {
     id?: SortOrder
     runtime?: SortOrder
-    price?: SortOrder
     categoryId?: SortOrder
+    price?: SortOrder
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -14037,14 +14037,14 @@ export namespace Prisma {
     theatreId?: SortOrder
   }
 
-  export type ShowScalarRelationFilter = {
-    is?: ShowWhereInput
-    isNot?: ShowWhereInput
-  }
-
   export type BookingNullableScalarRelationFilter = {
     is?: BookingWhereInput | null
     isNot?: BookingWhereInput | null
+  }
+
+  export type ShowScalarRelationFilter = {
+    is?: ShowWhereInput
+    isNot?: ShowWhereInput
   }
 
   export type TheatreNullableScalarRelationFilter = {
@@ -14060,13 +14060,13 @@ export namespace Prisma {
   export type SeatCountOrderByAggregateInput = {
     id?: SortOrder
     seatNumber?: SortOrder
-    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
-    theatreId?: SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    seatType?: SortOrder
+    theatreId?: SortOrder
   }
 
   export type SeatAvgOrderByAggregateInput = {
@@ -14079,25 +14079,25 @@ export namespace Prisma {
   export type SeatMaxOrderByAggregateInput = {
     id?: SortOrder
     seatNumber?: SortOrder
-    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
-    theatreId?: SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    seatType?: SortOrder
+    theatreId?: SortOrder
   }
 
   export type SeatMinOrderByAggregateInput = {
     id?: SortOrder
     seatNumber?: SortOrder
-    seatType?: SortOrder
     showId?: SortOrder
     bookingId?: SortOrder
-    theatreId?: SortOrder
     isBooked?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    seatType?: SortOrder
+    theatreId?: SortOrder
   }
 
   export type SeatSumOrderByAggregateInput = {
@@ -14135,9 +14135,9 @@ export namespace Prisma {
     userId?: SortOrder
     showId?: SortOrder
     totalPrice?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
   }
 
   export type BookingAvgOrderByAggregateInput = {
@@ -14152,9 +14152,9 @@ export namespace Prisma {
     userId?: SortOrder
     showId?: SortOrder
     totalPrice?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
   }
 
   export type BookingMinOrderByAggregateInput = {
@@ -14162,9 +14162,9 @@ export namespace Prisma {
     userId?: SortOrder
     showId?: SortOrder
     totalPrice?: SortOrder
-    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    status?: SortOrder
   }
 
   export type BookingSumOrderByAggregateInput = {
@@ -14222,12 +14222,12 @@ export namespace Prisma {
     set?: $Enums.Role
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type BookingUpdateManyWithoutUserNestedInput = {
@@ -14314,18 +14314,18 @@ export namespace Prisma {
     connect?: CategoryWhereUniqueInput
   }
 
-  export type MovieLanguageCreateNestedManyWithoutMovieInput = {
-    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
-    createMany?: MovieLanguageCreateManyMovieInputEnvelope
-    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-  }
-
   export type MovieDateCreateNestedManyWithoutMovieInput = {
     create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
     connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
     createMany?: MovieDateCreateManyMovieInputEnvelope
     connect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+  }
+
+  export type MovieLanguageCreateNestedManyWithoutMovieInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
   }
 
   export type ShowCreateNestedManyWithoutMovieInput = {
@@ -14335,18 +14335,18 @@ export namespace Prisma {
     connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
   }
 
-  export type MovieLanguageUncheckedCreateNestedManyWithoutMovieInput = {
-    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
-    createMany?: MovieLanguageCreateManyMovieInputEnvelope
-    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-  }
-
   export type MovieDateUncheckedCreateNestedManyWithoutMovieInput = {
     create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
     connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
     createMany?: MovieDateCreateManyMovieInputEnvelope
     connect?: MovieDateWhereUniqueInput | MovieDateWhereUniqueInput[]
+  }
+
+  export type MovieLanguageUncheckedCreateNestedManyWithoutMovieInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
   }
 
   export type ShowUncheckedCreateNestedManyWithoutMovieInput = {
@@ -14366,20 +14366,6 @@ export namespace Prisma {
     update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutMoviesInput, CategoryUpdateWithoutMoviesInput>, CategoryUncheckedUpdateWithoutMoviesInput>
   }
 
-  export type MovieLanguageUpdateManyWithoutMovieNestedInput = {
-    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
-    upsert?: MovieLanguageUpsertWithWhereUniqueWithoutMovieInput | MovieLanguageUpsertWithWhereUniqueWithoutMovieInput[]
-    createMany?: MovieLanguageCreateManyMovieInputEnvelope
-    set?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    disconnect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    delete?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    update?: MovieLanguageUpdateWithWhereUniqueWithoutMovieInput | MovieLanguageUpdateWithWhereUniqueWithoutMovieInput[]
-    updateMany?: MovieLanguageUpdateManyWithWhereWithoutMovieInput | MovieLanguageUpdateManyWithWhereWithoutMovieInput[]
-    deleteMany?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
-  }
-
   export type MovieDateUpdateManyWithoutMovieNestedInput = {
     create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
     connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
@@ -14392,6 +14378,20 @@ export namespace Prisma {
     update?: MovieDateUpdateWithWhereUniqueWithoutMovieInput | MovieDateUpdateWithWhereUniqueWithoutMovieInput[]
     updateMany?: MovieDateUpdateManyWithWhereWithoutMovieInput | MovieDateUpdateManyWithWhereWithoutMovieInput[]
     deleteMany?: MovieDateScalarWhereInput | MovieDateScalarWhereInput[]
+  }
+
+  export type MovieLanguageUpdateManyWithoutMovieNestedInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    upsert?: MovieLanguageUpsertWithWhereUniqueWithoutMovieInput | MovieLanguageUpsertWithWhereUniqueWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    set?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    disconnect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    delete?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    update?: MovieLanguageUpdateWithWhereUniqueWithoutMovieInput | MovieLanguageUpdateWithWhereUniqueWithoutMovieInput[]
+    updateMany?: MovieLanguageUpdateManyWithWhereWithoutMovieInput | MovieLanguageUpdateManyWithWhereWithoutMovieInput[]
+    deleteMany?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
   }
 
   export type ShowUpdateManyWithoutMovieNestedInput = {
@@ -14416,20 +14416,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput = {
-    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
-    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
-    upsert?: MovieLanguageUpsertWithWhereUniqueWithoutMovieInput | MovieLanguageUpsertWithWhereUniqueWithoutMovieInput[]
-    createMany?: MovieLanguageCreateManyMovieInputEnvelope
-    set?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    disconnect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    delete?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
-    update?: MovieLanguageUpdateWithWhereUniqueWithoutMovieInput | MovieLanguageUpdateWithWhereUniqueWithoutMovieInput[]
-    updateMany?: MovieLanguageUpdateManyWithWhereWithoutMovieInput | MovieLanguageUpdateManyWithWhereWithoutMovieInput[]
-    deleteMany?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
-  }
-
   export type MovieDateUncheckedUpdateManyWithoutMovieNestedInput = {
     create?: XOR<MovieDateCreateWithoutMovieInput, MovieDateUncheckedCreateWithoutMovieInput> | MovieDateCreateWithoutMovieInput[] | MovieDateUncheckedCreateWithoutMovieInput[]
     connectOrCreate?: MovieDateCreateOrConnectWithoutMovieInput | MovieDateCreateOrConnectWithoutMovieInput[]
@@ -14442,6 +14428,20 @@ export namespace Prisma {
     update?: MovieDateUpdateWithWhereUniqueWithoutMovieInput | MovieDateUpdateWithWhereUniqueWithoutMovieInput[]
     updateMany?: MovieDateUpdateManyWithWhereWithoutMovieInput | MovieDateUpdateManyWithWhereWithoutMovieInput[]
     deleteMany?: MovieDateScalarWhereInput | MovieDateScalarWhereInput[]
+  }
+
+  export type MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput = {
+    create?: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput> | MovieLanguageCreateWithoutMovieInput[] | MovieLanguageUncheckedCreateWithoutMovieInput[]
+    connectOrCreate?: MovieLanguageCreateOrConnectWithoutMovieInput | MovieLanguageCreateOrConnectWithoutMovieInput[]
+    upsert?: MovieLanguageUpsertWithWhereUniqueWithoutMovieInput | MovieLanguageUpsertWithWhereUniqueWithoutMovieInput[]
+    createMany?: MovieLanguageCreateManyMovieInputEnvelope
+    set?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    disconnect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    delete?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    connect?: MovieLanguageWhereUniqueInput | MovieLanguageWhereUniqueInput[]
+    update?: MovieLanguageUpdateWithWhereUniqueWithoutMovieInput | MovieLanguageUpdateWithWhereUniqueWithoutMovieInput[]
+    updateMany?: MovieLanguageUpdateManyWithWhereWithoutMovieInput | MovieLanguageUpdateManyWithWhereWithoutMovieInput[]
+    deleteMany?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
   }
 
   export type ShowUncheckedUpdateManyWithoutMovieNestedInput = {
@@ -14486,13 +14486,6 @@ export namespace Prisma {
     update?: XOR<XOR<MovieUpdateToOneWithWhereWithoutAvailableDatesInput, MovieUpdateWithoutAvailableDatesInput>, MovieUncheckedUpdateWithoutAvailableDatesInput>
   }
 
-  export type ShowCreateNestedManyWithoutTheatreInput = {
-    create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
-    connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
-    createMany?: ShowCreateManyTheatreInputEnvelope
-    connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
-  }
-
   export type SeatCreateNestedManyWithoutTheatreInput = {
     create?: XOR<SeatCreateWithoutTheatreInput, SeatUncheckedCreateWithoutTheatreInput> | SeatCreateWithoutTheatreInput[] | SeatUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: SeatCreateOrConnectWithoutTheatreInput | SeatCreateOrConnectWithoutTheatreInput[]
@@ -14500,7 +14493,7 @@ export namespace Prisma {
     connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
   }
 
-  export type ShowUncheckedCreateNestedManyWithoutTheatreInput = {
+  export type ShowCreateNestedManyWithoutTheatreInput = {
     create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
     createMany?: ShowCreateManyTheatreInputEnvelope
@@ -14514,18 +14507,11 @@ export namespace Prisma {
     connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
   }
 
-  export type ShowUpdateManyWithoutTheatreNestedInput = {
+  export type ShowUncheckedCreateNestedManyWithoutTheatreInput = {
     create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
-    upsert?: ShowUpsertWithWhereUniqueWithoutTheatreInput | ShowUpsertWithWhereUniqueWithoutTheatreInput[]
     createMany?: ShowCreateManyTheatreInputEnvelope
-    set?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
-    disconnect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
-    delete?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
     connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
-    update?: ShowUpdateWithWhereUniqueWithoutTheatreInput | ShowUpdateWithWhereUniqueWithoutTheatreInput[]
-    updateMany?: ShowUpdateManyWithWhereWithoutTheatreInput | ShowUpdateManyWithWhereWithoutTheatreInput[]
-    deleteMany?: ShowScalarWhereInput | ShowScalarWhereInput[]
   }
 
   export type SeatUpdateManyWithoutTheatreNestedInput = {
@@ -14542,7 +14528,7 @@ export namespace Prisma {
     deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
   }
 
-  export type ShowUncheckedUpdateManyWithoutTheatreNestedInput = {
+  export type ShowUpdateManyWithoutTheatreNestedInput = {
     create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
     connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
     upsert?: ShowUpsertWithWhereUniqueWithoutTheatreInput | ShowUpsertWithWhereUniqueWithoutTheatreInput[]
@@ -14570,6 +14556,34 @@ export namespace Prisma {
     deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
   }
 
+  export type ShowUncheckedUpdateManyWithoutTheatreNestedInput = {
+    create?: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput> | ShowCreateWithoutTheatreInput[] | ShowUncheckedCreateWithoutTheatreInput[]
+    connectOrCreate?: ShowCreateOrConnectWithoutTheatreInput | ShowCreateOrConnectWithoutTheatreInput[]
+    upsert?: ShowUpsertWithWhereUniqueWithoutTheatreInput | ShowUpsertWithWhereUniqueWithoutTheatreInput[]
+    createMany?: ShowCreateManyTheatreInputEnvelope
+    set?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
+    disconnect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
+    delete?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
+    connect?: ShowWhereUniqueInput | ShowWhereUniqueInput[]
+    update?: ShowUpdateWithWhereUniqueWithoutTheatreInput | ShowUpdateWithWhereUniqueWithoutTheatreInput[]
+    updateMany?: ShowUpdateManyWithWhereWithoutTheatreInput | ShowUpdateManyWithWhereWithoutTheatreInput[]
+    deleteMany?: ShowScalarWhereInput | ShowScalarWhereInput[]
+  }
+
+  export type BookingCreateNestedManyWithoutShowInput = {
+    create?: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput> | BookingCreateWithoutShowInput[] | BookingUncheckedCreateWithoutShowInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutShowInput | BookingCreateOrConnectWithoutShowInput[]
+    createMany?: BookingCreateManyShowInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
+  export type SeatCreateNestedManyWithoutShowInput = {
+    create?: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput> | SeatCreateWithoutShowInput[] | SeatUncheckedCreateWithoutShowInput[]
+    connectOrCreate?: SeatCreateOrConnectWithoutShowInput | SeatCreateOrConnectWithoutShowInput[]
+    createMany?: SeatCreateManyShowInputEnvelope
+    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+  }
+
   export type MovieCreateNestedOneWithoutShowsInput = {
     create?: XOR<MovieCreateWithoutShowsInput, MovieUncheckedCreateWithoutShowsInput>
     connectOrCreate?: MovieCreateOrConnectWithoutShowsInput
@@ -14582,14 +14596,7 @@ export namespace Prisma {
     connect?: TheatreWhereUniqueInput
   }
 
-  export type SeatCreateNestedManyWithoutShowInput = {
-    create?: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput> | SeatCreateWithoutShowInput[] | SeatUncheckedCreateWithoutShowInput[]
-    connectOrCreate?: SeatCreateOrConnectWithoutShowInput | SeatCreateOrConnectWithoutShowInput[]
-    createMany?: SeatCreateManyShowInputEnvelope
-    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
-  }
-
-  export type BookingCreateNestedManyWithoutShowInput = {
+  export type BookingUncheckedCreateNestedManyWithoutShowInput = {
     create?: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput> | BookingCreateWithoutShowInput[] | BookingUncheckedCreateWithoutShowInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutShowInput | BookingCreateOrConnectWithoutShowInput[]
     createMany?: BookingCreateManyShowInputEnvelope
@@ -14603,11 +14610,32 @@ export namespace Prisma {
     connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
   }
 
-  export type BookingUncheckedCreateNestedManyWithoutShowInput = {
+  export type BookingUpdateManyWithoutShowNestedInput = {
     create?: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput> | BookingCreateWithoutShowInput[] | BookingUncheckedCreateWithoutShowInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutShowInput | BookingCreateOrConnectWithoutShowInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutShowInput | BookingUpsertWithWhereUniqueWithoutShowInput[]
     createMany?: BookingCreateManyShowInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
     connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutShowInput | BookingUpdateWithWhereUniqueWithoutShowInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutShowInput | BookingUpdateManyWithWhereWithoutShowInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
+  export type SeatUpdateManyWithoutShowNestedInput = {
+    create?: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput> | SeatCreateWithoutShowInput[] | SeatUncheckedCreateWithoutShowInput[]
+    connectOrCreate?: SeatCreateOrConnectWithoutShowInput | SeatCreateOrConnectWithoutShowInput[]
+    upsert?: SeatUpsertWithWhereUniqueWithoutShowInput | SeatUpsertWithWhereUniqueWithoutShowInput[]
+    createMany?: SeatCreateManyShowInputEnvelope
+    set?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    disconnect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    delete?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
+    update?: SeatUpdateWithWhereUniqueWithoutShowInput | SeatUpdateWithWhereUniqueWithoutShowInput[]
+    updateMany?: SeatUpdateManyWithWhereWithoutShowInput | SeatUpdateManyWithWhereWithoutShowInput[]
+    deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
   }
 
   export type MovieUpdateOneRequiredWithoutShowsNestedInput = {
@@ -14626,21 +14654,7 @@ export namespace Prisma {
     update?: XOR<XOR<TheatreUpdateToOneWithWhereWithoutShowsInput, TheatreUpdateWithoutShowsInput>, TheatreUncheckedUpdateWithoutShowsInput>
   }
 
-  export type SeatUpdateManyWithoutShowNestedInput = {
-    create?: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput> | SeatCreateWithoutShowInput[] | SeatUncheckedCreateWithoutShowInput[]
-    connectOrCreate?: SeatCreateOrConnectWithoutShowInput | SeatCreateOrConnectWithoutShowInput[]
-    upsert?: SeatUpsertWithWhereUniqueWithoutShowInput | SeatUpsertWithWhereUniqueWithoutShowInput[]
-    createMany?: SeatCreateManyShowInputEnvelope
-    set?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
-    disconnect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
-    delete?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
-    connect?: SeatWhereUniqueInput | SeatWhereUniqueInput[]
-    update?: SeatUpdateWithWhereUniqueWithoutShowInput | SeatUpdateWithWhereUniqueWithoutShowInput[]
-    updateMany?: SeatUpdateManyWithWhereWithoutShowInput | SeatUpdateManyWithWhereWithoutShowInput[]
-    deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
-  }
-
-  export type BookingUpdateManyWithoutShowNestedInput = {
+  export type BookingUncheckedUpdateManyWithoutShowNestedInput = {
     create?: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput> | BookingCreateWithoutShowInput[] | BookingUncheckedCreateWithoutShowInput[]
     connectOrCreate?: BookingCreateOrConnectWithoutShowInput | BookingCreateOrConnectWithoutShowInput[]
     upsert?: BookingUpsertWithWhereUniqueWithoutShowInput | BookingUpsertWithWhereUniqueWithoutShowInput[]
@@ -14668,18 +14682,10 @@ export namespace Prisma {
     deleteMany?: SeatScalarWhereInput | SeatScalarWhereInput[]
   }
 
-  export type BookingUncheckedUpdateManyWithoutShowNestedInput = {
-    create?: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput> | BookingCreateWithoutShowInput[] | BookingUncheckedCreateWithoutShowInput[]
-    connectOrCreate?: BookingCreateOrConnectWithoutShowInput | BookingCreateOrConnectWithoutShowInput[]
-    upsert?: BookingUpsertWithWhereUniqueWithoutShowInput | BookingUpsertWithWhereUniqueWithoutShowInput[]
-    createMany?: BookingCreateManyShowInputEnvelope
-    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
-    update?: BookingUpdateWithWhereUniqueWithoutShowInput | BookingUpdateWithWhereUniqueWithoutShowInput[]
-    updateMany?: BookingUpdateManyWithWhereWithoutShowInput | BookingUpdateManyWithWhereWithoutShowInput[]
-    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  export type BookingCreateNestedOneWithoutSeatsInput = {
+    create?: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
+    connectOrCreate?: BookingCreateOrConnectWithoutSeatsInput
+    connect?: BookingWhereUniqueInput
   }
 
   export type ShowCreateNestedOneWithoutSeatsInput = {
@@ -14688,24 +14694,10 @@ export namespace Prisma {
     connect?: ShowWhereUniqueInput
   }
 
-  export type BookingCreateNestedOneWithoutSeatsInput = {
-    create?: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
-    connectOrCreate?: BookingCreateOrConnectWithoutSeatsInput
-    connect?: BookingWhereUniqueInput
-  }
-
   export type TheatreCreateNestedOneWithoutSeatsInput = {
     create?: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
     connectOrCreate?: TheatreCreateOrConnectWithoutSeatsInput
     connect?: TheatreWhereUniqueInput
-  }
-
-  export type ShowUpdateOneRequiredWithoutSeatsNestedInput = {
-    create?: XOR<ShowCreateWithoutSeatsInput, ShowUncheckedCreateWithoutSeatsInput>
-    connectOrCreate?: ShowCreateOrConnectWithoutSeatsInput
-    upsert?: ShowUpsertWithoutSeatsInput
-    connect?: ShowWhereUniqueInput
-    update?: XOR<XOR<ShowUpdateToOneWithWhereWithoutSeatsInput, ShowUpdateWithoutSeatsInput>, ShowUncheckedUpdateWithoutSeatsInput>
   }
 
   export type BookingUpdateOneWithoutSeatsNestedInput = {
@@ -14718,6 +14710,14 @@ export namespace Prisma {
     update?: XOR<XOR<BookingUpdateToOneWithWhereWithoutSeatsInput, BookingUpdateWithoutSeatsInput>, BookingUncheckedUpdateWithoutSeatsInput>
   }
 
+  export type ShowUpdateOneRequiredWithoutSeatsNestedInput = {
+    create?: XOR<ShowCreateWithoutSeatsInput, ShowUncheckedCreateWithoutSeatsInput>
+    connectOrCreate?: ShowCreateOrConnectWithoutSeatsInput
+    upsert?: ShowUpsertWithoutSeatsInput
+    connect?: ShowWhereUniqueInput
+    update?: XOR<XOR<ShowUpdateToOneWithWhereWithoutSeatsInput, ShowUpdateWithoutSeatsInput>, ShowUncheckedUpdateWithoutSeatsInput>
+  }
+
   export type TheatreUpdateOneWithoutSeatsNestedInput = {
     create?: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
     connectOrCreate?: TheatreCreateOrConnectWithoutSeatsInput
@@ -14728,16 +14728,16 @@ export namespace Prisma {
     update?: XOR<XOR<TheatreUpdateToOneWithWhereWithoutSeatsInput, TheatreUpdateWithoutSeatsInput>, TheatreUncheckedUpdateWithoutSeatsInput>
   }
 
-  export type UserCreateNestedOneWithoutBookingsInput = {
-    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type ShowCreateNestedOneWithoutBookingsInput = {
     create?: XOR<ShowCreateWithoutBookingsInput, ShowUncheckedCreateWithoutBookingsInput>
     connectOrCreate?: ShowCreateOrConnectWithoutBookingsInput
     connect?: ShowWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutBookingsInput = {
+    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
+    connect?: UserWhereUniqueInput
   }
 
   export type SeatCreateNestedManyWithoutBookingInput = {
@@ -14766,20 +14766,20 @@ export namespace Prisma {
     set?: $Enums.BookingStatus
   }
 
-  export type UserUpdateOneRequiredWithoutBookingsNestedInput = {
-    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
-    upsert?: UserUpsertWithoutBookingsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBookingsInput, UserUpdateWithoutBookingsInput>, UserUncheckedUpdateWithoutBookingsInput>
-  }
-
   export type ShowUpdateOneRequiredWithoutBookingsNestedInput = {
     create?: XOR<ShowCreateWithoutBookingsInput, ShowUncheckedCreateWithoutBookingsInput>
     connectOrCreate?: ShowCreateOrConnectWithoutBookingsInput
     upsert?: ShowUpsertWithoutBookingsInput
     connect?: ShowWhereUniqueInput
     update?: XOR<XOR<ShowUpdateToOneWithWhereWithoutBookingsInput, ShowUpdateWithoutBookingsInput>, ShowUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutBookingsNestedInput = {
+    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
+    upsert?: UserUpsertWithoutBookingsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBookingsInput, UserUpdateWithoutBookingsInput>, UserUncheckedUpdateWithoutBookingsInput>
   }
 
   export type SeatUpdateManyWithoutBookingNestedInput = {
@@ -14842,11 +14842,6 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -14856,6 +14851,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -14912,14 +14912,6 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -14932,6 +14924,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
@@ -15007,9 +15007,9 @@ export namespace Prisma {
 
   export type BookingCreateWithoutUserInput = {
     totalPrice: number
-    status?: $Enums.BookingStatus
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: $Enums.BookingStatus
     show: ShowCreateNestedOneWithoutBookingsInput
     seats?: SeatCreateNestedManyWithoutBookingInput
   }
@@ -15018,9 +15018,9 @@ export namespace Prisma {
     id?: number
     showId: number
     totalPrice: number
-    status?: $Enums.BookingStatus
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: $Enums.BookingStatus
     seats?: SeatUncheckedCreateNestedManyWithoutBookingInput
   }
 
@@ -15058,9 +15058,9 @@ export namespace Prisma {
     userId?: IntFilter<"Booking"> | number
     showId?: IntFilter<"Booking"> | number
     totalPrice?: FloatFilter<"Booking"> | number
-    status?: EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
     createdAt?: DateTimeFilter<"Booking"> | Date | string
     updatedAt?: DateTimeFilter<"Booking"> | Date | string
+    status?: EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
   }
 
   export type MovieCreateWithoutCategoryInput = {
@@ -15068,11 +15068,11 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
+    price: number
     availableDates?: MovieDateCreateNestedManyWithoutMovieInput
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
     shows?: ShowCreateNestedManyWithoutMovieInput
   }
 
@@ -15082,11 +15082,11 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    price: number
     availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
     shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
   }
 
@@ -15125,10 +15125,10 @@ export namespace Prisma {
     description?: StringFilter<"Movie"> | string
     posterUrl?: StringFilter<"Movie"> | string
     runtime?: IntFilter<"Movie"> | number
-    price?: IntFilter<"Movie"> | number
-    categoryId?: IntNullableFilter<"Movie"> | number | null
     createdAt?: DateTimeFilter<"Movie"> | Date | string
     updatedAt?: DateTimeFilter<"Movie"> | Date | string
+    categoryId?: IntNullableFilter<"Movie"> | number | null
+    price?: IntFilter<"Movie"> | number
   }
 
   export type CategoryCreateWithoutMoviesInput = {
@@ -15143,25 +15143,6 @@ export namespace Prisma {
   export type CategoryCreateOrConnectWithoutMoviesInput = {
     where: CategoryWhereUniqueInput
     create: XOR<CategoryCreateWithoutMoviesInput, CategoryUncheckedCreateWithoutMoviesInput>
-  }
-
-  export type MovieLanguageCreateWithoutMovieInput = {
-    language: string
-  }
-
-  export type MovieLanguageUncheckedCreateWithoutMovieInput = {
-    id?: number
-    language: string
-  }
-
-  export type MovieLanguageCreateOrConnectWithoutMovieInput = {
-    where: MovieLanguageWhereUniqueInput
-    create: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput>
-  }
-
-  export type MovieLanguageCreateManyMovieInputEnvelope = {
-    data: MovieLanguageCreateManyMovieInput | MovieLanguageCreateManyMovieInput[]
-    skipDuplicates?: boolean
   }
 
   export type MovieDateCreateWithoutMovieInput = {
@@ -15183,13 +15164,32 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type MovieLanguageCreateWithoutMovieInput = {
+    language: string
+  }
+
+  export type MovieLanguageUncheckedCreateWithoutMovieInput = {
+    id?: number
+    language: string
+  }
+
+  export type MovieLanguageCreateOrConnectWithoutMovieInput = {
+    where: MovieLanguageWhereUniqueInput
+    create: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput>
+  }
+
+  export type MovieLanguageCreateManyMovieInputEnvelope = {
+    data: MovieLanguageCreateManyMovieInput | MovieLanguageCreateManyMovieInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ShowCreateWithoutMovieInput = {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-    theatre: TheatreCreateNestedOneWithoutShowsInput
-    seats?: SeatCreateNestedManyWithoutShowInput
     bookings?: BookingCreateNestedManyWithoutShowInput
+    seats?: SeatCreateNestedManyWithoutShowInput
+    theatre: TheatreCreateNestedOneWithoutShowsInput
   }
 
   export type ShowUncheckedCreateWithoutMovieInput = {
@@ -15198,8 +15198,8 @@ export namespace Prisma {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-    seats?: SeatUncheckedCreateNestedManyWithoutShowInput
     bookings?: BookingUncheckedCreateNestedManyWithoutShowInput
+    seats?: SeatUncheckedCreateNestedManyWithoutShowInput
   }
 
   export type ShowCreateOrConnectWithoutMovieInput = {
@@ -15232,31 +15232,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type MovieLanguageUpsertWithWhereUniqueWithoutMovieInput = {
-    where: MovieLanguageWhereUniqueInput
-    update: XOR<MovieLanguageUpdateWithoutMovieInput, MovieLanguageUncheckedUpdateWithoutMovieInput>
-    create: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput>
-  }
-
-  export type MovieLanguageUpdateWithWhereUniqueWithoutMovieInput = {
-    where: MovieLanguageWhereUniqueInput
-    data: XOR<MovieLanguageUpdateWithoutMovieInput, MovieLanguageUncheckedUpdateWithoutMovieInput>
-  }
-
-  export type MovieLanguageUpdateManyWithWhereWithoutMovieInput = {
-    where: MovieLanguageScalarWhereInput
-    data: XOR<MovieLanguageUpdateManyMutationInput, MovieLanguageUncheckedUpdateManyWithoutMovieInput>
-  }
-
-  export type MovieLanguageScalarWhereInput = {
-    AND?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
-    OR?: MovieLanguageScalarWhereInput[]
-    NOT?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
-    id?: IntFilter<"MovieLanguage"> | number
-    language?: StringFilter<"MovieLanguage"> | string
-    movieId?: IntFilter<"MovieLanguage"> | number
-  }
-
   export type MovieDateUpsertWithWhereUniqueWithoutMovieInput = {
     where: MovieDateWhereUniqueInput
     update: XOR<MovieDateUpdateWithoutMovieInput, MovieDateUncheckedUpdateWithoutMovieInput>
@@ -15280,6 +15255,31 @@ export namespace Prisma {
     id?: IntFilter<"MovieDate"> | number
     date?: DateTimeFilter<"MovieDate"> | Date | string
     movieId?: IntFilter<"MovieDate"> | number
+  }
+
+  export type MovieLanguageUpsertWithWhereUniqueWithoutMovieInput = {
+    where: MovieLanguageWhereUniqueInput
+    update: XOR<MovieLanguageUpdateWithoutMovieInput, MovieLanguageUncheckedUpdateWithoutMovieInput>
+    create: XOR<MovieLanguageCreateWithoutMovieInput, MovieLanguageUncheckedCreateWithoutMovieInput>
+  }
+
+  export type MovieLanguageUpdateWithWhereUniqueWithoutMovieInput = {
+    where: MovieLanguageWhereUniqueInput
+    data: XOR<MovieLanguageUpdateWithoutMovieInput, MovieLanguageUncheckedUpdateWithoutMovieInput>
+  }
+
+  export type MovieLanguageUpdateManyWithWhereWithoutMovieInput = {
+    where: MovieLanguageScalarWhereInput
+    data: XOR<MovieLanguageUpdateManyMutationInput, MovieLanguageUncheckedUpdateManyWithoutMovieInput>
+  }
+
+  export type MovieLanguageScalarWhereInput = {
+    AND?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
+    OR?: MovieLanguageScalarWhereInput[]
+    NOT?: MovieLanguageScalarWhereInput | MovieLanguageScalarWhereInput[]
+    id?: IntFilter<"MovieLanguage"> | number
+    language?: StringFilter<"MovieLanguage"> | string
+    movieId?: IntFilter<"MovieLanguage"> | number
   }
 
   export type ShowUpsertWithWhereUniqueWithoutMovieInput = {
@@ -15315,9 +15315,9 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    price: number
     category?: CategoryCreateNestedOneWithoutMoviesInput
     availableDates?: MovieDateCreateNestedManyWithoutMovieInput
     shows?: ShowCreateNestedManyWithoutMovieInput
@@ -15329,10 +15329,10 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
-    categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    categoryId?: number | null
+    price: number
     availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
     shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
   }
@@ -15358,9 +15358,9 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
     category?: CategoryUpdateOneWithoutMoviesNestedInput
     availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
     shows?: ShowUpdateManyWithoutMovieNestedInput
@@ -15372,10 +15372,10 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: IntFieldUpdateOperationsInput | number
     availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
     shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
@@ -15385,9 +15385,9 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    price: number
     category?: CategoryCreateNestedOneWithoutMoviesInput
     languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
     shows?: ShowCreateNestedManyWithoutMovieInput
@@ -15399,10 +15399,10 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
-    categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    categoryId?: number | null
+    price: number
     languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
     shows?: ShowUncheckedCreateNestedManyWithoutMovieInput
   }
@@ -15428,9 +15428,9 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
     category?: CategoryUpdateOneWithoutMoviesNestedInput
     languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
     shows?: ShowUpdateManyWithoutMovieNestedInput
@@ -15442,62 +15442,33 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: IntFieldUpdateOperationsInput | number
     languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
     shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
 
-  export type ShowCreateWithoutTheatreInput = {
-    showTime: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    movie: MovieCreateNestedOneWithoutShowsInput
-    seats?: SeatCreateNestedManyWithoutShowInput
-    bookings?: BookingCreateNestedManyWithoutShowInput
-  }
-
-  export type ShowUncheckedCreateWithoutTheatreInput = {
-    id?: number
-    movieId: number
-    showTime: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    seats?: SeatUncheckedCreateNestedManyWithoutShowInput
-    bookings?: BookingUncheckedCreateNestedManyWithoutShowInput
-  }
-
-  export type ShowCreateOrConnectWithoutTheatreInput = {
-    where: ShowWhereUniqueInput
-    create: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput>
-  }
-
-  export type ShowCreateManyTheatreInputEnvelope = {
-    data: ShowCreateManyTheatreInput | ShowCreateManyTheatreInput[]
-    skipDuplicates?: boolean
-  }
-
   export type SeatCreateWithoutTheatreInput = {
     seatNumber: string
-    seatType: string
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    show: ShowCreateNestedOneWithoutSeatsInput
+    seatType: string
     booking?: BookingCreateNestedOneWithoutSeatsInput
+    show: ShowCreateNestedOneWithoutSeatsInput
   }
 
   export type SeatUncheckedCreateWithoutTheatreInput = {
     id?: number
     seatNumber: string
-    seatType: string
     showId: number
     bookingId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    seatType: string
   }
 
   export type SeatCreateOrConnectWithoutTheatreInput = {
@@ -15510,20 +15481,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ShowUpsertWithWhereUniqueWithoutTheatreInput = {
+  export type ShowCreateWithoutTheatreInput = {
+    showTime: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bookings?: BookingCreateNestedManyWithoutShowInput
+    seats?: SeatCreateNestedManyWithoutShowInput
+    movie: MovieCreateNestedOneWithoutShowsInput
+  }
+
+  export type ShowUncheckedCreateWithoutTheatreInput = {
+    id?: number
+    movieId: number
+    showTime: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bookings?: BookingUncheckedCreateNestedManyWithoutShowInput
+    seats?: SeatUncheckedCreateNestedManyWithoutShowInput
+  }
+
+  export type ShowCreateOrConnectWithoutTheatreInput = {
     where: ShowWhereUniqueInput
-    update: XOR<ShowUpdateWithoutTheatreInput, ShowUncheckedUpdateWithoutTheatreInput>
     create: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput>
   }
 
-  export type ShowUpdateWithWhereUniqueWithoutTheatreInput = {
-    where: ShowWhereUniqueInput
-    data: XOR<ShowUpdateWithoutTheatreInput, ShowUncheckedUpdateWithoutTheatreInput>
-  }
-
-  export type ShowUpdateManyWithWhereWithoutTheatreInput = {
-    where: ShowScalarWhereInput
-    data: XOR<ShowUpdateManyMutationInput, ShowUncheckedUpdateManyWithoutTheatreInput>
+  export type ShowCreateManyTheatreInputEnvelope = {
+    data: ShowCreateManyTheatreInput | ShowCreateManyTheatreInput[]
+    skipDuplicates?: boolean
   }
 
   export type SeatUpsertWithWhereUniqueWithoutTheatreInput = {
@@ -15548,13 +15532,89 @@ export namespace Prisma {
     NOT?: SeatScalarWhereInput | SeatScalarWhereInput[]
     id?: IntFilter<"Seat"> | number
     seatNumber?: StringFilter<"Seat"> | string
-    seatType?: StringFilter<"Seat"> | string
     showId?: IntFilter<"Seat"> | number
     bookingId?: IntNullableFilter<"Seat"> | number | null
-    theatreId?: IntNullableFilter<"Seat"> | number | null
     isBooked?: BoolFilter<"Seat"> | boolean
     createdAt?: DateTimeFilter<"Seat"> | Date | string
     updatedAt?: DateTimeFilter<"Seat"> | Date | string
+    seatType?: StringFilter<"Seat"> | string
+    theatreId?: IntNullableFilter<"Seat"> | number | null
+  }
+
+  export type ShowUpsertWithWhereUniqueWithoutTheatreInput = {
+    where: ShowWhereUniqueInput
+    update: XOR<ShowUpdateWithoutTheatreInput, ShowUncheckedUpdateWithoutTheatreInput>
+    create: XOR<ShowCreateWithoutTheatreInput, ShowUncheckedCreateWithoutTheatreInput>
+  }
+
+  export type ShowUpdateWithWhereUniqueWithoutTheatreInput = {
+    where: ShowWhereUniqueInput
+    data: XOR<ShowUpdateWithoutTheatreInput, ShowUncheckedUpdateWithoutTheatreInput>
+  }
+
+  export type ShowUpdateManyWithWhereWithoutTheatreInput = {
+    where: ShowScalarWhereInput
+    data: XOR<ShowUpdateManyMutationInput, ShowUncheckedUpdateManyWithoutTheatreInput>
+  }
+
+  export type BookingCreateWithoutShowInput = {
+    totalPrice: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: $Enums.BookingStatus
+    user: UserCreateNestedOneWithoutBookingsInput
+    seats?: SeatCreateNestedManyWithoutBookingInput
+  }
+
+  export type BookingUncheckedCreateWithoutShowInput = {
+    id?: number
+    userId: number
+    totalPrice: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: $Enums.BookingStatus
+    seats?: SeatUncheckedCreateNestedManyWithoutBookingInput
+  }
+
+  export type BookingCreateOrConnectWithoutShowInput = {
+    where: BookingWhereUniqueInput
+    create: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput>
+  }
+
+  export type BookingCreateManyShowInputEnvelope = {
+    data: BookingCreateManyShowInput | BookingCreateManyShowInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SeatCreateWithoutShowInput = {
+    seatNumber: string
+    isBooked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    seatType: string
+    booking?: BookingCreateNestedOneWithoutSeatsInput
+    theatre?: TheatreCreateNestedOneWithoutSeatsInput
+  }
+
+  export type SeatUncheckedCreateWithoutShowInput = {
+    id?: number
+    seatNumber: string
+    bookingId?: number | null
+    isBooked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    seatType: string
+    theatreId?: number | null
+  }
+
+  export type SeatCreateOrConnectWithoutShowInput = {
+    where: SeatWhereUniqueInput
+    create: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput>
+  }
+
+  export type SeatCreateManyShowInputEnvelope = {
+    data: SeatCreateManyShowInput | SeatCreateManyShowInput[]
+    skipDuplicates?: boolean
   }
 
   export type MovieCreateWithoutShowsInput = {
@@ -15562,12 +15622,12 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    price: number
     category?: CategoryCreateNestedOneWithoutMoviesInput
-    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
     availableDates?: MovieDateCreateNestedManyWithoutMovieInput
+    languageTags?: MovieLanguageCreateNestedManyWithoutMovieInput
   }
 
   export type MovieUncheckedCreateWithoutShowsInput = {
@@ -15576,12 +15636,12 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
-    categoryId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
+    categoryId?: number | null
+    price: number
     availableDates?: MovieDateUncheckedCreateNestedManyWithoutMovieInput
+    languageTags?: MovieLanguageUncheckedCreateNestedManyWithoutMovieInput
   }
 
   export type MovieCreateOrConnectWithoutShowsInput = {
@@ -15613,64 +15673,36 @@ export namespace Prisma {
     create: XOR<TheatreCreateWithoutShowsInput, TheatreUncheckedCreateWithoutShowsInput>
   }
 
-  export type SeatCreateWithoutShowInput = {
-    seatNumber: string
-    seatType: string
-    isBooked?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    booking?: BookingCreateNestedOneWithoutSeatsInput
-    theatre?: TheatreCreateNestedOneWithoutSeatsInput
-  }
-
-  export type SeatUncheckedCreateWithoutShowInput = {
-    id?: number
-    seatNumber: string
-    seatType: string
-    bookingId?: number | null
-    theatreId?: number | null
-    isBooked?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type SeatCreateOrConnectWithoutShowInput = {
-    where: SeatWhereUniqueInput
-    create: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput>
-  }
-
-  export type SeatCreateManyShowInputEnvelope = {
-    data: SeatCreateManyShowInput | SeatCreateManyShowInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type BookingCreateWithoutShowInput = {
-    totalPrice: number
-    status?: $Enums.BookingStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
-    seats?: SeatCreateNestedManyWithoutBookingInput
-  }
-
-  export type BookingUncheckedCreateWithoutShowInput = {
-    id?: number
-    userId: number
-    totalPrice: number
-    status?: $Enums.BookingStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    seats?: SeatUncheckedCreateNestedManyWithoutBookingInput
-  }
-
-  export type BookingCreateOrConnectWithoutShowInput = {
+  export type BookingUpsertWithWhereUniqueWithoutShowInput = {
     where: BookingWhereUniqueInput
+    update: XOR<BookingUpdateWithoutShowInput, BookingUncheckedUpdateWithoutShowInput>
     create: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput>
   }
 
-  export type BookingCreateManyShowInputEnvelope = {
-    data: BookingCreateManyShowInput | BookingCreateManyShowInput[]
-    skipDuplicates?: boolean
+  export type BookingUpdateWithWhereUniqueWithoutShowInput = {
+    where: BookingWhereUniqueInput
+    data: XOR<BookingUpdateWithoutShowInput, BookingUncheckedUpdateWithoutShowInput>
+  }
+
+  export type BookingUpdateManyWithWhereWithoutShowInput = {
+    where: BookingScalarWhereInput
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutShowInput>
+  }
+
+  export type SeatUpsertWithWhereUniqueWithoutShowInput = {
+    where: SeatWhereUniqueInput
+    update: XOR<SeatUpdateWithoutShowInput, SeatUncheckedUpdateWithoutShowInput>
+    create: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput>
+  }
+
+  export type SeatUpdateWithWhereUniqueWithoutShowInput = {
+    where: SeatWhereUniqueInput
+    data: XOR<SeatUpdateWithoutShowInput, SeatUncheckedUpdateWithoutShowInput>
+  }
+
+  export type SeatUpdateManyWithWhereWithoutShowInput = {
+    where: SeatScalarWhereInput
+    data: XOR<SeatUpdateManyMutationInput, SeatUncheckedUpdateManyWithoutShowInput>
   }
 
   export type MovieUpsertWithoutShowsInput = {
@@ -15689,12 +15721,12 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
     category?: CategoryUpdateOneWithoutMoviesNestedInput
-    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
     availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
   }
 
   export type MovieUncheckedUpdateWithoutShowsInput = {
@@ -15703,12 +15735,12 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    price?: IntFieldUpdateOperationsInput | number
     availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
   }
 
   export type TheatreUpsertWithoutShowsInput = {
@@ -15741,45 +15773,37 @@ export namespace Prisma {
     seats?: SeatUncheckedUpdateManyWithoutTheatreNestedInput
   }
 
-  export type SeatUpsertWithWhereUniqueWithoutShowInput = {
-    where: SeatWhereUniqueInput
-    update: XOR<SeatUpdateWithoutShowInput, SeatUncheckedUpdateWithoutShowInput>
-    create: XOR<SeatCreateWithoutShowInput, SeatUncheckedCreateWithoutShowInput>
+  export type BookingCreateWithoutSeatsInput = {
+    totalPrice: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: $Enums.BookingStatus
+    show: ShowCreateNestedOneWithoutBookingsInput
+    user: UserCreateNestedOneWithoutBookingsInput
   }
 
-  export type SeatUpdateWithWhereUniqueWithoutShowInput = {
-    where: SeatWhereUniqueInput
-    data: XOR<SeatUpdateWithoutShowInput, SeatUncheckedUpdateWithoutShowInput>
+  export type BookingUncheckedCreateWithoutSeatsInput = {
+    id?: number
+    userId: number
+    showId: number
+    totalPrice: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: $Enums.BookingStatus
   }
 
-  export type SeatUpdateManyWithWhereWithoutShowInput = {
-    where: SeatScalarWhereInput
-    data: XOR<SeatUpdateManyMutationInput, SeatUncheckedUpdateManyWithoutShowInput>
-  }
-
-  export type BookingUpsertWithWhereUniqueWithoutShowInput = {
+  export type BookingCreateOrConnectWithoutSeatsInput = {
     where: BookingWhereUniqueInput
-    update: XOR<BookingUpdateWithoutShowInput, BookingUncheckedUpdateWithoutShowInput>
-    create: XOR<BookingCreateWithoutShowInput, BookingUncheckedCreateWithoutShowInput>
-  }
-
-  export type BookingUpdateWithWhereUniqueWithoutShowInput = {
-    where: BookingWhereUniqueInput
-    data: XOR<BookingUpdateWithoutShowInput, BookingUncheckedUpdateWithoutShowInput>
-  }
-
-  export type BookingUpdateManyWithWhereWithoutShowInput = {
-    where: BookingScalarWhereInput
-    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutShowInput>
+    create: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
   }
 
   export type ShowCreateWithoutSeatsInput = {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    bookings?: BookingCreateNestedManyWithoutShowInput
     movie: MovieCreateNestedOneWithoutShowsInput
     theatre: TheatreCreateNestedOneWithoutShowsInput
-    bookings?: BookingCreateNestedManyWithoutShowInput
   }
 
   export type ShowUncheckedCreateWithoutSeatsInput = {
@@ -15795,30 +15819,6 @@ export namespace Prisma {
   export type ShowCreateOrConnectWithoutSeatsInput = {
     where: ShowWhereUniqueInput
     create: XOR<ShowCreateWithoutSeatsInput, ShowUncheckedCreateWithoutSeatsInput>
-  }
-
-  export type BookingCreateWithoutSeatsInput = {
-    totalPrice: number
-    status?: $Enums.BookingStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutBookingsInput
-    show: ShowCreateNestedOneWithoutBookingsInput
-  }
-
-  export type BookingUncheckedCreateWithoutSeatsInput = {
-    id?: number
-    userId: number
-    showId: number
-    totalPrice: number
-    status?: $Enums.BookingStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type BookingCreateOrConnectWithoutSeatsInput = {
-    where: BookingWhereUniqueInput
-    create: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
   }
 
   export type TheatreCreateWithoutSeatsInput = {
@@ -15845,6 +15845,36 @@ export namespace Prisma {
     create: XOR<TheatreCreateWithoutSeatsInput, TheatreUncheckedCreateWithoutSeatsInput>
   }
 
+  export type BookingUpsertWithoutSeatsInput = {
+    update: XOR<BookingUpdateWithoutSeatsInput, BookingUncheckedUpdateWithoutSeatsInput>
+    create: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
+    where?: BookingWhereInput
+  }
+
+  export type BookingUpdateToOneWithWhereWithoutSeatsInput = {
+    where?: BookingWhereInput
+    data: XOR<BookingUpdateWithoutSeatsInput, BookingUncheckedUpdateWithoutSeatsInput>
+  }
+
+  export type BookingUpdateWithoutSeatsInput = {
+    totalPrice?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
+    show?: ShowUpdateOneRequiredWithoutBookingsNestedInput
+    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
+  }
+
+  export type BookingUncheckedUpdateWithoutSeatsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    showId?: IntFieldUpdateOperationsInput | number
+    totalPrice?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
+  }
+
   export type ShowUpsertWithoutSeatsInput = {
     update: XOR<ShowUpdateWithoutSeatsInput, ShowUncheckedUpdateWithoutSeatsInput>
     create: XOR<ShowCreateWithoutSeatsInput, ShowUncheckedCreateWithoutSeatsInput>
@@ -15860,9 +15890,9 @@ export namespace Prisma {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bookings?: BookingUpdateManyWithoutShowNestedInput
     movie?: MovieUpdateOneRequiredWithoutShowsNestedInput
     theatre?: TheatreUpdateOneRequiredWithoutShowsNestedInput
-    bookings?: BookingUpdateManyWithoutShowNestedInput
   }
 
   export type ShowUncheckedUpdateWithoutSeatsInput = {
@@ -15873,36 +15903,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bookings?: BookingUncheckedUpdateManyWithoutShowNestedInput
-  }
-
-  export type BookingUpsertWithoutSeatsInput = {
-    update: XOR<BookingUpdateWithoutSeatsInput, BookingUncheckedUpdateWithoutSeatsInput>
-    create: XOR<BookingCreateWithoutSeatsInput, BookingUncheckedCreateWithoutSeatsInput>
-    where?: BookingWhereInput
-  }
-
-  export type BookingUpdateToOneWithWhereWithoutSeatsInput = {
-    where?: BookingWhereInput
-    data: XOR<BookingUpdateWithoutSeatsInput, BookingUncheckedUpdateWithoutSeatsInput>
-  }
-
-  export type BookingUpdateWithoutSeatsInput = {
-    totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBookingsNestedInput
-    show?: ShowUpdateOneRequiredWithoutBookingsNestedInput
-  }
-
-  export type BookingUncheckedUpdateWithoutSeatsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    showId?: IntFieldUpdateOperationsInput | number
-    totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TheatreUpsertWithoutSeatsInput = {
@@ -15935,39 +15935,13 @@ export namespace Prisma {
     shows?: ShowUncheckedUpdateManyWithoutTheatreNestedInput
   }
 
-  export type UserCreateWithoutBookingsInput = {
-    name: string
-    email: string
-    password: string
-    role?: $Enums.Role
-    confirmed?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type UserUncheckedCreateWithoutBookingsInput = {
-    id?: number
-    name: string
-    email: string
-    password: string
-    role?: $Enums.Role
-    confirmed?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type UserCreateOrConnectWithoutBookingsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
-  }
-
   export type ShowCreateWithoutBookingsInput = {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+    seats?: SeatCreateNestedManyWithoutShowInput
     movie: MovieCreateNestedOneWithoutShowsInput
     theatre: TheatreCreateNestedOneWithoutShowsInput
-    seats?: SeatCreateNestedManyWithoutShowInput
   }
 
   export type ShowUncheckedCreateWithoutBookingsInput = {
@@ -15985,12 +15959,38 @@ export namespace Prisma {
     create: XOR<ShowCreateWithoutBookingsInput, ShowUncheckedCreateWithoutBookingsInput>
   }
 
+  export type UserCreateWithoutBookingsInput = {
+    name: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    confirmed?: boolean
+  }
+
+  export type UserUncheckedCreateWithoutBookingsInput = {
+    id?: number
+    name: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    confirmed?: boolean
+  }
+
+  export type UserCreateOrConnectWithoutBookingsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+  }
+
   export type SeatCreateWithoutBookingInput = {
     seatNumber: string
-    seatType: string
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    seatType: string
     show: ShowCreateNestedOneWithoutSeatsInput
     theatre?: TheatreCreateNestedOneWithoutSeatsInput
   }
@@ -15998,12 +15998,12 @@ export namespace Prisma {
   export type SeatUncheckedCreateWithoutBookingInput = {
     id?: number
     seatNumber: string
-    seatType: string
     showId: number
-    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    seatType: string
+    theatreId?: number | null
   }
 
   export type SeatCreateOrConnectWithoutBookingInput = {
@@ -16014,6 +16014,36 @@ export namespace Prisma {
   export type SeatCreateManyBookingInputEnvelope = {
     data: SeatCreateManyBookingInput | SeatCreateManyBookingInput[]
     skipDuplicates?: boolean
+  }
+
+  export type ShowUpsertWithoutBookingsInput = {
+    update: XOR<ShowUpdateWithoutBookingsInput, ShowUncheckedUpdateWithoutBookingsInput>
+    create: XOR<ShowCreateWithoutBookingsInput, ShowUncheckedCreateWithoutBookingsInput>
+    where?: ShowWhereInput
+  }
+
+  export type ShowUpdateToOneWithWhereWithoutBookingsInput = {
+    where?: ShowWhereInput
+    data: XOR<ShowUpdateWithoutBookingsInput, ShowUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type ShowUpdateWithoutBookingsInput = {
+    showTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seats?: SeatUpdateManyWithoutShowNestedInput
+    movie?: MovieUpdateOneRequiredWithoutShowsNestedInput
+    theatre?: TheatreUpdateOneRequiredWithoutShowsNestedInput
+  }
+
+  export type ShowUncheckedUpdateWithoutBookingsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    movieId?: IntFieldUpdateOperationsInput | number
+    theatreId?: IntFieldUpdateOperationsInput | number
+    showTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
   }
 
   export type UserUpsertWithoutBookingsInput = {
@@ -16032,9 +16062,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    confirmed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateWithoutBookingsInput = {
@@ -16043,39 +16073,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     confirmed?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ShowUpsertWithoutBookingsInput = {
-    update: XOR<ShowUpdateWithoutBookingsInput, ShowUncheckedUpdateWithoutBookingsInput>
-    create: XOR<ShowCreateWithoutBookingsInput, ShowUncheckedCreateWithoutBookingsInput>
-    where?: ShowWhereInput
-  }
-
-  export type ShowUpdateToOneWithWhereWithoutBookingsInput = {
-    where?: ShowWhereInput
-    data: XOR<ShowUpdateWithoutBookingsInput, ShowUncheckedUpdateWithoutBookingsInput>
-  }
-
-  export type ShowUpdateWithoutBookingsInput = {
-    showTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    movie?: MovieUpdateOneRequiredWithoutShowsNestedInput
-    theatre?: TheatreUpdateOneRequiredWithoutShowsNestedInput
-    seats?: SeatUpdateManyWithoutShowNestedInput
-  }
-
-  export type ShowUncheckedUpdateWithoutBookingsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    movieId?: IntFieldUpdateOperationsInput | number
-    theatreId?: IntFieldUpdateOperationsInput | number
-    showTime?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
   }
 
   export type SeatUpsertWithWhereUniqueWithoutBookingInput = {
@@ -16098,16 +16098,16 @@ export namespace Prisma {
     id?: number
     showId: number
     totalPrice: number
-    status?: $Enums.BookingStatus
     createdAt?: Date | string
     updatedAt?: Date | string
+    status?: $Enums.BookingStatus
   }
 
   export type BookingUpdateWithoutUserInput = {
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     show?: ShowUpdateOneRequiredWithoutBookingsNestedInput
     seats?: SeatUpdateManyWithoutBookingNestedInput
   }
@@ -16116,9 +16116,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     showId?: IntFieldUpdateOperationsInput | number
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     seats?: SeatUncheckedUpdateManyWithoutBookingNestedInput
   }
 
@@ -16126,9 +16126,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     showId?: IntFieldUpdateOperationsInput | number
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
   }
 
   export type MovieCreateManyCategoryInput = {
@@ -16137,9 +16137,9 @@ export namespace Prisma {
     description: string
     posterUrl: string
     runtime: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    price: number
   }
 
   export type MovieUpdateWithoutCategoryInput = {
@@ -16147,11 +16147,11 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
+    price?: IntFieldUpdateOperationsInput | number
     availableDates?: MovieDateUpdateManyWithoutMovieNestedInput
+    languageTags?: MovieLanguageUpdateManyWithoutMovieNestedInput
     shows?: ShowUpdateManyWithoutMovieNestedInput
   }
 
@@ -16161,11 +16161,11 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
+    price?: IntFieldUpdateOperationsInput | number
     availableDates?: MovieDateUncheckedUpdateManyWithoutMovieNestedInput
+    languageTags?: MovieLanguageUncheckedUpdateManyWithoutMovieNestedInput
     shows?: ShowUncheckedUpdateManyWithoutMovieNestedInput
   }
 
@@ -16175,19 +16175,19 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     posterUrl?: StringFieldUpdateOperationsInput | string
     runtime?: IntFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MovieLanguageCreateManyMovieInput = {
-    id?: number
-    language: string
+    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type MovieDateCreateManyMovieInput = {
     id?: number
     date: Date | string
+  }
+
+  export type MovieLanguageCreateManyMovieInput = {
+    id?: number
+    language: string
   }
 
   export type ShowCreateManyMovieInput = {
@@ -16196,20 +16196,6 @@ export namespace Prisma {
     showTime: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type MovieLanguageUpdateWithoutMovieInput = {
-    language?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MovieLanguageUncheckedUpdateWithoutMovieInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    language?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MovieLanguageUncheckedUpdateManyWithoutMovieInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    language?: StringFieldUpdateOperationsInput | string
   }
 
   export type MovieDateUpdateWithoutMovieInput = {
@@ -16226,13 +16212,27 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type MovieLanguageUpdateWithoutMovieInput = {
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MovieLanguageUncheckedUpdateWithoutMovieInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MovieLanguageUncheckedUpdateManyWithoutMovieInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+  }
+
   export type ShowUpdateWithoutMovieInput = {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    theatre?: TheatreUpdateOneRequiredWithoutShowsNestedInput
-    seats?: SeatUpdateManyWithoutShowNestedInput
     bookings?: BookingUpdateManyWithoutShowNestedInput
+    seats?: SeatUpdateManyWithoutShowNestedInput
+    theatre?: TheatreUpdateOneRequiredWithoutShowsNestedInput
   }
 
   export type ShowUncheckedUpdateWithoutMovieInput = {
@@ -16241,8 +16241,8 @@ export namespace Prisma {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
     bookings?: BookingUncheckedUpdateManyWithoutShowNestedInput
+    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
   }
 
   export type ShowUncheckedUpdateManyWithoutMovieInput = {
@@ -16253,6 +16253,17 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SeatCreateManyTheatreInput = {
+    id?: number
+    seatNumber: string
+    showId: number
+    bookingId?: number | null
+    isBooked?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    seatType: string
+  }
+
   export type ShowCreateManyTheatreInput = {
     id?: number
     movieId: number
@@ -16261,24 +16272,45 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type SeatCreateManyTheatreInput = {
-    id?: number
-    seatNumber: string
-    seatType: string
-    showId: number
-    bookingId?: number | null
-    isBooked?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type SeatUpdateWithoutTheatreInput = {
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    booking?: BookingUpdateOneWithoutSeatsNestedInput
+    show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
+  }
+
+  export type SeatUncheckedUpdateWithoutTheatreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    showId?: IntFieldUpdateOperationsInput | number
+    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SeatUncheckedUpdateManyWithoutTheatreInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    showId?: IntFieldUpdateOperationsInput | number
+    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
   }
 
   export type ShowUpdateWithoutTheatreInput = {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    movie?: MovieUpdateOneRequiredWithoutShowsNestedInput
-    seats?: SeatUpdateManyWithoutShowNestedInput
     bookings?: BookingUpdateManyWithoutShowNestedInput
+    seats?: SeatUpdateManyWithoutShowNestedInput
+    movie?: MovieUpdateOneRequiredWithoutShowsNestedInput
   }
 
   export type ShowUncheckedUpdateWithoutTheatreInput = {
@@ -16287,8 +16319,8 @@ export namespace Prisma {
     showTime?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
     bookings?: BookingUncheckedUpdateManyWithoutShowNestedInput
+    seats?: SeatUncheckedUpdateManyWithoutShowNestedInput
   }
 
   export type ShowUncheckedUpdateManyWithoutTheatreInput = {
@@ -16299,95 +16331,31 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type SeatUpdateWithoutTheatreInput = {
-    seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
-    isBooked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
-    booking?: BookingUpdateOneWithoutSeatsNestedInput
-  }
-
-  export type SeatUncheckedUpdateWithoutTheatreInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
-    showId?: IntFieldUpdateOperationsInput | number
-    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
-    isBooked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SeatUncheckedUpdateManyWithoutTheatreInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
-    showId?: IntFieldUpdateOperationsInput | number
-    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
-    isBooked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type BookingCreateManyShowInput = {
+    id?: number
+    userId: number
+    totalPrice: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    status?: $Enums.BookingStatus
   }
 
   export type SeatCreateManyShowInput = {
     id?: number
     seatNumber: string
-    seatType: string
     bookingId?: number | null
-    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type BookingCreateManyShowInput = {
-    id?: number
-    userId: number
-    totalPrice: number
-    status?: $Enums.BookingStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type SeatUpdateWithoutShowInput = {
-    seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
-    isBooked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    booking?: BookingUpdateOneWithoutSeatsNestedInput
-    theatre?: TheatreUpdateOneWithoutSeatsNestedInput
-  }
-
-  export type SeatUncheckedUpdateWithoutShowInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
-    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
-    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
-    isBooked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SeatUncheckedUpdateManyWithoutShowInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
-    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
-    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
-    isBooked?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType: string
+    theatreId?: number | null
   }
 
   export type BookingUpdateWithoutShowInput = {
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     user?: UserUpdateOneRequiredWithoutBookingsNestedInput
     seats?: SeatUpdateManyWithoutBookingNestedInput
   }
@@ -16396,9 +16364,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     seats?: SeatUncheckedUpdateManyWithoutBookingNestedInput
   }
 
@@ -16406,28 +16374,60 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     totalPrice?: FloatFieldUpdateOperationsInput | number
-    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
+  }
+
+  export type SeatUpdateWithoutShowInput = {
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    booking?: BookingUpdateOneWithoutSeatsNestedInput
+    theatre?: TheatreUpdateOneWithoutSeatsNestedInput
+  }
+
+  export type SeatUncheckedUpdateWithoutShowInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SeatUncheckedUpdateManyWithoutShowInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    seatNumber?: StringFieldUpdateOperationsInput | string
+    bookingId?: NullableIntFieldUpdateOperationsInput | number | null
+    isBooked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type SeatCreateManyBookingInput = {
     id?: number
     seatNumber: string
-    seatType: string
     showId: number
-    theatreId?: number | null
     isBooked?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    seatType: string
+    theatreId?: number | null
   }
 
   export type SeatUpdateWithoutBookingInput = {
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
     show?: ShowUpdateOneRequiredWithoutSeatsNestedInput
     theatre?: TheatreUpdateOneWithoutSeatsNestedInput
   }
@@ -16435,23 +16435,23 @@ export namespace Prisma {
   export type SeatUncheckedUpdateWithoutBookingInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
-    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type SeatUncheckedUpdateManyWithoutBookingInput = {
     id?: IntFieldUpdateOperationsInput | number
     seatNumber?: StringFieldUpdateOperationsInput | string
-    seatType?: StringFieldUpdateOperationsInput | string
     showId?: IntFieldUpdateOperationsInput | number
-    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
     isBooked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    seatType?: StringFieldUpdateOperationsInput | string
+    theatreId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

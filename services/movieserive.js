@@ -158,18 +158,44 @@ async function updateMovie(id, data) {
     console.error('Error updating movie:', error);
     throw error;
   }
-}
-async function deleteMovie(id) {
+}async function deleteMovie(id) {
   try {
     const movieId = Number(id);
 
+    // 1. Find all shows related to this movie
+    const shows = await prisma.show.findMany({
+      where: { movieId },
+      select: { id: true },
+    });
+
+    const showIds = shows.map(show => show.id);
+
+    if (showIds.length > 0) {
+      // 2. Delete all seats linked to those shows
+      await prisma.seat.deleteMany({
+        where: { showId: { in: showIds } },
+      });
+
+      // 3. Delete all bookings linked to those shows (optional)
+      await prisma.booking.deleteMany({
+        where: { showId: { in: showIds } },
+      });
+
+      // 4. Delete shows
+      await prisma.show.deleteMany({
+        where: { id: { in: showIds } },
+      });
+    }
+
+    // 5. Delete movie-related data (safe even if nothing exists)
     await prisma.movieLanguage.deleteMany({ where: { movieId } });
     await prisma.movieDate.deleteMany({ where: { movieId } });
-    await prisma.show.deleteMany({ where: { movieId } });
 
+    // 6. Finally delete the movie
     return await prisma.movie.delete({
       where: { id: movieId },
     });
+
   } catch (error) {
     console.error('Error deleting movie:', error.message || error);
     throw error;

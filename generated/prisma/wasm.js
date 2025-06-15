@@ -126,9 +126,9 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   role: 'role',
-  confirmed: 'confirmed',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  confirmed: 'confirmed'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
@@ -142,10 +142,10 @@ exports.Prisma.MovieScalarFieldEnum = {
   description: 'description',
   posterUrl: 'posterUrl',
   runtime: 'runtime',
-  price: 'price',
-  categoryId: 'categoryId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  categoryId: 'categoryId',
+  price: 'price'
 };
 
 exports.Prisma.MovieLanguageScalarFieldEnum = {
@@ -181,13 +181,13 @@ exports.Prisma.ShowScalarFieldEnum = {
 exports.Prisma.SeatScalarFieldEnum = {
   id: 'id',
   seatNumber: 'seatNumber',
-  seatType: 'seatType',
   showId: 'showId',
   bookingId: 'bookingId',
-  theatreId: 'theatreId',
   isBooked: 'isBooked',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  seatType: 'seatType',
+  theatreId: 'theatreId'
 };
 
 exports.Prisma.BookingScalarFieldEnum = {
@@ -195,9 +195,9 @@ exports.Prisma.BookingScalarFieldEnum = {
   userId: 'userId',
   showId: 'showId',
   totalPrice: 'totalPrice',
-  status: 'status',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  status: 'status'
 };
 
 exports.Prisma.SortOrder = {
